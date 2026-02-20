@@ -1,4 +1,5 @@
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 public class Entity : MonoBehaviour
 {
@@ -42,7 +43,7 @@ public class Entity : MonoBehaviour
 
         if (!isGrounded)
         {
-            currentGravity = Mathf.Min(currentGravity + gravity * Time.deltaTime, maxGravity * Time.deltaTime);
+            currentGravity = Mathf.Min(currentGravity + gravity, maxGravity);
             Vector2 grav = currentGravity * Vector2.down;
             vel += grav;
         } else
@@ -50,16 +51,38 @@ public class Entity : MonoBehaviour
             currentGravity = 0;
         }
 
-        Vector2 Collision = level.CheckCollision(Bounds, vel);
+        CollisionData cd = level.CheckCollision(Bounds, vel);
+        Vector2 boundOffset = (Vector2)Bounds.extents - boundingBox.offset;
 
-        if (Collision.x > 0)
+        if (cd.collisions.x > 0)
         {
+            if (vel.x > 0)
+            {
+                // Going too far right
+                pos.x = cd.right - boundOffset.x;
+                //Debug.Log($"Pos Right:  {transform.position.x} => {pos.x} | Edge: {cd.right}");
+            }
+            else
+            {
+                // Going too far left
+                pos.x = cd.left + boundOffset.x;
+                //Debug.Log($"Pos Left:   {transform.position.x} => {pos.x} | Edge: {cd.left}");
+            }
             vel.x = 0;
         }
-        if (Collision.y > 0)
+        if (cd.collisions.y > 0)
         {
-            if (vel.y < 0)
+            if (vel.y > 0)
             {
+                // Going too far up
+                pos.y = cd.top - boundOffset.y;
+                //Debug.Log($"Pos Top:    {transform.position.y} => {pos.y} (Edge: {cd.top} Offset: {boundOffset.y})");
+            }
+            else
+            {
+                // Going too far down
+                pos.y = cd.bottom + boundOffset.y;
+                //Debug.Log($"Pos Bottom: {transform.position.y} => {pos.y} (Edge: {cd.bottom} Offset: {boundOffset.y})");
                 isGrounded = true;
             }
             vel.y = 0;
@@ -69,7 +92,7 @@ public class Entity : MonoBehaviour
             isGrounded = false; // Lot of issues but fix later
         }
 
-        pos += vel;
+        pos += vel * Time.deltaTime;
 
         transform.position = pos;
     }
