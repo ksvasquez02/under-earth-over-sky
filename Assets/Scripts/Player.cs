@@ -34,8 +34,11 @@ public class Player : MonoBehaviour
         float jump = ia_jump.IsPressed() ? 1f : 0f;
 
         Vector2 dir = new Vector2(move.x, 0f);
-        entity.Vel = speed * Vector2.ClampMagnitude(dir, 1f);
+        entity.Vel = new Vector2(speed * move.x, entity.Vel.y);
 
-        entity.Vel += new Vector2(0f, jump * jumpPower);
+        if (entity.IsGrounded)
+        {
+            entity.Vel += new Vector2(0f, jump * jumpPower);
+        }
     }
 }

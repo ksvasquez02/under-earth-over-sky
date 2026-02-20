@@ -4,6 +4,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class Entity : MonoBehaviour
 {
     private Vector2 pos;
+    [SerializeField]
     private Vector2 vel = Vector2.zero;
 
     [SerializeField]
@@ -11,7 +12,7 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private float gravity = 0f;
     [SerializeField]
-    private const float maxGravity = 10f;
+    private float maxGravity = 10f;
 
     private bool isGrounded = false;
     private bool facing = true;
@@ -41,15 +42,10 @@ public class Entity : MonoBehaviour
     {
         pos = transform.position;
 
-        if (!isGrounded)
-        {
-            currentGravity = Mathf.Min(currentGravity + gravity, maxGravity);
-            Vector2 grav = currentGravity * Vector2.down;
-            vel += grav;
-        } else
-        {
-            currentGravity = 0;
-        }
+        Vector2 grav = Vector2.down * gravity * Time.deltaTime;
+        vel += grav;
+        vel.y = Mathf.Max(vel.y, maxGravity * -1);
+        currentGravity = vel.y;
 
         CollisionData cd = level.CheckCollision(Bounds, vel);
         Vector2 boundOffset = (Vector2)Bounds.extents - boundingBox.offset;
@@ -87,9 +83,9 @@ public class Entity : MonoBehaviour
             }
             vel.y = 0;
         }
-        else if (vel.y != 0)
+        else
         {
-            isGrounded = false; // Lot of issues but fix later
+            isGrounded = false;
         }
 
         pos += vel * Time.deltaTime;
