@@ -36,6 +36,7 @@ public class Entity : MonoBehaviour
 
     public Vector2 Pos { get { return pos; } set { pos = value; } }
     public Vector2 Vel { get { return vel; } set { vel = value; } }
+    public Vector2 NetVel { get { return new Vector2(body.linearVelocityX, body.linearVelocityY); } }
     public Bounds Bounds { get { return bounds.bounds; } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
     public bool IsGrounded { get { return isGrounded; } }
@@ -70,7 +71,8 @@ public class Entity : MonoBehaviour
     void FixedUpdate()
     {
         pos = transform.position;
-        vel = body.linearVelocity;
+        vel = vel / 2 + body.linearVelocity / 2;
+        
 
         CheckCollision();
         HandleMovement?.Invoke();
@@ -112,7 +114,7 @@ public class Entity : MonoBehaviour
         }
         else
         {
-            Vector2 airGrav = gravity * Time.deltaTime * Vector2.down;
+            Vector2 airGrav = gravity * Time.fixedDeltaTime * Vector2.down;
             vel += airGrav;
             vel.y = Mathf.Max(vel.y, maxGravity * -1);
         }
