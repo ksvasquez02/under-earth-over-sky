@@ -1878,11 +1878,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1626381006500526639, guid: 6f08754ded037694a93f6034bf84cda4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1626381006500526639, guid: 6f08754ded037694a93f6034bf84cda4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.375
+      value: -1.25
       objectReference: {fileID: 0}
     - target: {fileID: 1626381006500526639, guid: 6f08754ded037694a93f6034bf84cda4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2081,7 +2081,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395689085251083178, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: accel
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 1395689085251083178, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: deaccel
@@ -2089,15 +2089,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1395689085251083178, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: jumpPower
-      value: 17.5
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 6688208501444342131, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 27.625
+      value: -2.875
       objectReference: {fileID: 0}
     - target: {fileID: 6688208501444342131, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.125
+      value: -4.125
       objectReference: {fileID: 0}
     - target: {fileID: 6688208501444342131, guid: 2175eb9d7ae7fde4c8163b2ab025625c, type: 3}
       propertyPath: m_LocalPosition.z

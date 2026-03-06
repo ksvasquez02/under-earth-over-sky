@@ -71,7 +71,7 @@ public class Entity : MonoBehaviour
     void FixedUpdate()
     {
         pos = transform.position;
-        vel = vel / 2 + body.linearVelocity / 2;
+        //vel = vel / 2 + body.linearVelocity / 2;
         
 
         CheckCollision();

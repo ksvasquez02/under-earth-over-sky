@@ -38,8 +38,9 @@ public class PlayerCamera : MonoBehaviour
         speed = Mathf.Min(speed, 20f);
         if (delta.magnitude < 0.1f) speed = 0;
 
-        pos = Vector3.MoveTowards(pos, basePos, panSpeed * Time.deltaTime);
-        transform.position = Vector3.MoveTowards(pos, target, speed * Time.deltaTime);
+        //pos = Vector3.MoveTowards(pos, basePos, panSpeed * Time.deltaTime);
+        //transform.position = Vector3.MoveTowards(pos, target, speed * Time.deltaTime);
+        transform.position = basePos;
     }
 
     private void OnDrawGizmos()

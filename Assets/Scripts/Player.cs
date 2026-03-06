@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Timeline;
 
 public class Player : MonoBehaviour
 {
@@ -53,9 +54,10 @@ public class Player : MonoBehaviour
         float momentum = System.Math.Sign(vel.x); // Mathf.Sign is stupid.
         if (_moveInput.magnitude > 0.1)
         {
-            curSpeed += accel * Time.fixedDeltaTime;
-            curSpeed = Mathf.Min(curSpeed, speed);
-            vel.x = _moveInput.x * curSpeed;
+            float targetVelX = speed * _moveInput.x;
+            curSpeed += accel * Time.fixedDeltaTime * _moveInput.x;
+            curSpeed = Mathf.Clamp(curSpeed, -speed, speed);
+            vel.x = curSpeed;
         }
         else
         {
