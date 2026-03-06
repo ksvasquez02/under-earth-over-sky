@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using static UnityEngine.EventSystems.EventTrigger;
 
@@ -8,12 +9,11 @@ public class Entity : MonoBehaviour
     private Vector2 vel = Vector2.zero;
 
     [SerializeField]
-    private float currentGravity = 0f;
-    [SerializeField]
     private float gravity = 0f;
     [SerializeField]
     private float maxGravity = 10f;
 
+    [SerializeField]
     private bool isGrounded = false;
     private bool facing = true;
 
@@ -28,68 +28,87 @@ public class Entity : MonoBehaviour
     public bool IsGrounded { get { return isGrounded; } }
     public bool Facing { get { return facing; } set { facing = value; } }
 
+    private Rigidbody2D body;
+
+    public event Action HandleMovement;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         pos = transform.position;
         boundingBox = GetComponent<Collider2D>();
+        body = GetComponent<Rigidbody2D>();
         level = level ? level : GameObject.FindGameObjectWithTag("Level").GetComponent<Level>();
+        Physics2D.queriesStartInColliders = false;
+    }
+
+    private void Update()
+    {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         pos = transform.position;
 
-        Vector2 grav = Vector2.down * gravity * Time.deltaTime;
-        vel += grav;
-        vel.y = Mathf.Max(vel.y, maxGravity * -1);
-        currentGravity = vel.y;
+        CheckCollision();
+        HandleMovement?.Invoke();
+        HandleGravity();
 
-        CollisionData cd = level.CheckCollision(Bounds, vel);
-        Vector2 boundOffset = (Vector2)Bounds.extents - boundingBox.offset;
+        body.linearVelocity = vel;
 
-        if (cd.collisions.x > 0)
+        //pos += vel * Time.fixedDeltaTime;
+        //transform.position = pos;
+    }
+
+    private void CheckCollision()
+    {
+        Vector2 offset = new Vector2(boundingBox.bounds.size.x / 2, 0);
+        float length = boundingBox.bounds.size.y / 2 + 0.05f;
+        bool collidesGround = Physics2D.Raycast(pos + boundingBox.offset + offset, Vector2.down, length) || Physics2D.Raycast(pos + boundingBox.offset - offset, Vector2.down, length);
+
+        // Landed on the Ground
+        if (!isGrounded && collidesGround)
         {
-            if (vel.x > 0)
-            {
-                // Going too far right
-                pos.x = cd.right - boundOffset.x;
-                //Debug.Log($"Pos Right:  {transform.position.x} => {pos.x} | Edge: {cd.right}");
-            }
-            else
-            {
-                // Going too far left
-                pos.x = cd.left + boundOffset.x;
-                //Debug.Log($"Pos Left:   {transform.position.x} => {pos.x} | Edge: {cd.left}");
-            }
-            vel.x = 0;
+            isGrounded = true;
+            //Debug.Log("You should ground yourself, now!");
         }
-        if (cd.collisions.y > 0)
+        // Left the Ground
+        else if (isGrounded && !collidesGround)
         {
-            if (vel.y > 0)
-            {
-                // Going too far up
-                pos.y = cd.top - boundOffset.y;
-                //Debug.Log($"Pos Top:    {transform.position.y} => {pos.y} (Edge: {cd.top} Offset: {boundOffset.y})");
-            }
-            else
-            {
-                // Going too far down
-                pos.y = cd.bottom + boundOffset.y;
-                //Debug.Log($"Pos Bottom: {transform.position.y} => {pos.y} (Edge: {cd.bottom} Offset: {boundOffset.y})");
-                isGrounded = true;
-            }
-            vel.y = 0;
+            isGrounded = false;
+            //Debug.Log("Unground again!");
+        }
+
+    }
+
+    private void HandleGravity()
+    {
+        if (isGrounded)
+        {
+            if (vel.y < 0) vel.y = -1.0f;
         }
         else
         {
-            isGrounded = false;
+            Vector2 airGrav = gravity * Time.deltaTime * Vector2.down;
+            vel += airGrav;
+            vel.y = Mathf.Max(vel.y, maxGravity * -1);
         }
+    }
 
-        pos += vel * Time.deltaTime;
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        //Debug.Log("HELP!");
+    }
 
-        transform.position = pos;
+    private void OnDrawGizmos()
+    {
+        Vector2 p = transform.position;
+        Collider2D bb = GetComponent<Collider2D>();
+        Vector2 offset = new Vector2(bb.bounds.size.x / 2, 0);
+        float length = bb.bounds.size.y / 2 + 0.05f;
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(p + offset, (p + bb.offset + offset) + Vector2.down * length);
+        Gizmos.DrawLine(p - offset, (p + bb.offset - offset) + Vector2.down * length);
     }
 }

@@ -59,12 +59,10 @@ public class Level : MonoBehaviour
                     if (dir.x > 0)
                     {
                         data.right = Mathf.Min(platBounds.min.x, data.right);
-                        //Debug.Log($"Collision R: {entity.max.x} -> {predictedX.max.x} | \"{plat.gameObject.name}\": {platBounds.min.x}");
                     }
                     else
                     {
                         data.left = Mathf.Max(platBounds.max.x, data.left);
-                        //Debug.Log($"Collision L: {entity.min.x} -> {predictedX.min.x} | \"{plat.gameObject.name}\": {platBounds.max.x}");
                     }
                 }
                 if (dir.y != 0 && IntersectsEdge(predictedY, platBounds, dir.y > 0 ? Edge.top : Edge.bottom))
@@ -73,12 +71,10 @@ public class Level : MonoBehaviour
                     if (dir.y > 0)
                     {
                         data.top = Mathf.Min(platBounds.min.y, data.top);
-                        //Debug.Log($"Collision T: {entity.max.y} -> {predictedY.max.y} | \"{plat.gameObject.name}\": {platBounds.min.y}");
                     }
                     else
                     {
                         data.bottom = Mathf.Max(platBounds.max.y, data.bottom);
-                        //Debug.Log($"Collision B: {entity.min.y} -> {predictedY.min.y} | \"{plat.gameObject.name}\": {platBounds.max.y}");
                     }
                 }
             }

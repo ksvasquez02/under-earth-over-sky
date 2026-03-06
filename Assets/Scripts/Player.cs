@@ -13,6 +13,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float jumpPower = 10f;
 
+    [SerializeField]
+    private Vector2 _moveInput;
+    [SerializeField]
+    private bool _jumpInput;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,20 +30,27 @@ public class Player : MonoBehaviour
 
         ia_move = InputSystem.actions.FindAction("Move");
         ia_jump = InputSystem.actions.FindAction("Jump");
+
+        entity.HandleMovement += MovementUpdate;
+    }
+
+    private void Update()
+    {
+        _moveInput = ia_move.ReadValue<Vector2>();
+        _jumpInput = ia_jump.IsPressed();
+
     }
 
     // Update is called once per frame
-    void Update()
+    private void MovementUpdate()
     {
-        Vector2 move = ia_move.ReadValue<Vector2>();
-        float jump = ia_jump.IsPressed() ? 1f : 0f;
+        entity.Vel = new Vector2(speed * _moveInput.x, entity.Vel.y);
 
-        Vector2 dir = new Vector2(move.x, 0f);
-        entity.Vel = new Vector2(speed * move.x, entity.Vel.y);
-
-        if (entity.IsGrounded)
+        if (entity.IsGrounded && _jumpInput)
         {
-            entity.Vel += new Vector2(0f, jump * jumpPower);
+            entity.Vel += new Vector2(0f, _jumpInput ? jumpPower : 0f);
+            //Debug.Log($"Jumping: {entity.Vel}");
+            _jumpInput = false;
         }
     }
 }
