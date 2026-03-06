@@ -9,14 +9,19 @@ public class Player : MonoBehaviour
     private InputAction ia_jump;
 
     [SerializeField]
+    private float accel = 10f;
+    [SerializeField]
     private float speed = 5f;
+    [SerializeField]
+    private float deaccel = 20f;
     [SerializeField]
     private float jumpPower = 10f;
 
-    [SerializeField]
     private Vector2 _moveInput;
-    [SerializeField]
     private bool _jumpInput;
+
+    [SerializeField]
+    private float curSpeed = 0f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -44,13 +49,26 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     private void MovementUpdate()
     {
-        entity.Vel = new Vector2(speed * _moveInput.x, entity.Vel.y);
+        Vector2 vel = entity.Vel;
+        float momentum = System.Math.Sign(vel.x); // Mathf.Sign is stupid.
+        if (_moveInput.magnitude > 0.1)
+        {
+            curSpeed += accel * Time.fixedDeltaTime;
+            curSpeed = Mathf.Min(curSpeed, speed);
+            vel.x = _moveInput.x * curSpeed;
+        }
+        else
+        {
+            curSpeed -= deaccel * Time.fixedDeltaTime;
+            curSpeed = Mathf.Max(curSpeed, 0f);
+            vel.x = momentum * curSpeed;
+        }
 
         if (entity.IsGrounded && _jumpInput)
         {
-            entity.Vel += new Vector2(0f, _jumpInput ? jumpPower : 0f);
-            //Debug.Log($"Jumping: {entity.Vel}");
+            vel.y += _jumpInput ? jumpPower : 0f;
             _jumpInput = false;
         }
+        entity.Vel = vel;
     }
 }
