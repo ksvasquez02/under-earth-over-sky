@@ -22,7 +22,6 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     private bool isGrounded = false;
-    private bool facing = true;
 
     // Collision
     private Rigidbody2D _body;
@@ -37,7 +36,6 @@ public class Entity : MonoBehaviour
     public Bounds Bounds { get { return _col.bounds; } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
     public bool IsGrounded { get { return isGrounded; } }
-    public bool Facing { get { return facing; } set { facing = value; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -68,22 +66,22 @@ public class Entity : MonoBehaviour
     private void CheckCollisions()
     {
         // Raycasts to detect collisions
-        bool collidesGround = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, groundOffset, groundLayer);
-        bool collidesCeiling = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.up, groundOffset, groundLayer);
+        RaycastHit2D hitGround = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, groundOffset, groundLayer);
+        RaycastHit2D hitCeiling = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.up, groundOffset, groundLayer);
 
         // Hit a Ceiling
-        if (collidesCeiling)
+        if (hitCeiling && !hitCeiling.collider.gameObject.CompareTag("Pass-Through"))
         {
             vel.y = Mathf.Min(0, vel.y);
         }
 
         // Landed on the Ground
-        if (!isGrounded && collidesGround)
+        if (!isGrounded && hitGround)
         {
             isGrounded = true;
         }
         // Left the Ground
-        else if (isGrounded && !collidesGround)
+        else if (isGrounded && !hitGround)
         {
             isGrounded = false;
         }

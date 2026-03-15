@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
         if (entity.IsGrounded && _jumpInput)
         {
-            vel.y += _jumpInput ? jumpPower : 0f;
+            vel.y = Mathf.Min(vel.y + jumpPower, jumpPower);
             _jumpInput = false;
         }
         entity.Vel = vel;
