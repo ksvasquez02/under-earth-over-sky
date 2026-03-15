@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class Entity : MonoBehaviour
 {
     private Vector2 pos;
@@ -20,14 +20,16 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private float groundGravity = 1f;
 
-    [SerializeField]
     private bool isGrounded = false;
+    private bool ignoreGravity = false;
 
     // Collision
     private Rigidbody2D _body;
     private BoxCollider2D _col;
 
     public event Action HandleMovement;
+    public event Action OnCheckCollisions;
+    public event Action OnHandleGravity;
 
     public Vector2 Pos { get { return pos; } set { pos = value; } }
     public Vector2 Vel { get { return vel; } set { vel = value; } }
@@ -35,7 +37,8 @@ public class Entity : MonoBehaviour
     public Rigidbody2D Body { get { return _body; } }
     public Bounds Bounds { get { return _col.bounds; } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
-    public bool IsGrounded { get { return isGrounded; } }
+    public bool IsGrounded { get { return isGrounded; } set { isGrounded = value; } }
+    public bool IgnoreGravity { get { return ignoreGravity; } set { ignoreGravity = value; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -86,22 +89,29 @@ public class Entity : MonoBehaviour
             isGrounded = false;
         }
 
+        OnCheckCollisions?.Invoke();
+
     }
 
     private void HandleGravity()
     {
-        // On Ground
-        if (isGrounded && vel.y <= 0f)
+        if (!ignoreGravity)
         {
-            vel.y = -groundGravity;
+            // On Ground
+            if (isGrounded && vel.y <= 0f)
+            {
+                vel.y = -groundGravity;
+            }
+            // In Air
+            else
+            {
+                Vector2 airGrav = gravity * Time.fixedDeltaTime * Vector2.down;
+                vel += airGrav;
+                vel.y = Mathf.Max(vel.y, -maxGravity);
+            }
         }
-        // In Air
-        else
-        {
-            Vector2 airGrav = gravity * Time.fixedDeltaTime * Vector2.down;
-            vel += airGrav;
-            vel.y = Mathf.Max(vel.y, maxGravity * -1);
-        }
+
+        OnHandleGravity?.Invoke();
     }
 
     private void OnDrawGizmos()

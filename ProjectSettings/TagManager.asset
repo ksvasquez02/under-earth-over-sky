@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Level
   - Pass-Through
+  - Climb
   layers:
   - Default
   - TransparentFX
