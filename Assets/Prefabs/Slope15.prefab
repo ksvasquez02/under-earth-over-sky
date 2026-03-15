@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1763769195912566235}
   - component: {fileID: 191836824861838591}
   - component: {fileID: 2403915699821690538}
-  - component: {fileID: 7163191331681562998}
   - component: {fileID: 2122205688463218110}
   - component: {fileID: 3210889930742777801}
   m_Layer: 6
@@ -103,33 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d1977834f063648a303d7a6b727c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!50 &7163191331681562998
-Rigidbody2D:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 605129407480418118}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!60 &2122205688463218110
 PolygonCollider2D:
   m_ObjectHideFlags: 0

@@ -30,7 +30,7 @@ public class PlayerCamera : MonoBehaviour
     {
         Vector3 pos = transform.position;
 
-        Vector3 basePos = new Vector3(player.Pos.x, player.Pos.y, pos.z) + (Vector3) offset;
+        Vector3 basePos = new Vector3(player.Body.position.x, player.Body.position.y, pos.z) + (Vector3) offset;
         Vector2 delta = maxDelay * Vector2.ClampMagnitude(new Vector2(player.NetVel.x, player.NetVel.y * 0.5f), 1);
         target = basePos + (Vector3) delta;
 
