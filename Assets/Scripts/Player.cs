@@ -62,60 +62,72 @@ public class Player : MonoBehaviour
     private void HandleMovement()
     {
         Vector2 vel = entity.Vel;
+        curSpeed = vel.x;
 
         switch (_state)
         {
             case MoveState.Normal:
-                {
-                    // Handle Horizontal Movement
-                    float momentum = System.Math.Sign(vel.x); // Mathf.Sign is stupid.
-                    if (_moveInput.magnitude > 0.1)
-                    {
-                        float targetVelX = speed * _moveInput.x;
-                        curSpeed += accel * Time.fixedDeltaTime * _moveInput.x;
-                        curSpeed = Mathf.Clamp(curSpeed, -speed, speed);
-                        vel.x = curSpeed;
-                    }
-                    else
-                    {
-                        curSpeed -= deaccel * Time.fixedDeltaTime;
-                        curSpeed = Mathf.Max(curSpeed, 0f);
-                        vel.x = momentum * curSpeed;
-                    }
-
-                    // Handle Jump
-                    if (entity.IsGrounded && _jumpInput)
-                    {
-                        vel.y = jumpPower;
-                        _jumpInput = false;
-                    }
-
-                    // Enable Gravity
-                    entity.IgnoreGravity = false;
-                    break;
-                }
+                vel = MovementNormal(vel);
+                break;
             case MoveState.Climbing:
-                {
-                    // Handle Climbing
-                    Vector2 raw = _moveInput.normalized * climbSpeed;
-                    float climbY = vel.y > raw.y && raw.y > 0 ? vel.y : raw.y;
-                    vel = new Vector2(raw.x, climbY);
-
-                    // Handle Climb Jump
-                    if (_jumpInput && vel.y < climbJump)
-                    {
-                        vel.y = climbJump;
-                        _jumpInput = false;
-                        _state = MoveState.Normal;
-                    }
-
-                    // Disable Gravity
-                    entity.IgnoreGravity = true;
-                    break;
-                }
+                vel = MovementClimbing(vel);
+                break;
         }
 
         entity.Vel = vel;
+    }
+
+    private Vector2 MovementNormal(Vector2 vel)
+    {
+        // Accelerate when active
+        if (Mathf.Abs(_moveInput.x) >= 0.1f)
+        {
+            float delta = accel * Time.fixedDeltaTime;
+            curSpeed += delta * _moveInput.x;
+        }
+        // Deaccelerate when inactive
+        else
+        {
+            float delta = deaccel * Time.fixedDeltaTime;
+            curSpeed = Mathf.MoveTowards(curSpeed, 0f, delta);
+        }
+
+        // Limit and apply horizontal velocity
+        curSpeed = Mathf.Clamp(curSpeed, -speed, speed);
+        vel.x = curSpeed;
+
+        // Handle Jump
+        if (entity.IsGrounded && _jumpInput)
+        {
+            vel.y = jumpPower;
+            _jumpInput = false;
+        }
+
+        // Enable Gravity
+        entity.IgnoreGravity = false;
+
+        return vel;
+    }
+
+    private Vector2 MovementClimbing(Vector2 vel)
+    {
+        // Handle Climb Movement
+        Vector2 raw = _moveInput.normalized * climbSpeed;
+        float climbY = vel.y > raw.y && raw.y > 0 ? vel.y : raw.y; // High y-vel overrides up-input
+        vel = new Vector2(raw.x, climbY);
+
+        // Handle Climb Jump
+        if (_jumpInput && vel.y < climbJump)
+        {
+            vel.y = climbJump;
+            _jumpInput = false;
+            _state = MoveState.Normal;
+        }
+
+        // Disable Gravity
+        entity.IgnoreGravity = true;
+
+        return vel;
     }
 
     private void OnHandleGravity()

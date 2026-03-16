@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8491135633533435275, guid: 3c08468fc64b2bf45a68f9ca6b55aea1, type: 3}
       propertyPath: m_Name
-      value: Slope30 Variant
+      value: Slope30
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
