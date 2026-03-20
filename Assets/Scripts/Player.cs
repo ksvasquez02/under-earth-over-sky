@@ -37,6 +37,10 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float climbJump = 10f;
 
+    [Header("Managers")]
+    [SerializeField]
+    private HUDManager hudManager;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -140,7 +144,6 @@ public class Player : MonoBehaviour
 
         switch (_state)
         {
-            case MoveState.Normal: break;
             case MoveState.Climbing:
                 {
                     if (_moveInput.y == 0)
@@ -152,6 +155,7 @@ public class Player : MonoBehaviour
                     }
                     break;
                 }
+            default: break;
         }
 
         entity.Vel = vel;
@@ -169,7 +173,19 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("Interactable") && _interactInput)
         {
+            if (other.gameObject.TryGetComponent(out Interactable interactable))
+            {
+                ItemData[] itemDatas = interactable.itemData;
+                if (itemDatas != null && itemDatas.Length > 0)
+                {
+                    foreach (ItemData data in itemDatas)
+                    {
+                        hudManager.ShowItemMenu(data);
 
+                    }
+                }
+
+            }
         }
 
     }
@@ -185,5 +201,6 @@ public class Player : MonoBehaviour
 enum MoveState
 {
     Normal,
-    Climbing
+    Climbing,
+    Locked
 }

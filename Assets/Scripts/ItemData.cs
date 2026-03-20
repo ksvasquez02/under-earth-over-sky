@@ -9,3 +9,10 @@ public struct ItemData
     public Sprite image;
     public string description;
 }
+
+enum ItemTypes
+{
+    Artifact,
+    Language,
+    Memory
+}
