@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6666667, y: 0.66666, z: 0.66666}
+  m_LocalScale: {x: 0.5, y: 0.499995, z: 0.499995}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6688208501444342131}
@@ -155,10 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afc68c7343fe2d4aa1da1f33e4e835e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 8
-  accel: 40
+  speed: 7
+  accel: 30
   deaccel: 20
-  jumpPower: 18
+  jumpPower: 17
   curSpeed: 0
   climbSpeed: 5
   climbGravity: 1.5
@@ -224,7 +224,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -234,5 +234,5 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 0.4, y: 0.7}
   m_EdgeRadius: 0
