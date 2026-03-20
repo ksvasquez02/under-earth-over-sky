@@ -9,9 +9,11 @@ public class Player : MonoBehaviour
 
     private InputAction ia_move;
     private InputAction ia_jump;
+    private InputAction ia_interact;
 
     private Vector2 _moveInput;
     private bool _jumpInput;
+    private bool _interactInput;
 
     private MoveState _state;
 
@@ -46,6 +48,7 @@ public class Player : MonoBehaviour
 
         ia_move = InputSystem.actions.FindAction("Move");
         ia_jump = InputSystem.actions.FindAction("Jump");
+        ia_interact = InputSystem.actions.FindAction("Interact");
 
         entity.HandleMovement += HandleMovement;
         entity.OnHandleGravity += OnHandleGravity;
@@ -55,6 +58,7 @@ public class Player : MonoBehaviour
     {
         _moveInput = ia_move.ReadValue<Vector2>();
         _jumpInput = ia_jump.IsPressed();
+        _interactInput = ia_interact.IsPressed();
 
     }
 
@@ -162,6 +166,12 @@ public class Player : MonoBehaviour
                 _state = MoveState.Climbing;
             }
         }
+
+        if (other.gameObject.CompareTag("Interactable") && _interactInput)
+        {
+
+        }
+
     }
     private void OnTriggerExit2D(Collider2D other)
     {
