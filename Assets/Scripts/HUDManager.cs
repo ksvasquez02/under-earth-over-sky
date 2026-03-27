@@ -39,6 +39,17 @@ public class HUDManager : MonoBehaviour
         menu.SetActive(true);
     }
 
+    public void ShowItemMenu(ItemData[] datas)
+    {
+        if (datas.Length <= 0) return;
+
+        itemDiaSpeaker.text = datas[0].name;
+        itemDiaText.text = datas[0].description;
+        itemImage.sprite = datas[0].image;
+
+        menu.SetActive(true);
+    }
+
     public void HideItemMenu()
     {
         menu.SetActive(false);

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Timeline;
@@ -13,9 +14,11 @@ public class Player : MonoBehaviour
 
     private Vector2 _moveInput;
     private bool _jumpInput;
+    [SerializeField]
     private bool _interactInput;
 
     private MoveState _state;
+    private Dictionary<string, Timer> timers = new();
 
     [Header("Movement")]
     [SerializeField]
@@ -36,6 +39,8 @@ public class Player : MonoBehaviour
     private float climbGravity = 1f;
     [SerializeField]
     private float climbJump = 10f;
+
+    private List<Interactable> nearbyInteractables = new(); // i hate unity
 
     [Header("Managers")]
     [SerializeField]
@@ -62,8 +67,37 @@ public class Player : MonoBehaviour
     {
         _moveInput = ia_move.ReadValue<Vector2>();
         _jumpInput = ia_jump.IsPressed();
-        _interactInput = ia_interact.IsPressed();
+        _interactInput = ia_interact.WasPressedThisFrame();
 
+
+        switch (_state)
+        {
+            case MoveState.Locked:
+                if (_interactInput)
+                {
+                    hudManager.HideItemMenu();
+                    _state = MoveState.Normal;
+                }
+                break;
+            default:
+                if (_interactInput && nearbyInteractables.Count > 0)
+                {
+                    Interactable interactable = nearbyInteractables[0];
+                    ItemData[] itemDatas = interactable.itemData;
+                    if (itemDatas != null && itemDatas.Length > 0)
+                    {
+                        hudManager.ShowItemMenu(itemDatas);
+                        _state = MoveState.Locked;
+                    }
+                }
+                break;
+        }
+
+
+        foreach ((string id, Timer timer) in timers)
+        {
+            timer.Update();
+        }
     }
 
     // Update is called once per frame
@@ -80,15 +114,18 @@ public class Player : MonoBehaviour
             case MoveState.Climbing:
                 vel = MovementClimbing(vel);
                 break;
+            case MoveState.Locked:
+                vel = MovementNormal(vel, false);
+                break;
         }
 
         entity.Vel = vel;
     }
 
-    private Vector2 MovementNormal(Vector2 vel)
+    private Vector2 MovementNormal(Vector2 vel, bool useInput = true)
     {
         // Accelerate when active
-        if (Mathf.Abs(_moveInput.x) >= 0.1f)
+        if (useInput && Mathf.Abs(_moveInput.x) >= 0.1f)
         {
             float delta = accel * Time.fixedDeltaTime;
             curSpeed += delta * _moveInput.x;
@@ -105,7 +142,7 @@ public class Player : MonoBehaviour
         vel.x = curSpeed;
 
         // Handle Jump
-        if (entity.IsGrounded && _jumpInput)
+        if (useInput && entity.IsGrounded && _jumpInput)
         {
             vel.y = jumpPower;
             _jumpInput = false;
@@ -163,7 +200,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (_state != MoveState.Climbing && other.gameObject.CompareTag("Climb"))
+        if (_state == MoveState.Normal && other.gameObject.CompareTag("Climb"))
         {
             if (_moveInput.y > 0 && !_jumpInput)
             {
@@ -171,23 +208,19 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("Interactable") && _interactInput)
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.CompareTag("Interactable"))
         {
             if (other.gameObject.TryGetComponent(out Interactable interactable))
             {
-                ItemData[] itemDatas = interactable.itemData;
-                if (itemDatas != null && itemDatas.Length > 0)
+                if (interactable != null && !nearbyInteractables.Contains(interactable))
                 {
-                    foreach (ItemData data in itemDatas)
-                    {
-                        hudManager.ShowItemMenu(data);
-
-                    }
+                    nearbyInteractables.Add(interactable);
                 }
-
             }
         }
-
     }
     private void OnTriggerExit2D(Collider2D other)
     {
@@ -195,6 +228,21 @@ public class Player : MonoBehaviour
         {
             _state = MoveState.Normal;
         }
+
+        if (other.gameObject.CompareTag("Interactable"))
+        {
+            if (other.gameObject.TryGetComponent(out Interactable interactable))
+            {
+                if (interactable != null && nearbyInteractables.Contains(interactable))
+                {
+                    nearbyInteractables.Remove(interactable);
+                }
+            }
+        }
+    }
+    public void OnInteract(InputValue value)
+    {
+        _interactInput = value.isPressed;
     }
 }
 
