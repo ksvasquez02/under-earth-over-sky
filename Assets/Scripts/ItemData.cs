@@ -5,12 +5,22 @@ using UnityEngine;
 public struct ItemData
 {
     public int id;
+    public ItemType type;
     public string name;
     public Sprite image;
-    public string description;
+    public string desc;
+    public LoreEntryData[] entries;
 }
 
-enum ItemTypes
+[Serializable]
+public struct LoreEntryData
+{
+    public string title;
+    public Sprite image;
+    public string text;
+}
+
+public enum ItemType
 {
     Artifact,
     Language,

@@ -83,14 +83,16 @@ public class Player : MonoBehaviour
                 if (_interactInput && nearbyInteractables.Count > 0)
                 {
                     Interactable interactable = nearbyInteractables[0];
-                    ItemData[] itemDatas = interactable.itemData;
-                    if (itemDatas != null && itemDatas.Length > 0)
-                    {
-                        hudManager.ShowItemMenu(itemDatas);
-                        _state = MoveState.Locked;
-                    }
+                    ItemData itemData = interactable.itemData;
+                    hudManager.ShowItemMenu(itemData);
+                    _state = MoveState.Locked;
                 }
                 break;
+        }
+
+        foreach (Interactable i in nearbyInteractables)
+        {
+
         }
 
 
@@ -218,6 +220,7 @@ public class Player : MonoBehaviour
                 if (interactable != null && !nearbyInteractables.Contains(interactable))
                 {
                     nearbyInteractables.Add(interactable);
+                    interactable.ToggleTooltip(true);
                 }
             }
         }
@@ -236,6 +239,7 @@ public class Player : MonoBehaviour
                 if (interactable != null && nearbyInteractables.Contains(interactable))
                 {
                     nearbyInteractables.Remove(interactable);
+                    interactable.ToggleTooltip(false);
                 }
             }
         }

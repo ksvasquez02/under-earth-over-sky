@@ -1,5 +1,4 @@
 using TMPro;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -30,28 +29,38 @@ public class HUDManager : MonoBehaviour
         
     }
 
-    public void ShowItemMenu(ItemData data)
+    public void ShowItemMenu(ItemData item)
     {
-        itemDiaSpeaker.text = data.name;
-        itemDiaText.text = data.description;
-        itemImage.sprite = data.image;
+        if (item.entries.Length <= 0) return;
+        LoreEntryData entry = item.entries[0];
+
+        itemDiaSpeaker.text = item.name;
+        SetLore(entry);
 
         menu.SetActive(true);
     }
 
-    public void ShowItemMenu(ItemData[] datas)
-    {
-        if (datas.Length <= 0) return;
+    //public void ShowItemMenu(ItemData[] items)
+    //{
+    //    if (items.Length <= 0) return;
+    //    ItemData item = items[0];
 
-        itemDiaSpeaker.text = datas[0].name;
-        itemDiaText.text = datas[0].description;
-        itemImage.sprite = datas[0].image;
+    //    if (item.entries.Length <= 0) return;
+    //    LoreEntryData entry = item.entries[0];
 
-        menu.SetActive(true);
-    }
+    //    SetLore(item, entry);
+
+    //    menu.SetActive(true);
+    //}
 
     public void HideItemMenu()
     {
         menu.SetActive(false);
+    }
+
+    private void SetLore(LoreEntryData entry)
+    {
+        itemDiaText.text = entry.text;
+        itemImage.sprite = entry.image;
     }
 }
