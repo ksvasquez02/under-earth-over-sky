@@ -8,6 +8,6 @@ public class ButtonItem : MonoBehaviour
     public void DisplayItem()
     {
         if (hud == null) return;
-        hud.ShowItemMenu(item);
+        hud.PopulateLore(item);
     }
 }

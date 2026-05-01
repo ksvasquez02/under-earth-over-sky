@@ -74,19 +74,17 @@ public class Player : MonoBehaviour
         _interactInput = ia_interact.WasPressedThisFrame();
         _inventoryInput = ia_inventory.WasPressedThisFrame();
 
-
         switch (_state)
         {
             case MoveState.Locked:
-                if (_interactInput)
+                if (_interactInput && hudManager.State == (int)MenuState.Lore)
                 {
-                    hudManager.HideItemMenu();
+                    hudManager.HideMenu(MenuState.Lore);
                     _state = MoveState.Normal;
                 }
-                if (_inventoryInput)
+                if (_inventoryInput && hudManager.State == (int)MenuState.Inventory)
                 {
-                    Debug.Log("CLOSE");
-                    hudManager.HideInventory();
+                    hudManager.HideMenu(MenuState.Inventory);
                     _state = MoveState.Normal;
                 }
                 break;
@@ -95,16 +93,14 @@ public class Player : MonoBehaviour
                 {
                     Interactable interactable = nearbyInteractables[0];
                     ItemData itemData = interactable.itemData;
-                    hudManager.ShowItemMenu(itemData);
+                    hudManager.PopulateLore(itemData);
                     if (inventory.AddItem(itemData))
                     {
-                        hudManager.GenerateInventory(inventory);
+                        hudManager.PopulateInventory(inventory);
                     }
-                    _state = MoveState.Locked;
                 } else if (_inventoryInput)
                 {
-                    hudManager.ShowInventory();
-                    _state = MoveState.Locked;
+                    hudManager.ShowMenu(MenuState.Inventory);
                 }
                 break;
         }
@@ -234,14 +230,12 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Interactable"))
         {
-            if (other.gameObject.TryGetComponent(out Interactable interactable))
+            if (!other.gameObject.TryGetComponent(out Interactable inter)) return;
+
+            if (inter != null && !nearbyInteractables.Contains(inter))
             {
-                if (interactable != null && !nearbyInteractables.Contains(interactable))
-                {
-                    nearbyInteractables.Add(interactable);
-                    //interactable.ToggleTooltip(true);
-                    hudManager.ShowTooltip(interactable);
-                }
+                nearbyInteractables.Add(inter);
+                hudManager.ShowTooltip(inter);
             }
         }
     }
@@ -254,16 +248,21 @@ public class Player : MonoBehaviour
 
         if (other.gameObject.CompareTag("Interactable"))
         {
-            if (other.gameObject.TryGetComponent(out Interactable interactable))
+            if (!other.gameObject.TryGetComponent(out Interactable inter)) return;
+
+            if (inter != null && nearbyInteractables.Contains(inter))
             {
-                if (interactable != null && nearbyInteractables.Contains(interactable))
-                {
-                    nearbyInteractables.Remove(interactable);
-                    //interactable.ToggleTooltip(false);
-                    hudManager.HideTooltip();
-                }
+                nearbyInteractables.Remove(inter);
+                hudManager.HideTooltip();
             }
         }
+    }
+
+    public bool LockPlayer()
+    {
+        if (_state == MoveState.Locked) return false;
+        _state = MoveState.Locked;
+        return true;
     }
 
     //public void OnInteract(InputValue value)

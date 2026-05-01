@@ -17,12 +17,17 @@ public class HUDManager : MonoBehaviour
 
     public GameObject inventoryPanel;
     private Dictionary<ItemType, GameObject> inventorySubsections;
-    [SerializeField]
-    private GameObject itemButtonPrefab;
+    public GameObject itemButtonPrefab;
 
     public GameObject tooltip;
     private TextMeshProUGUI tooltipText;
     private TextMeshProUGUI tooltipKey;
+
+    private Player player;
+    private int state;
+    private int previousState = -1;
+
+    public int State { get { return state; } } 
 
     private void Awake()
     {
@@ -32,6 +37,8 @@ public class HUDManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = GameObject.FindWithTag("Player").GetComponent<Player>();
+
         if (lorePanel != null)
         {
             GameObject lorePanelDialogue = lorePanel.transform.GetChild(0).gameObject;
@@ -58,37 +65,59 @@ public class HUDManager : MonoBehaviour
     }
 
     // Global Menu
-    public void ShowMenu(int state)
+    public bool ShowMenu(int stateId, bool sub = false)
     {
+        bool isAlreadyActive = menuPanels[stateId].activeSelf;
+        state = stateId;
+        previousState = -1;
+
         foreach (GameObject go in menuPanels)
         {
+            if (sub && go.activeInHierarchy) previousState = menuPanels.IndexOf(go);
             go.SetActive(false);
         }
-        menuPanels[state].SetActive(true);
+        menuPanels[stateId].SetActive(true);
         menu.SetActive(true);
+        player.LockPlayer();
+
+        return !isAlreadyActive;
     }
+    public bool ShowMenu(MenuState state, bool sub = false)
+    {
+        return ShowMenu((int)state, sub);
+    }
+
     public void HideMenu()
     {
         menu.SetActive(false);
+        state = -1;
+        previousState = -1;
     }
-    public void HideMenu(int state)
+    public void HideMenu(int stateId)
     {
-        if (menuPanels[state].activeInHierarchy) menu.SetActive(false);
+        if (previousState > 0 && previousState != stateId)
+        {
+            ShowMenu(previousState);
+        }
+        else if (menuPanels[stateId].activeSelf)
+        {
+            HideMenu();
+        }
+    }
+    public void HideMenu(MenuState state)
+    {
+        HideMenu((int)state);
     }
 
     // Lore Entries
-    public void ShowItemMenu(ItemData item)
+    public void PopulateLore(ItemData item)
     {
         if (item.entries.Length <= 0) return;
         LoreEntryData entry = item.entries[0];
 
         loreSpeaker.text = item.name;
         SetLore(entry);
-        ShowMenu(0);
-    }
-    public void HideItemMenu()
-    {
-        HideMenu(0);
+        ShowMenu(MenuState.Lore, true);
     }
     private void SetLore(LoreEntryData entry)
     {
@@ -97,16 +126,7 @@ public class HUDManager : MonoBehaviour
     }
 
     // Inventory
-    public void ShowInventory()
-    {
-        ShowMenu(1);
-    }
-    public void HideInventory()
-    {
-        HideMenu(1);
-    }
-
-    public void GenerateInventory(Inventory inventory)
+    public void PopulateInventory(Inventory inventory)
     {
         foreach((ItemType type, GameObject sub) in inventorySubsections)
         {
@@ -145,6 +165,7 @@ public class HUDManager : MonoBehaviour
         button.GetComponent<ButtonItem>().item = item;
     }
 
+    // Tooltips
     public void ShowTooltip(Interactable interactable)
     {
         if (tooltip == null || interactable == null) return;
@@ -157,4 +178,10 @@ public class HUDManager : MonoBehaviour
         if (tooltip == null) return;
         tooltip.SetActive(false);
     }
+}
+
+public enum MenuState
+{
+    Lore,
+    Inventory
 }
