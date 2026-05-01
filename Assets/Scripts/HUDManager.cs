@@ -3,6 +3,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class HUDManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class HUDManager : MonoBehaviour
 
     public GameObject inventoryPanel;
     private Dictionary<ItemType, GameObject> inventorySubsections;
+    [SerializeField]
+    private GameObject itemButtonPrefab;
 
     public GameObject tooltip;
     private TextMeshProUGUI tooltipText;
@@ -54,6 +57,7 @@ public class HUDManager : MonoBehaviour
         }
     }
 
+    // Global Menu
     public void ShowMenu(int state)
     {
         foreach (GameObject go in menuPanels)
@@ -63,7 +67,6 @@ public class HUDManager : MonoBehaviour
         menuPanels[state].SetActive(true);
         menu.SetActive(true);
     }
-
     public void HideMenu()
     {
         menu.SetActive(false);
@@ -73,7 +76,7 @@ public class HUDManager : MonoBehaviour
         if (menuPanels[state].activeInHierarchy) menu.SetActive(false);
     }
 
-
+    // Lore Entries
     public void ShowItemMenu(ItemData item)
     {
         if (item.entries.Length <= 0) return;
@@ -93,6 +96,7 @@ public class HUDManager : MonoBehaviour
         itemImage.sprite = entry.image;
     }
 
+    // Inventory
     public void ShowInventory()
     {
         ShowMenu(1);
@@ -108,16 +112,37 @@ public class HUDManager : MonoBehaviour
         {
             int count = 0;
             Transform container = sub.transform.GetChild(1);
-            foreach (Transform button in container)
+            ItemData[] items = inventory.Contents[type].Values.ToArray();
+
+            // First use existing children
+            foreach(Transform child in container)
             {
-                ItemData item = inventory.GetItemByIndex(type, count);
-                TextMeshProUGUI itemText = button.GetComponentInChildren<TextMeshProUGUI>();
-                Image itemIcon = button.transform.GetChild(0).GetComponent<Image>();
-                itemText.text = item.name;
-                itemIcon.sprite = item.image;
+                ItemData item = count < items.Length ? items[count] : new ItemData();
+                GameObject button = child.gameObject;
+                SetInventoryItemButton(button, item);
+                count++;
+
+            }
+
+            // Then instantiate more
+            while (count < items.Length)
+            {
+                ItemData item = items[count];
+                GameObject button = Instantiate(itemButtonPrefab);
+                button.GetComponent<ButtonItem>().hud = this;
+                button.transform.SetParent(container, false);
+                SetInventoryItemButton(button, item);
                 count++;
             }
         }
+    }
+    private void SetInventoryItemButton(GameObject button, ItemData item)
+    {
+        TextMeshProUGUI itemText = button.GetComponentInChildren<TextMeshProUGUI>();
+        Image itemIcon = button.transform.GetChild(0).GetComponent<Image>();
+        itemText.text = item.name;
+        itemIcon.sprite = item.image;
+        button.GetComponent<ButtonItem>().item = item;
     }
 
     public void ShowTooltip(Interactable interactable)
