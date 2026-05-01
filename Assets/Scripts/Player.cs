@@ -1,8 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Timeline;
-using UnityEngine.U2D.IK;
 
 public class Player : MonoBehaviour
 {
@@ -11,11 +9,12 @@ public class Player : MonoBehaviour
     private InputAction ia_move;
     private InputAction ia_jump;
     private InputAction ia_interact;
+    private InputAction ia_inventory;
 
     private Vector2 _moveInput;
     private bool _jumpInput;
-    [SerializeField]
     private bool _interactInput;
+    private bool _inventoryInput;
 
     private MoveState _state;
     private Dictionary<string, Timer> timers = new();
@@ -46,9 +45,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private HUDManager hudManager;
 
+    private Inventory inventory;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        inventory = new Inventory();
+
         entity = GetComponent<Entity>();
         if (entity == null)
         {
@@ -58,6 +61,7 @@ public class Player : MonoBehaviour
         ia_move = InputSystem.actions.FindAction("Move");
         ia_jump = InputSystem.actions.FindAction("Jump");
         ia_interact = InputSystem.actions.FindAction("Interact");
+        ia_inventory = InputSystem.actions.FindAction("Inventory");
 
         entity.HandleMovement += HandleMovement;
         entity.OnHandleGravity += OnHandleGravity;
@@ -68,6 +72,7 @@ public class Player : MonoBehaviour
         _moveInput = ia_move.ReadValue<Vector2>();
         _jumpInput = ia_jump.IsPressed();
         _interactInput = ia_interact.WasPressedThisFrame();
+        _inventoryInput = ia_inventory.WasPressedThisFrame();
 
 
         switch (_state)
@@ -78,6 +83,12 @@ public class Player : MonoBehaviour
                     hudManager.HideItemMenu();
                     _state = MoveState.Normal;
                 }
+                if (_inventoryInput)
+                {
+                    Debug.Log("CLOSE");
+                    hudManager.HideInventory();
+                    _state = MoveState.Normal;
+                }
                 break;
             default:
                 if (_interactInput && nearbyInteractables.Count > 0)
@@ -85,6 +96,14 @@ public class Player : MonoBehaviour
                     Interactable interactable = nearbyInteractables[0];
                     ItemData itemData = interactable.itemData;
                     hudManager.ShowItemMenu(itemData);
+                    if (inventory.AddItem(itemData))
+                    {
+                        hudManager.GenerateInventory(inventory);
+                    }
+                    _state = MoveState.Locked;
+                } else if (_inventoryInput)
+                {
+                    hudManager.ShowInventory();
                     _state = MoveState.Locked;
                 }
                 break;
@@ -246,10 +265,16 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public void OnInteract(InputValue value)
-    {
-        _interactInput = value.isPressed;
-    }
+
+    //public void OnInteract(InputValue value)
+    //{
+    //    _interactInput = value.isPressed;
+    //}
+
+    //public void OnInventory(InputValue value)
+    //{
+    //    _inventoryInput = value.isPressed;
+    //}
 }
 
 enum MoveState
