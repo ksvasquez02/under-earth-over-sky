@@ -14,6 +14,7 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI loreSpeaker;
     private TextMeshProUGUI loreText;
     private Image itemImage;
+    private Queue<LoreEntryData> queuedLore;
 
     public GameObject inventoryPanel;
     private Dictionary<ItemType, GameObject> inventorySubsections;
@@ -112,12 +113,20 @@ public class HUDManager : MonoBehaviour
     // Lore Entries
     public void PopulateLore(ItemData item)
     {
-        if (item.entries.Length <= 0) return;
-        LoreEntryData entry = item.entries[0];
+        if (item.entries.Length<= 0) return;
+        queuedLore = new Queue<LoreEntryData>(item.entries);
+        LoreEntryData first = queuedLore.Dequeue();
 
         loreSpeaker.text = item.name;
-        SetLore(entry);
+        SetLore(first);
         ShowMenu(MenuState.Lore, true);
+    }
+    public bool AdvanceLore()
+    {
+        if (queuedLore.Count <= 0) return false;
+        LoreEntryData next = queuedLore.Dequeue();
+        SetLore(next);
+        return true;
     }
     private void SetLore(LoreEntryData entry)
     {

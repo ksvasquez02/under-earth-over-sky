@@ -79,14 +79,13 @@ public class Player : MonoBehaviour
             case MoveState.Locked:
                 if (_interactInput && hudManager.State == (int)MenuState.Lore)
                 {
-                    hudManager.HideMenu(MenuState.Lore);
-                    _state = MoveState.Normal;
+                    if (!hudManager.AdvanceLore()) hudManager.HideMenu(MenuState.Lore);
                 }
                 if (_inventoryInput && hudManager.State == (int)MenuState.Inventory)
                 {
                     hudManager.HideMenu(MenuState.Inventory);
-                    _state = MoveState.Normal;
                 }
+                if (hudManager.State < 0) _state = MoveState.Normal;
                 break;
             default:
                 if (_interactInput && nearbyInteractables.Count > 0)
