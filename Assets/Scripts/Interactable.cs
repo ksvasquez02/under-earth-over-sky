@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection.Emit;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,6 +11,8 @@ public class Interactable : MonoBehaviour
 
     public bool tooltipActive = false;
     private TextMeshProUGUI tooltip;
+
+    public string TooltipLabel { get { return GetItemTypeLabel(itemData.type); } } 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

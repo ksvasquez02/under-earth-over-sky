@@ -11,6 +11,10 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI itemDiaText;
     private Image itemImage;
 
+    public GameObject tooltip;
+    private TextMeshProUGUI tooltipText;
+    private TextMeshProUGUI tooltipKey;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,6 +24,12 @@ public class HUDManager : MonoBehaviour
             itemDiaSpeaker = itemDialoguePanel.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
             itemDiaText = itemDialoguePanel.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
             itemImage = focusPanel.transform.GetChild(1).gameObject.GetComponent<Image>();
+        }
+        if (tooltip != null)
+        {
+            TextMeshProUGUI[] ttTexts = tooltip.GetComponentsInChildren<TextMeshProUGUI>();
+            tooltipText = ttTexts[0];
+            tooltipKey = ttTexts[1];
         }
     }
 
@@ -62,5 +72,18 @@ public class HUDManager : MonoBehaviour
     {
         itemDiaText.text = entry.text;
         itemImage.sprite = entry.image;
+    }
+
+    public void ShowTooltip(Interactable interactable)
+    {
+        if (tooltip == null || interactable == null) return;
+        tooltipText.text = interactable.TooltipLabel;
+        tooltip.SetActive(true);
+    }
+
+    public void HideTooltip()
+    {
+        if (tooltip == null) return;
+        tooltip.SetActive(false);
     }
 }

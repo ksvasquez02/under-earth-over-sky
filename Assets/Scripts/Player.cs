@@ -220,7 +220,8 @@ public class Player : MonoBehaviour
                 if (interactable != null && !nearbyInteractables.Contains(interactable))
                 {
                     nearbyInteractables.Add(interactable);
-                    interactable.ToggleTooltip(true);
+                    //interactable.ToggleTooltip(true);
+                    hudManager.ShowTooltip(interactable);
                 }
             }
         }
@@ -239,7 +240,8 @@ public class Player : MonoBehaviour
                 if (interactable != null && nearbyInteractables.Contains(interactable))
                 {
                     nearbyInteractables.Remove(interactable);
-                    interactable.ToggleTooltip(false);
+                    //interactable.ToggleTooltip(false);
+                    hudManager.HideTooltip();
                 }
             }
         }
