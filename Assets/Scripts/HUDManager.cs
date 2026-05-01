@@ -113,7 +113,7 @@ public class HUDManager : MonoBehaviour
     // Lore Entries
     public void PopulateLore(ItemData item)
     {
-        if (item.entries.Length<= 0) return;
+        if (item.entries?.Length <= 0) return;
         queuedLore = new Queue<LoreEntryData>(item.entries);
         LoreEntryData first = queuedLore.Dequeue();
 
@@ -179,6 +179,7 @@ public class HUDManager : MonoBehaviour
     {
         if (tooltip == null || interactable == null) return;
         tooltipText.text = interactable.TooltipLabel;
+        if (tooltipText.text == "") HideTooltip();
         tooltip.SetActive(true);
     }
 

@@ -1,47 +1,28 @@
+using System;
 using System.Collections.Generic;
-using System.Reflection.Emit;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Interactable : MonoBehaviour
 {
     public bool isActive = true;
-    public ItemData itemData;
+    public List<ItemData> items = new List<ItemData>();
+    public int stage = 0;
 
-    public bool tooltipActive = false;
-    private TextMeshProUGUI tooltip;
-
-    public string TooltipLabel { get { return GetItemTypeLabel(itemData.type); } } 
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public ItemData CurrentItem
     {
-        Canvas canvas = GetComponentInChildren<Canvas>();
-        if (canvas == null) return;
-        tooltip = canvas.GetComponentInChildren<TextMeshProUGUI>();
-        if (tooltip == null) return;
-        tooltip.text = GetItemTypeLabel(itemData.type);
-        ToggleTooltip(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (tooltip == null) return;
-    }
-
-    public bool ToggleTooltip(bool enable)
-    {
-        //Debug.Log($"Toggling toolip {(enable ? "on" : "off")}: {tooltip.text}");
-        if (tooltip != null)
+        get
         {
-            tooltipActive = enable;
-            tooltip.gameObject.SetActive(enable);
-            return true;
+            if (items == null || stage >= items.Count) return new ItemData();
+            return items[stage];
         }
-        return false;
     }
+    public string TooltipLabel
+    {
+        get
+        { 
+            return stage < items.Count ? GetItemTypeLabel(CurrentItem.type) : "";
+        }
+    } 
 
     private static string GetItemTypeLabel(ItemType type)
     {

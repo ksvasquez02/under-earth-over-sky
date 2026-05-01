@@ -90,12 +90,14 @@ public class Player : MonoBehaviour
             default:
                 if (_interactInput && nearbyInteractables.Count > 0)
                 {
-                    Interactable interactable = nearbyInteractables[0];
-                    ItemData itemData = interactable.itemData;
+                    Interactable inter = nearbyInteractables[0];
+                    ItemData itemData = inter.CurrentItem;
                     hudManager.PopulateLore(itemData);
                     if (inventory.AddItem(itemData))
                     {
                         hudManager.PopulateInventory(inventory);
+                        inter.stage++;
+                        hudManager.ShowTooltip(inter);
                     }
                 } else if (_inventoryInput)
                 {

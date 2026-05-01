@@ -18,6 +18,7 @@ public class Inventory
 
     public bool AddItem(ItemData item)
     {
+        if (item.entries?.Length <= 0) return false;
         ItemType type = item.type;
         return data[type].TryAdd(item.id, item);
     }
