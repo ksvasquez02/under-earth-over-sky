@@ -229,6 +229,16 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (other.gameObject.CompareTag("Dialogue"))
+        {
+            Dialoguer dia = other.gameObject.GetComponent<Dialoguer>();
+
+            if (dia != null)
+            {
+                hudManager.ShowDialogue(dia);
+            }
+        }
+
         if (other.gameObject.CompareTag("Interactable"))
         {
             if (!other.gameObject.TryGetComponent(out Interactable inter)) return;

@@ -8,6 +8,7 @@ TagManager:
   - Pass-Through
   - Climb
   - Interactable
+  - Dialogue
   layers:
   - Default
   - TransparentFX

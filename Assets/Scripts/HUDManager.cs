@@ -8,7 +8,7 @@ using static UnityEditor.Progress;
 public class HUDManager : MonoBehaviour
 {
     public GameObject menu;
-    private List<GameObject> menuPanels;
+    private List<GameObject> menuPanels = new List<GameObject>();
 
     public GameObject lorePanel;
     private TextMeshProUGUI loreSpeaker;
@@ -24,16 +24,17 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI tooltipText;
     private TextMeshProUGUI tooltipKey;
 
+    public GameObject diaPanel;
+    private TextMeshProUGUI diaSpeaker;
+    private TextMeshProUGUI diaText;
+    private Dialoguer currentDia;
+    private Queue<string> queuedDias = new Queue<string>();
+
     private Player player;
     private int state;
     private int previousState = -1;
 
     public int State { get { return state; } } 
-
-    private void Awake()
-    {
-        menuPanels = new List<GameObject>();
-    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -43,9 +44,9 @@ public class HUDManager : MonoBehaviour
         if (lorePanel != null)
         {
             GameObject lorePanelDialogue = lorePanel.transform.GetChild(0).gameObject;
-            loreSpeaker = lorePanelDialogue.transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>();
-            loreText = lorePanelDialogue.transform.GetChild(1).gameObject.GetComponent<TextMeshProUGUI>();
-            itemImage = lorePanel.transform.GetChild(1).gameObject.GetComponent<Image>();
+            loreSpeaker = lorePanelDialogue.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            loreText = lorePanelDialogue.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            itemImage = lorePanel.transform.GetChild(1).GetComponent<Image>();
             menuPanels.Insert(0, lorePanel);
         }
         if (inventoryPanel != null)
@@ -62,6 +63,11 @@ public class HUDManager : MonoBehaviour
             TextMeshProUGUI[] ttTexts = tooltip.GetComponentsInChildren<TextMeshProUGUI>();
             tooltipText = ttTexts[0];
             tooltipKey = ttTexts[1];
+        }
+        if (diaPanel != null)
+        {
+            diaSpeaker = diaPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            diaText = diaPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         }
     }
 
@@ -187,6 +193,39 @@ public class HUDManager : MonoBehaviour
     {
         if (tooltip == null) return;
         tooltip.SetActive(false);
+    }
+
+    public void ShowDialogue(Dialoguer dia)
+    {
+        if (!dia.isActive) return;
+        currentDia = dia;
+
+        diaSpeaker.text = dia.title;
+
+        queuedDias = new Queue<string>(dia.entries);
+        string first = queuedDias.Dequeue();
+        diaText.text = first;
+
+        diaPanel.SetActive(true);
+        dia.isActive = false;
+        dia.OnTimerOff += AdvanceDialogue;
+        dia.StartFadeTimer();
+    }
+    public void AdvanceDialogue()
+    {
+        if (queuedDias.Count <= 0) {
+            currentDia.OnTimerOff -= AdvanceDialogue;
+            HideDialogue();
+            return;
+        }
+        string next = queuedDias.Dequeue();
+        diaText.text = next;
+        currentDia.StartFadeTimer();
+    }
+    public void HideDialogue()
+    {
+        currentDia = null;
+        diaPanel.SetActive(false);
     }
 }
 
