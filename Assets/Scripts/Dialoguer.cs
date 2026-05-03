@@ -29,7 +29,6 @@ public class Dialoguer : MonoBehaviour
             {
                 timer = 0f;
                 OnTimerOff.Invoke();
-                Debug.Log("times up!");
             }
         }
     }
