@@ -2,6 +2,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public class Timer
 {
     public float totalTime = 0;
@@ -36,11 +37,15 @@ public class Timer
             Do();
         }
     }
-
     public void Reset()
     {
         timeRemaining = totalTime;
         isRunning = true;
+    }
+    public void Reset(float newTime)
+    {
+        totalTime = newTime;
+        Reset();
     }
     public void Pause()
     {
@@ -52,8 +57,8 @@ public class Timer
     }
     public void Do()
     {
-        onComplete?.Invoke();
         isRunning = false;
+        onComplete?.Invoke();
         Debug.Log($"Timer complete at {Time.time}");
     }
 }

@@ -23,11 +23,7 @@ public class HUDManager : MonoBehaviour
     private TextMeshProUGUI tooltipText;
     private TextMeshProUGUI tooltipKey;
 
-    public GameObject diaPanel;
-    private TextMeshProUGUI diaSpeaker;
-    private TextMeshProUGUI diaText;
-    private Dialoguer currentDia;
-    private Queue<string> queuedDias = new Queue<string>();
+    private HUDDialogue dialogueManager;
 
     private Player player;
     private int state;
@@ -39,6 +35,7 @@ public class HUDManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        dialogueManager = GetComponent<HUDDialogue>();
 
         if (lorePanel != null)
         {
@@ -62,11 +59,6 @@ public class HUDManager : MonoBehaviour
             TextMeshProUGUI[] ttTexts = tooltip.GetComponentsInChildren<TextMeshProUGUI>();
             tooltipText = ttTexts[0];
             tooltipKey = ttTexts[1];
-        }
-        if (diaPanel != null)
-        {
-            diaSpeaker = diaPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            diaText = diaPanel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
         }
     }
 
@@ -194,37 +186,10 @@ public class HUDManager : MonoBehaviour
         tooltip.SetActive(false);
     }
 
+    // Dialogue
     public void ShowDialogue(Dialoguer dia)
     {
-        if (!dia.isActive) return;
-        currentDia = dia;
-
-        diaSpeaker.text = dia.title;
-
-        queuedDias = new Queue<string>(dia.entries);
-        string first = queuedDias.Dequeue();
-        diaText.text = first;
-
-        diaPanel.SetActive(true);
-        dia.isActive = false;
-        dia.OnTimerOff += AdvanceDialogue;
-        dia.StartFadeTimer();
-    }
-    public void AdvanceDialogue()
-    {
-        if (queuedDias.Count <= 0) {
-            currentDia.OnTimerOff -= AdvanceDialogue;
-            HideDialogue();
-            return;
-        }
-        string next = queuedDias.Dequeue();
-        diaText.text = next;
-        currentDia.StartFadeTimer();
-    }
-    public void HideDialogue()
-    {
-        currentDia = null;
-        diaPanel.SetActive(false);
+        dialogueManager.ShowDialogue(dia);
     }
 }
 

@@ -5,36 +5,13 @@ using System.Collections.Generic;
 public class Dialoguer : MonoBehaviour
 {
     public bool isActive = true;
+    public List<DialogueEntryData> entries = new List<DialogueEntryData>();
+}
+
+[Serializable]
+public struct DialogueEntryData
+{
     public string title;
-    public List<string> entries = new List<string>();
-
-    public float fadeTime = 5f;
-    private float timer = 0f;
-
-    public event Action OnTimerOff;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (timer > 0f)
-        {
-            timer -= Time.deltaTime;
-            if (timer <= 0f)
-            {
-                timer = 0f;
-                OnTimerOff.Invoke();
-            }
-        }
-    }
-
-    public void StartFadeTimer()
-    {
-        timer = fadeTime;
-    }
+    public string text;
+    public float time;
 }
