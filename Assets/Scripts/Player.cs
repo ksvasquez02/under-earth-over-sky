@@ -166,6 +166,20 @@ public class Player : MonoBehaviour
             _jumpInput = false;
         }
 
+        // Handle Pass Through Platforms
+        if (useInput)
+        {
+            if (entity.IsGrounded)
+            {
+                entity.IsPassThrough = _moveInput.y < 0;
+            }
+        }
+        else
+        {
+            entity.IsPassThrough = false;
+        }
+
+
         // Enable Gravity
         entity.IgnoreGravity = false;
 
@@ -252,9 +266,28 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (_state == MoveState.Climbing && other.gameObject.CompareTag("Climb"))
+        switch (_state)
         {
-            _state = MoveState.Normal;
+            case MoveState.Climbing:
+
+                if (other.gameObject.CompareTag("Climb"))
+                {
+                    _state = MoveState.Normal;
+                }
+                break;
+
+            case MoveState.Normal:
+
+                if (other.gameObject.CompareTag("Pass-Through"))
+                {
+                    if (entity.IsPassThrough && !entity.IsGrounded)
+                    {
+                        entity.IsPassThrough = false;
+                    }
+                }
+                break;
+
+            default: break;
         }
 
         if (other.gameObject.CompareTag("Interactable"))

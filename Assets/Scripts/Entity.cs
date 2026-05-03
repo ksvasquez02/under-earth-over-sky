@@ -10,6 +10,9 @@ public class Entity : MonoBehaviour
 
     [SerializeField]
     private LayerMask groundLayer;
+    [SerializeField]
+    private LayerMask platformLayer;
+    private LayerMask excludeLayers;
 
     [SerializeField]
     private float gravity = 0f;
@@ -20,8 +23,11 @@ public class Entity : MonoBehaviour
     [SerializeField]
     private float groundGravity = 1f;
 
+    [SerializeField]
     private bool isGrounded = false;
     private bool ignoreGravity = false;
+    [SerializeField]
+    private bool isPassThrough = false;
 
     // Collision
     private Rigidbody2D _body;
@@ -37,8 +43,11 @@ public class Entity : MonoBehaviour
     public Rigidbody2D Body { get { return _body; } }
     public Bounds Bounds { get { return _col.bounds; } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
+    public float GroundGravity { get { return groundGravity; } }
+    public float MaxGravity { get { return maxGravity; } }
     public bool IsGrounded { get { return isGrounded; } set { isGrounded = value; } }
     public bool IgnoreGravity { get { return ignoreGravity; } set { ignoreGravity = value; } }
+    public bool IsPassThrough { get { return isPassThrough; } set { isPassThrough = value; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -47,6 +56,7 @@ public class Entity : MonoBehaviour
         _body = GetComponent<Rigidbody2D>();
         _col = GetComponent<BoxCollider2D>();
         Physics2D.queriesStartInColliders = false;
+        excludeLayers = _col.excludeLayers;
     }
 
     private void Update()
@@ -68,9 +78,21 @@ public class Entity : MonoBehaviour
 
     private void CheckCollisions()
     {
+        LayerMask layerMask = groundLayer;
+        if (!isPassThrough)
+        {
+            layerMask |= platformLayer;
+            _col.excludeLayers = excludeLayers;
+            //_body.excludeLayers = excludeLayers;
+        } else
+        {
+            _col.excludeLayers = excludeLayers | platformLayer;
+            //_body.excludeLayers = excludeLayers | platformLayer;
+        }
+
         // Raycasts to detect collisions
-        RaycastHit2D hitGround = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, groundOffset, groundLayer);
-        RaycastHit2D hitCeiling = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.up, groundOffset, groundLayer);
+        RaycastHit2D hitGround = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.down, groundOffset, layerMask);
+        RaycastHit2D hitCeiling = Physics2D.BoxCast(_col.bounds.center, _col.size, 0, Vector2.up, groundOffset, layerMask);
 
         // Hit a Ceiling
         if (hitCeiling && !hitCeiling.collider.gameObject.CompareTag("Pass-Through"))
