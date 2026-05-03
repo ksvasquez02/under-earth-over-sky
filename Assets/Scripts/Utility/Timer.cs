@@ -8,9 +8,9 @@ public class Timer
     public float totalTime = 0;
     public float timeRemaining = 0;
     public bool isRunning = false;
-    public bool isCounting { get { return timeRemaining > 0; } }
+    public bool IsCounting { get { return timeRemaining > 0; } }
 
-    public event Action onComplete;
+    public event Action OnComplete;
 
     public Timer(float totalTime, bool startNow = false)
     {
@@ -20,7 +20,7 @@ public class Timer
     public Timer(float totalTime, Action onComplete, bool startNow = false)
     {
         this.totalTime = totalTime;
-        this.onComplete += onComplete;
+        this.OnComplete += onComplete;
         this.isRunning = startNow;
     }
 
@@ -28,13 +28,18 @@ public class Timer
     {
         if (!isRunning) return;
 
-        if (isCounting)
+        if (IsCounting)
         {
             timeRemaining -= Time.deltaTime;
         }
         else
         {
-            Do();
+            float overTime = timeRemaining;
+            do
+            {
+                Do();
+                overTime += totalTime;
+            } while (totalTime > 0 && overTime < 0);
         }
     }
     public void Reset()
@@ -58,7 +63,6 @@ public class Timer
     public void Do()
     {
         isRunning = false;
-        onComplete?.Invoke();
-        Debug.Log($"Timer complete at {Time.time}");
+        OnComplete?.Invoke();
     }
 }

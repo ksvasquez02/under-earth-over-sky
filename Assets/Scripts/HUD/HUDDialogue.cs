@@ -17,7 +17,8 @@ public class HUDDialogue : MonoBehaviour
     private int streamIndex = 0;
     private string streamText;
     [SerializeField]
-    private float streamTick = 0.01f;
+    private float streamSpeed = 100f;
+    private float streamTick;
 
     private Timer fadeTimer;
     private Timer transitionTimer;
@@ -25,6 +26,11 @@ public class HUDDialogue : MonoBehaviour
     private Timer streamTimer;
 
     public GameObject DiaPanel {  get { return panel; } }
+
+    private void Awake()
+    {
+        streamTick = 1f / streamSpeed; ;
+    }
 
     void Start()
     {
@@ -34,9 +40,11 @@ public class HUDDialogue : MonoBehaviour
 
         if (panel != null)
         {
-            tmpSpeaker = panel.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            tmpText = panel.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI[] tmps = panel.GetComponentsInChildren<TextMeshProUGUI>();
+            tmpSpeaker = tmps[0];
+            tmpText = tmps[1];
             animator = panel.GetComponent<Animator>();
+            panel.SetActive(false);
         }
     }
 
@@ -44,6 +52,7 @@ public class HUDDialogue : MonoBehaviour
     {
         fadeTimer.Update();
         transitionTimer.Update();
+        streamTimer.Update();
     }
 
     public void ShowDialogue(Dialoguer dia)
@@ -56,13 +65,10 @@ public class HUDDialogue : MonoBehaviour
         }
         DialogueEntryData first = queuedEntries.Dequeue();
 
-        tmpSpeaker.text = first.title;
-        tmpText.text = first.text;
-        streamText = first.text;
-        fadeTimer.Reset(first.time);
-
         panel.SetActive(true);
         dia.isActive = false;
+
+        SetDialogue(first);
     }
 
     private void FadeOut()
@@ -78,12 +84,22 @@ public class HUDDialogue : MonoBehaviour
             HideDialogue();
             return;
         }
-        animator.SetBool("Fade", false);
         DialogueEntryData next = queuedEntries.Dequeue();
-        tmpSpeaker.text = next.title;
-        tmpText.text = next.text;
-        streamText = next.text;
-        fadeTimer.Reset(next.time);
+
+        SetDialogue(next);
+    }
+
+    private void SetDialogue(DialogueEntryData data)
+    {
+        tmpSpeaker.text = data.title;
+        tmpText.text = "";
+
+        streamText = data.text;
+        streamIndex = 0;
+        streamTimer.Reset();
+
+        animator.SetBool("Fade", false);
+        fadeTimer.Reset(data.time);
     }
 
     public void HideDialogue()
@@ -104,7 +120,18 @@ public class HUDDialogue : MonoBehaviour
             streamIndex = 0;
             return;
         }
-        streamText.Substring(0, streamIndex);
         streamIndex++;
+        string subText = streamText[..streamIndex];
+        if (subText[^1] == '<')
+        {
+            int closingIndex = streamText.IndexOf('>', streamIndex);
+            if (closingIndex > 0)
+            {
+                streamIndex = closingIndex + 1;
+                subText = streamText[..streamIndex];
+            }
+        }
+        tmpText.text = subText;
+        streamTimer.Reset();
     }
 }

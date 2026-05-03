@@ -44,6 +44,7 @@ public class HUDManager : MonoBehaviour
             loreText = lorePanelDialogue.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
             itemImage = lorePanel.transform.GetChild(1).GetComponent<Image>();
             menuPanels.Insert(0, lorePanel);
+            lorePanel.SetActive(false);
         }
         if (inventoryPanel != null)
         {
@@ -53,12 +54,14 @@ public class HUDManager : MonoBehaviour
             inventorySubsections.Add(ItemType.Language, subContainer.transform.GetChild(1).gameObject);
             inventorySubsections.Add(ItemType.Memory, subContainer.transform.GetChild(2).gameObject);
             menuPanels.Insert(1, inventoryPanel);
+            inventoryPanel.SetActive(false);
         }
         if (tooltip != null)
         {
             TextMeshProUGUI[] ttTexts = tooltip.GetComponentsInChildren<TextMeshProUGUI>();
             tooltipText = ttTexts[0];
             tooltipKey = ttTexts[1];
+            tooltip.SetActive(false);
         }
     }
 
