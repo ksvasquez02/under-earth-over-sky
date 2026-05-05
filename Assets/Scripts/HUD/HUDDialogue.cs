@@ -36,7 +36,7 @@ public class HUDDialogue : MonoBehaviour
     {
         fadeTimer = new Timer(1f, FadeOut);
         transitionTimer = new Timer(transitionDelay, AdvanceDialogue);
-        streamTimer = new Timer(streamTick, StreamNextChar);
+        streamTimer = new Timer(streamTick, StreamNextCharColor);
 
         if (panel != null)
         {
@@ -120,18 +120,46 @@ public class HUDDialogue : MonoBehaviour
             streamIndex = 0;
             return;
         }
-        streamIndex++;
-        string subText = streamText[..streamIndex];
-        if (subText[^1] == '<')
+
+        if (streamText[streamIndex] == '<')
         {
             int closingIndex = streamText.IndexOf('>', streamIndex);
-            if (closingIndex > 0)
-            {
-                streamIndex = closingIndex + 1;
-                subText = streamText[..streamIndex];
-            }
+            if (closingIndex > 0) streamIndex = closingIndex + 1;
         }
+        else if (streamText[streamIndex] == '\\')
+        {
+            if (streamText[streamIndex + 1] == 'n') { streamIndex++; }
+        }
+        string subText = streamText[..streamIndex];
+
         tmpText.text = subText;
+
+        streamIndex++;
+        streamTimer.Reset();
+    }
+    private void StreamNextCharColor()
+    {
+        if (streamText == null) return;
+        if (streamIndex >= streamText.Length)
+        {
+            streamIndex = 0;
+            return;
+        }
+
+        if (streamText[streamIndex] == '<')
+        {
+            int closingIndex = streamText.IndexOf('>', streamIndex);
+            if (closingIndex > 0) { streamIndex = closingIndex + 1; }
+        }
+        else if (streamText[streamIndex] == '\\')
+        {
+            if (streamText[streamIndex + 1] == 'n') { streamIndex++; }
+        }
+        string modText = streamText.Insert(streamIndex + 1, "<color=#ffffff00>");
+
+        tmpText.text = modText;
+
+        streamIndex++;
         streamTimer.Reset();
     }
 }
