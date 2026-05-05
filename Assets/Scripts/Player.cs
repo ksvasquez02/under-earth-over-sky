@@ -26,10 +26,22 @@ public class Player : MonoBehaviour
     private float accel = 10f;
     [SerializeField]
     private float deaccel = 20f;
+    [Header("Air Movement")]
     [SerializeField]
     private float jumpPower = 10f;
     [SerializeField]
+    private float jumpHoldTime = 0.5f;
+    [SerializeField]
+    private float jumpHoldBuffer = 0.02f;
+    [SerializeField]
+    private float jumpHoldPower = 1f;
+    [SerializeField]
+    private float airSpeed = 5f;
+    [SerializeField]
+    private float airAccel = 10f;
+
     private float curSpeed = 0f;
+    private float jumpHold = 0f;
 
     [Header("Climbing")]
     [SerializeField]
@@ -67,6 +79,8 @@ public class Player : MonoBehaviour
         entity.OnHandleGravity += OnHandleGravity;
     }
 
+    #region InputUpdate
+
     private void Update()
     {
         _moveInput = ia_move.ReadValue<Vector2>();
@@ -77,32 +91,10 @@ public class Player : MonoBehaviour
         switch (_state)
         {
             case MoveState.Locked:
-                if (_interactInput && hudManager.State == (int)MenuState.Lore)
-                {
-                    if (!hudManager.AdvanceLore()) hudManager.HideMenu(MenuState.Lore);
-                }
-                if (_inventoryInput && hudManager.State == (int)MenuState.Inventory)
-                {
-                    hudManager.HideMenu(MenuState.Inventory);
-                }
-                if (hudManager.State < 0) _state = MoveState.Normal;
+                UpdateLocked();
                 break;
             default:
-                if (_interactInput && nearbyInteractables.Count > 0)
-                {
-                    Interactable inter = nearbyInteractables[0];
-                    ItemData itemData = inter.CurrentItem;
-                    hudManager.PopulateLore(itemData);
-                    if (inventory.AddItem(itemData))
-                    {
-                        hudManager.PopulateInventory(inventory);
-                        inter.stage++;
-                        hudManager.ShowTooltip(inter);
-                    }
-                } else if (_inventoryInput)
-                {
-                    hudManager.ShowMenu(MenuState.Inventory);
-                }
+                UpdateDefault();
                 break;
         }
 
@@ -111,12 +103,60 @@ public class Player : MonoBehaviour
 
         }
 
-
         foreach ((string id, Timer timer) in timers)
         {
             timer.Update();
         }
     }
+
+    private void UpdateLocked()
+    {
+        switch (hudManager.State)
+        {
+            case (int)MenuState.Lore:
+                if (_interactInput && !hudManager.AdvanceLore())
+                {
+                    hudManager.HideMenu(MenuState.Lore);
+                }
+                break;
+            case (int)MenuState.Inventory:
+                if (_inventoryInput)
+                {
+                    hudManager.HideMenu(MenuState.Inventory);
+                }
+                break;
+            // If no menu is open
+            case -1:
+                if (hudManager.State < 0) _state = MoveState.Normal;
+                break;
+            default: break;
+        }
+    }
+
+    private void UpdateDefault()
+    {
+        // Handle activate interactable
+        if (_interactInput && nearbyInteractables.Count > 0)
+        {
+            Interactable inter = nearbyInteractables[0];
+            ItemData itemData = inter.CurrentItem;
+            hudManager.PopulateLore(itemData);
+            if (inventory.AddItem(itemData))
+            {
+                hudManager.PopulateInventory(inventory);
+                inter.stage++;
+                hudManager.ShowTooltip(inter);
+            }
+        }
+        // Handle open inventory
+        else if (_inventoryInput)
+        {
+            hudManager.ShowMenu(MenuState.Inventory);
+        }
+    }
+    #endregion
+
+    #region HandleMovement
 
     // Update is called once per frame
     private void HandleMovement()
@@ -140,12 +180,16 @@ public class Player : MonoBehaviour
         entity.Vel = vel;
     }
 
+    bool debugJump = false;
     private Vector2 MovementNormal(Vector2 vel, bool useInput = true)
     {
+        float useAccel = entity.IsGrounded ? accel : airAccel;
+        float useSpeed = entity.IsGrounded ? speed : airSpeed;
+
         // Accelerate when active
         if (useInput && Mathf.Abs(_moveInput.x) >= 0.1f)
         {
-            float delta = accel * Time.fixedDeltaTime;
+            float delta = useAccel * Time.fixedDeltaTime;
             curSpeed += delta * _moveInput.x;
         }
         // Deaccelerate when inactive
@@ -156,29 +200,58 @@ public class Player : MonoBehaviour
         }
 
         // Limit and apply horizontal velocity
-        curSpeed = Mathf.Clamp(curSpeed, -speed, speed);
+        curSpeed = Mathf.Clamp(curSpeed, -useSpeed, useSpeed);
         vel.x = curSpeed;
 
         // Handle Jump
-        if (useInput && entity.IsGrounded && _jumpInput)
+        if (useInput && _jumpInput)
         {
-            vel.y = jumpPower;
-            _jumpInput = false;
+            if (entity.IsGrounded && vel.y <= jumpHoldPower)
+            {
+                vel.y = jumpPower;
+                jumpHold = jumpHoldTime;
+                debugJump = true;
+            }
+            else if (jumpHold > 0f)
+            {
+                jumpHold -= Time.fixedDeltaTime;
+                if (jumpHold < jumpHoldTime - jumpHoldBuffer)
+                {
+                    float ratio = jumpHold / jumpHoldTime;
+                    vel.y += jumpHoldPower + jumpHoldPower * ratio;
+                    if (debugJump)
+                    {
+                        //Debug.Log($"Held Jump!");
+                        debugJump = false;
+                    }
+                }
+
+                if (jumpHold <= 0)
+                {
+                    jumpHold = 0f;
+                    _jumpInput = false;
+                }
+            }
+        }
+        else
+        {
+            jumpHold = 0f;
+            debugJump = false;
         }
 
-        // Handle Pass Through Platforms
+        // Handle Passthrough Platforms
         if (useInput)
         {
             if (entity.IsGrounded)
             {
                 entity.IsPassThrough = _moveInput.y < 0;
             }
+            // Passthrough resets in OnTriggerExit2D 
         }
         else
         {
             entity.IsPassThrough = false;
         }
-
 
         // Enable Gravity
         entity.IgnoreGravity = false;
@@ -206,6 +279,9 @@ public class Player : MonoBehaviour
 
         return vel;
     }
+    #endregion
+
+    #region OnHandleGravity
 
     private void OnHandleGravity()
     {
@@ -229,6 +305,9 @@ public class Player : MonoBehaviour
 
         entity.Vel = vel;
     }
+    #endregion
+    
+    #region Collisions
 
     private void OnTriggerStay2D(Collider2D other)
     {
@@ -301,6 +380,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+    #endregion
 
     public bool LockPlayer()
     {
