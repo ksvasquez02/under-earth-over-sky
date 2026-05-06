@@ -4,49 +4,87 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.DualShock;
-using UnityEngine.InputSystem.XInput;
+using UnityIS = UnityEngine.InputSystem;
 
 public class ControlManager : MonoBehaviour
 {
     public enum DeviceType
     {
-        KeyboardMouse,
+        Keyboard,
         Gamepad,
-        GamepadXbox,
-        GamepadPS
+        Xbox,
+        Playstation,
+        Switch
     }
 
+    private const string CTRL_ICONS = "Assets/Data/InputIcons.json";
+
     [SerializeField]
-    private PlayerInput _pI;
-    private DeviceType activeDevice = DeviceType.KeyboardMouse;
+    private PlayerInput _playerInput;
+    private DeviceType activeDevice = DeviceType.Keyboard;
+    private Dictionary<string, BindingNameData> bindingIconData = new();
 
     public event Action ActiveDeviceChanged;
 
-    public PlayerInput PlayerInput { get { return _pI; } }
+    public PlayerInput PlayerInput { get { return _playerInput; } }
     public DeviceType ActiveDevice { get { return activeDevice; } }
     public string ActiveDeviceScheme
     {
-        get
+        get { return activeDevice == DeviceType.Keyboard ? "Keyboard&Mouse" : "Gamepad"; }
+    } 
+
+    [Serializable]
+    struct BindingNameDataWrapper
+    {
+        public BindingNameData[] data;
+    }
+
+    [Serializable]
+    struct BindingNameData
+    {
+        public string BUTTON;
+        public string XBOX;
+        public string PLAYSTATION;
+        public string SWITCH;
+        public string STEAM;
+        public string MOUSE;
+        public string KEYBOARD;
+
+        public string GetIconName(ControlManager.DeviceType deviceType)
         {
-            switch (ActiveDevice)
+            Dictionary<ControlManager.DeviceType, string> names = new()
+        {
+            { DeviceType.Gamepad, XBOX },
+            { DeviceType.Xbox, XBOX },
+            { DeviceType.Playstation, PLAYSTATION ?? XBOX },
+            { DeviceType.Keyboard, KEYBOARD ?? MOUSE }
+        };
+
+            if (names.TryGetValue(deviceType, out var name) && name != "")
             {
-                case DeviceType.KeyboardMouse: return "Keyboard&Mouse";
-                case DeviceType.Gamepad:
-                case DeviceType.GamepadXbox:
-                case DeviceType.GamepadPS: return "Gamepad";
+                return name;
             }
             return null;
         }
+
+        public static Dictionary<ControlManager.DeviceType, string> DevicePrefix = new()
+    {
+        { DeviceType.Gamepad, "xbox" },
+        { DeviceType.Xbox, "xbox" },
+        { DeviceType.Playstation, "playstation" },
+        { DeviceType.Keyboard, "keyboard" }
+    };
     }
+
 
     void Awake()
     {
-        if (_pI == null)
+        if (_playerInput == null)
         {
             GameObject player = GameObject.FindGameObjectWithTag("Player");
-            _pI = player.GetComponent<PlayerInput>();
+            _playerInput = player.GetComponent<PlayerInput>();
         }
+        LoadBindingIconNames();
         InputSystem.onActionChange += OnActionPerformed;
     }
 
@@ -57,26 +95,23 @@ public class ControlManager : MonoBehaviour
             InputAction action = (InputAction)obj;
             InputControl control = action.activeControl;
 
-            DeviceType newDevice = DeviceType.KeyboardMouse;
+            DeviceType newDevice = DeviceType.Keyboard;
 
             if (control.device is Keyboard)
             {
-                newDevice = DeviceType.KeyboardMouse;
+                newDevice = DeviceType.Keyboard;
             }
 
             if (control.device is Gamepad)
             {
                 newDevice = DeviceType.Gamepad;
 
-                if (control.device is XInputController)
-                {
-                    newDevice = DeviceType.GamepadXbox;
-                }
-
-                if (control.device is DualShockGamepad)
-                {
-                    newDevice = DeviceType.GamepadPS;
-                }
+                if (control.device is UnityIS.XInput.XInputController)
+                    newDevice = DeviceType.Xbox;
+                if (control.device is UnityIS.DualShock.DualShockGamepad)
+                    newDevice = DeviceType.Playstation;
+                if (control.device is UnityIS.Switch.SwitchProControllerHID)
+                    newDevice = DeviceType.Switch;
             }
 
             if (activeDevice != newDevice)
@@ -89,63 +124,62 @@ public class ControlManager : MonoBehaviour
 
     public InputBinding GetBinding(string actionName)
     {
-        InputActionAsset actions = _pI.actions;
-        string schemeName = _pI.currentControlScheme;
-        InputAction action = _pI.actions.FindAction(actionName);
+        InputAction action = _playerInput.actions.FindAction(actionName);
 
-        int bindIndex = action.GetBindingIndex(group: schemeName);
-        InputBinding deviceBinding = action.bindings[bindIndex];
-        return deviceBinding;
+        string scheme = ActiveDeviceScheme ?? _playerInput.currentControlScheme;
+        int bindIndex = action.GetBindingIndex(group: scheme);
+
+        return action.bindings[bindIndex];
     }
 
     public Sprite GetBindingIcon(string actionName)
     {
-        string[] paths = GetBindingIconPath(actionName);
+        string[] paths = GetBindingIconPaths(actionName);
         return LoadBindingIconSprite(paths);
     }
 
-    public string[] GetBindingIconPath(string actionName)
+    public string[] GetBindingIconPaths(string actionName)
     {
         string controlPath = GetActionControlPath(actionName);
-        string sheetPath = GetDeviceSheetPath();
-        string alias = GetBindingAlias(controlPath);
+        string sheetPath = GetActiveDeviceSheetPath();
+        string alias = GetBindingIconName(controlPath);
         string[] paths = { sheetPath, alias };
         return paths;
     }
 
     private string GetActionControlPath(string actionName)
     {
-        InputActionAsset actions = _pI.actions;
-        InputActionMap map = _pI.currentActionMap;
+        InputActionAsset actions = _playerInput.actions;
+        InputActionMap map = _playerInput.currentActionMap;
 
         if (actions == null || map == null) return "";
 
-        InputAction action = _pI.actions.FindAction(actionName);
+        InputAction action = _playerInput.actions.FindAction(actionName);
 
-        string scheme = ActiveDeviceScheme ?? _pI.currentControlScheme;
+        string scheme = ActiveDeviceScheme ?? _playerInput.currentControlScheme;
         int bindIndex = action.GetBindingIndex(group: scheme);
         if (bindIndex < 0) return "";
                 
-        string binding = action.GetBindingDisplayString(bindIndex, out string deviceLayout, out string controlPath);
+        string display = action.GetBindingDisplayString(bindIndex, out string deviceLayout, out string controlPath);
 
         return controlPath;
     }
 
-    private string GetDeviceSheetPath()
+    private string GetActiveDeviceSheetPath()
     {
         string assetPath = "Assets/Sprites/UI/ButtonPrompts/";
         string deviceSheet = "";
 
         switch (activeDevice)
         {
-            case DeviceType.KeyboardMouse:
+            case DeviceType.Keyboard:
                 deviceSheet = "keyboard-&-mouse_sheet_default.png";
                 break;
             case DeviceType.Gamepad:
-            case DeviceType.GamepadXbox:
+            case DeviceType.Xbox:
                 deviceSheet = "xbox-series_sheet_default.png";
                 break;
-            case DeviceType.GamepadPS:
+            case DeviceType.Playstation:
                 deviceSheet = "playstation-series_sheet_default.png";
                 break;
         }
@@ -153,70 +187,22 @@ public class ControlManager : MonoBehaviour
         return assetPath + deviceSheet;
     }
 
-    private string GetBindingAlias(string controlPath)
+    private string GetBindingIconName(string controlPath)
     {
-        string device = "";
+        string[] parts = controlPath.Split('/');
 
-        switch (activeDevice)
+        string device = BindingNameData.DevicePrefix[activeDevice];
+
+        // Look for the full path first, then the first part
+        string path = bindingIconData.ContainsKey(controlPath) ? controlPath : parts[0];
+        if (bindingIconData.TryGetValue(path, out BindingNameData data))
         {
-            case DeviceType.KeyboardMouse:
-                device = "keyboard_";
-                break;
-            case DeviceType.Gamepad:
-            case DeviceType.GamepadXbox:
-                device = "xbox_";
-                break;
-            case DeviceType.GamepadPS:
-                device = "playstation_";
-                break;
+            string icon = data.GetIconName(activeDevice);
+            if (path != controlPath && parts.Length > 1) icon = $"{icon}_{parts[1]}";
+            return $"{device}_{icon}";
         }
-
-        string icon = "";
-        switch (controlPath)
-        {
-            case "buttonSouth":
-            case "buttonEast":
-            case "buttonWest":
-            case "buttonNorth":
-                icon = GetFaceButtonAlias(controlPath);
-                break;
-            default:
-                icon = controlPath.Replace('/', '_');
-                break;
-        }
-        return device + icon;
-    }
-
-    private string GetFaceButtonAlias(string button)
-    {
-        Dictionary<DeviceType,string> d = new();
-
-        switch (button)
-        {
-            case "buttonSouth":
-                d.Add(DeviceType.Gamepad, "a");
-                d.Add(DeviceType.GamepadXbox, "a");
-                d.Add(DeviceType.GamepadPS, "cross");
-                break;
-            case "buttonEast":
-                d.Add(DeviceType.Gamepad, "b");
-                d.Add(DeviceType.GamepadXbox, "b");
-                d.Add(DeviceType.GamepadPS, "circle");
-                break;
-            case "buttonWest":
-                d.Add(DeviceType.Gamepad, "x");
-                d.Add(DeviceType.GamepadXbox, "x");
-                d.Add(DeviceType.GamepadPS, "square");
-                break;
-            case "buttonNorth":
-                d.Add(DeviceType.Gamepad, "y");
-                d.Add(DeviceType.GamepadXbox, "y");
-                d.Add(DeviceType.GamepadPS, "triangle");
-                break;
-            default: break;
-        }
-
-        return $"button_color_{d[activeDevice]}";
+        // Not found, no special override
+        return $"{device}_{controlPath}";
     }
 
     public Sprite LoadBindingIconSprite(string[] paths)
@@ -233,5 +219,13 @@ public class ControlManager : MonoBehaviour
             return sprite;
         }
         return null;
+    }
+
+    private void LoadBindingIconNames()
+    {
+        TextAsset jsonGamepad = AssetDatabase.LoadAssetAtPath<TextAsset>(CTRL_ICONS);
+        string textGamepad = jsonGamepad.text;
+        BindingNameDataWrapper cpwGamepad = JsonUtility.FromJson<BindingNameDataWrapper>(textGamepad);
+        bindingIconData = cpwGamepad.data.ToDictionary(d => d.BUTTON);
     }
 }

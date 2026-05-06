@@ -30,8 +30,9 @@ public class HUDManager : MonoBehaviour
     private int state;
     private int previousState = -1;
 
-    public int State { get { return state; } } 
+    public int State { get { return state; } }
 
+    #region Init
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,7 +62,9 @@ public class HUDManager : MonoBehaviour
         tooltipIcon = controlManager.GetBindingIcon("Player/Interact");
         controlManager.ActiveDeviceChanged += UpdateTooltipIcon;
     }
+    #endregion
 
+    #region Menu
     // Global Menu
     public bool ShowMenu(int stateId, bool sub = false)
     {
@@ -106,7 +109,9 @@ public class HUDManager : MonoBehaviour
     {
         HideMenu((int)state);
     }
+    #endregion
 
+    #region LoreEntry
     // Lore Entries
     public void PopulateLore(ItemData item)
     {
@@ -130,7 +135,9 @@ public class HUDManager : MonoBehaviour
         loreText.text = entry.text;
         itemImage.sprite = entry.image;
     }
+    #endregion
 
+    #region Inventory
     // Inventory
     public void PopulateInventory(Inventory inventory)
     {
@@ -170,7 +177,9 @@ public class HUDManager : MonoBehaviour
         itemIcon.sprite = item.image;
         button.GetComponent<ButtonItem>().item = item;
     }
+    #endregion
 
+    #region Tooltips
     // Tooltips
     public void ShowTooltip(Interactable interactable)
     {
@@ -190,12 +199,15 @@ public class HUDManager : MonoBehaviour
             inter.ShowTooltip(tooltipIcon);
         }
     }
+    #endregion
 
+    #region Dialogue
     // Dialogue
     public void ShowDialogue(Dialoguer dia)
     {
         dialogueManager.ShowDialogue(dia);
     }
+    #endregion
 
 }
 

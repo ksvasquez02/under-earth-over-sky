@@ -1,0 +1,3178 @@
+fileFormatVersion: 2
+guid: ff38b0f35cd0b744390d2e2de8ea345b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8386427280196713362
+    second: steam-controller_sheet_default_0
+  - first:
+      213: 420453335503095399
+    second: steam-controller_sheet_default_1
+  - first:
+      213: -2307420733432970816
+    second: steam-controller_sheet_default_2
+  - first:
+      213: 8092719024232783080
+    second: steam-controller_sheet_default_3
+  - first:
+      213: -7938202222209168790
+    second: steam-controller_sheet_default_4
+  - first:
+      213: -8725765226949158538
+    second: steam-controller_sheet_default_5
+  - first:
+      213: -6071205445687053709
+    second: steam-controller_sheet_default_6
+  - first:
+      213: 5341638109523519527
+    second: steam-controller_sheet_default_7
+  - first:
+      213: -8030494408447159713
+    second: steam-controller_sheet_default_8
+  - first:
+      213: 7138654433042685388
+    second: steam-controller_sheet_default_9
+  - first:
+      213: -3962423209719573924
+    second: steam-controller_sheet_default_10
+  - first:
+      213: 4261573613915008954
+    second: steam-controller_sheet_default_11
+  - first:
+      213: 5306193795808291817
+    second: steam-controller_sheet_default_12
+  - first:
+      213: 780883907075104130
+    second: steam-controller_sheet_default_13
+  - first:
+      213: 1697383470360235272
+    second: steam-controller_sheet_default_14
+  - first:
+      213: 1820942839316823195
+    second: steam-controller_sheet_default_15
+  - first:
+      213: 4160679916316022385
+    second: steam-controller_sheet_default_16
+  - first:
+      213: 475569087779954941
+    second: steam-controller_sheet_default_17
+  - first:
+      213: 7578177326744140004
+    second: steam-controller_sheet_default_18
+  - first:
+      213: -2913113259483712867
+    second: steam-controller_sheet_default_19
+  - first:
+      213: 9115614272107804948
+    second: steam-controller_sheet_default_20
+  - first:
+      213: -1651835941436503875
+    second: steam-controller_sheet_default_21
+  - first:
+      213: 5234289935269235380
+    second: steam-controller_sheet_default_22
+  - first:
+      213: 8075126235805035227
+    second: steam-controller_sheet_default_23
+  - first:
+      213: 6434090824464343967
+    second: steam-controller_sheet_default_24
+  - first:
+      213: -3861405491323101521
+    second: steam-controller_sheet_default_25
+  - first:
+      213: -4652292931377371977
+    second: steam-controller_sheet_default_26
+  - first:
+      213: 6822283204433712691
+    second: steam-controller_sheet_default_27
+  - first:
+      213: 8294761623699187402
+    second: steam-controller_sheet_default_28
+  - first:
+      213: 6089360572312496120
+    second: steam-controller_sheet_default_29
+  - first:
+      213: 846968747260773075
+    second: steam-controller_sheet_default_30
+  - first:
+      213: -5815569296054570717
+    second: steam-controller_sheet_default_31
+  - first:
+      213: -8928879463264137488
+    second: steam-controller_sheet_default_32
+  - first:
+      213: -5194797933339385082
+    second: steam-controller_sheet_default_33
+  - first:
+      213: -7688303197810417390
+    second: steam-controller_sheet_default_34
+  - first:
+      213: 8437948465622655821
+    second: steam-controller_sheet_default_35
+  - first:
+      213: -269679970538853585
+    second: steam-controller_sheet_default_36
+  - first:
+      213: 6516916370623936054
+    second: steam-controller_sheet_default_37
+  - first:
+      213: 712261871427341490
+    second: steam-controller_sheet_default_38
+  - first:
+      213: -7955214737439879647
+    second: steam-controller_sheet_default_39
+  - first:
+      213: 4129763839727789347
+    second: steam-controller_sheet_default_40
+  - first:
+      213: -204562883345000339
+    second: steam-controller_sheet_default_41
+  - first:
+      213: 1597777619927576115
+    second: steam-controller_sheet_default_42
+  - first:
+      213: 257657755861573774
+    second: steam-controller_sheet_default_43
+  - first:
+      213: -214013045468984265
+    second: steam-controller_sheet_default_44
+  - first:
+      213: 3359151507583785697
+    second: steam-controller_sheet_default_45
+  - first:
+      213: -7794727746219476715
+    second: steam-controller_sheet_default_46
+  - first:
+      213: 6548183679184197461
+    second: steam-controller_sheet_default_47
+  - first:
+      213: 6336905857591917227
+    second: steam-controller_sheet_default_48
+  - first:
+      213: -9124596252410856016
+    second: steam-controller_sheet_default_49
+  - first:
+      213: 1962889813719527133
+    second: steam-controller_sheet_default_50
+  - first:
+      213: 4385224700625041047
+    second: steam-controller_sheet_default_51
+  - first:
+      213: -4295878191624381296
+    second: steam-controller_sheet_default_52
+  - first:
+      213: 1759842418691961687
+    second: steam-controller_sheet_default_53
+  - first:
+      213: -1360869256568187070
+    second: steam-controller_sheet_default_54
+  - first:
+      213: -8971470859745156572
+    second: steam-controller_sheet_default_55
+  - first:
+      213: 1613807545638177095
+    second: steam-controller_sheet_default_56
+  - first:
+      213: -4806024885863749446
+    second: steam-controller_sheet_default_57
+  - first:
+      213: -3026249438253102077
+    second: steam-controller_sheet_default_58
+  - first:
+      213: -4970374872568010000
+    second: steam-controller_sheet_default_59
+  - first:
+      213: 1931907850433759349
+    second: steam-controller_sheet_default_60
+  - first:
+      213: -1792014746380407841
+    second: steam-controller_sheet_default_61
+  - first:
+      213: -3922116942540230172
+    second: steam-controller_sheet_default_62
+  - first:
+      213: -5469857500636948135
+    second: steam-controller_sheet_default_63
+  - first:
+      213: -8217873388820841741
+    second: steam-controller_sheet_default_64
+  - first:
+      213: 4638685787605926031
+    second: steam-controller_sheet_default_65
+  - first:
+      213: -845564442497818633
+    second: steam-controller_sheet_default_66
+  - first:
+      213: -6800570736006226501
+    second: steam-controller_sheet_default_67
+  - first:
+      213: -1825118414001205643
+    second: steam-controller_sheet_default_68
+  - first:
+      213: 2297555963987611421
+    second: steam-controller_sheet_default_69
+  - first:
+      213: 6956780412293468195
+    second: steam-controller_sheet_default_70
+  - first:
+      213: 3789375165136669428
+    second: steam-controller_sheet_default_71
+  - first:
+      213: 4969483477509744410
+    second: steam-controller_sheet_default_72
+  - first:
+      213: 8522773246268900549
+    second: steam-controller_sheet_default_73
+  - first:
+      213: 8474643305658153989
+    second: steam-controller_sheet_default_74
+  - first:
+      213: 6488065834938834814
+    second: steam-controller_sheet_default_75
+  - first:
+      213: -7959927534450624134
+    second: steam-controller_sheet_default_76
+  - first:
+      213: -4348548677296337933
+    second: steam-controller_sheet_default_77
+  - first:
+      213: -3777252137259958621
+    second: steam-controller_sheet_default_78
+  - first:
+      213: 6550041819888898530
+    second: steam-controller_sheet_default_79
+  - first:
+      213: 3392393324507582563
+    second: steam-controller_sheet_default_80
+  - first:
+      213: 6289085385655588079
+    second: steam-controller_sheet_default_81
+  - first:
+      213: -4883347892366499919
+    second: steam-controller_sheet_default_82
+  - first:
+      213: 5097505174030596215
+    second: steam-controller_sheet_default_83
+  - first:
+      213: 6517156397571057835
+    second: steam-controller_sheet_default_84
+  - first:
+      213: -3798918067246256029
+    second: steam-controller_sheet_default_85
+  - first:
+      213: -655738839495786716
+    second: steam-controller_sheet_default_86
+  - first:
+      213: -1016108146127100189
+    second: steam-controller_sheet_default_87
+  - first:
+      213: -257314345129763058
+    second: steam-controller_sheet_default_88
+  - first:
+      213: 1035199249742327233
+    second: steam-controller_sheet_default_89
+  - first:
+      213: -691072474030362805
+    second: steam-controller_sheet_default_90
+  - first:
+      213: 1012690165235956030
+    second: steam-controller_sheet_default_91
+  - first:
+      213: 1042174947281304340
+    second: steam-controller_sheet_default_92
+  - first:
+      213: 4556544151036523950
+    second: steam-controller_sheet_default_93
+  - first:
+      213: 3493025721488693058
+    second: steam-controller_sheet_default_94
+  - first:
+      213: -6513698890695809871
+    second: steam-controller_sheet_default_95
+  - first:
+      213: 9015116325473523608
+    second: steam-controller_sheet_default_96
+  - first:
+      213: 6299888054158225964
+    second: steam-controller_sheet_default_97
+  - first:
+      213: 702120124638110986
+    second: steam-controller_sheet_default_98
+  - first:
+      213: 4258363760417917063
+    second: steam-controller_sheet_default_99
+  - first:
+      213: 5744160058489884804
+    second: steam-controller_sheet_default_100
+  - first:
+      213: 7003913432373433529
+    second: steam-controller_sheet_default_101
+  - first:
+      213: 5095757728511473170
+    second: steam-controller_sheet_default_102
+  - first:
+      213: -222129833834261057
+    second: steam-controller_sheet_default_103
+  - first:
+      213: -6402164097210161133
+    second: steam-controller_sheet_default_104
+  - first:
+      213: -8550029721355515592
+    second: steam-controller_sheet_default_105
+  - first:
+      213: -2722071344336354724
+    second: steam-controller_sheet_default_106
+  - first:
+      213: -3487644049764523253
+    second: steam-controller_sheet_default_107
+  - first:
+      213: -394114694672403284
+    second: steam-controller_sheet_default_108
+  - first:
+      213: 9076689611332193407
+    second: steam-controller_sheet_default_109
+  - first:
+      213: 391562105263793235
+    second: steam-controller_sheet_default_110
+  - first:
+      213: 8948265740705113084
+    second: steam-controller_sheet_default_111
+  - first:
+      213: 4047693263528885150
+    second: controller_button_l1
+  - first:
+      213: 2591582947103811065
+    second: controller_button_l1_outline
+  - first:
+      213: 3361061712718153450
+    second: controller_button_l2
+  - first:
+      213: 6782337472839945107
+    second: controller_button_l2_outline
+  - first:
+      213: -2048503287453807635
+    second: controller_button_l4
+  - first:
+      213: 951467082373081624
+    second: controller_button_l4_outline
+  - first:
+      213: 1070713934538071470
+    second: controller_button_l5
+  - first:
+      213: 3191228447560278565
+    second: controller_button_l5_outline
+  - first:
+      213: 3963470756359010061
+    second: controller_button_options
+  - first:
+      213: -6308844501646873416
+    second: controller_button_options_outline
+  - first:
+      213: -7051417840298829012
+    second: controller_button_quickaccess
+  - first:
+      213: -5862965647062330089
+    second: controller_button_quickaccess_outline
+  - first:
+      213: 8808778015307696800
+    second: controller_button_r1
+  - first:
+      213: -6696822314974186460
+    second: controller_button_r1_outline
+  - first:
+      213: -5459885454578506862
+    second: controller_button_r2
+  - first:
+      213: -3898929640056375811
+    second: controller_button_r2_outline
+  - first:
+      213: 4466238872582786358
+    second: controller_button_r4
+  - first:
+      213: 7714285509230866288
+    second: controller_button_r4_outline
+  - first:
+      213: -962342491603131037
+    second: controller_button_r5
+  - first:
+      213: -5041332652243960738
+    second: controller_button_r5_outline
+  - first:
+      213: -425855887650465446
+    second: controller_button_view
+  - first:
+      213: 1215620473148893314
+    second: controller_button_view_outline
+  - first:
+      213: 4346079856724035746
+    second: controller_icon
+  - first:
+      213: 2920172598046901738
+    second: controller_icon_outline
+  - first:
+      213: -2216611031657116234
+    second: controller_lg
+  - first:
+      213: -3277344221084830325
+    second: controller_lg_gradient
+  - first:
+      213: 7541422377629132721
+    second: controller_lg_gradient_outline
+  - first:
+      213: -8621142054495028120
+    second: controller_lg_outline
+  - first:
+      213: 6874676063406925352
+    second: controller_rg
+  - first:
+      213: -1811174510841225889
+    second: controller_rg_gradient
+  - first:
+      213: -4167310300673222705
+    second: controller_rg_gradient_outline
+  - first:
+      213: -4319624854514623389
+    second: controller_rg_outline
+  - first:
+      213: 2518322960953225057
+    second: controller_steam
+  - first:
+      213: -2451763291070439439
+    second: controller_steam_new
+  - first:
+      213: -4603798110495796176
+    second: steam_button_a
+  - first:
+      213: 3425765231458217342
+    second: steam_button_a_outline
+  - first:
+      213: -5917452117821602814
+    second: steam_button_b
+  - first:
+      213: -762027306110122601
+    second: steam_button_b_outline
+  - first:
+      213: 4123452597671552064
+    second: steam_button_back_icon
+  - first:
+      213: 2383451192616037664
+    second: steam_button_back_icon_outline
+  - first:
+      213: 3477394041371260407
+    second: steam_button_color_a
+  - first:
+      213: 9121157838029245757
+    second: steam_button_color_a_outline
+  - first:
+      213: 1909412899022240972
+    second: steam_button_color_b
+  - first:
+      213: 7566264150221590754
+    second: steam_button_color_b_outline
+  - first:
+      213: 4354369573654465055
+    second: steam_button_color_x
+  - first:
+      213: 6456315519343153394
+    second: steam_button_color_x_outline
+  - first:
+      213: -3932600233490040092
+    second: steam_button_color_y
+  - first:
+      213: -7462953503235635984
+    second: steam_button_color_y_outline
+  - first:
+      213: -5271458009204050444
+    second: steam_button_lp
+  - first:
+      213: -9180218598813153314
+    second: steam_button_lp_outline
+  - first:
+      213: 5889700556221288563
+    second: steam_button_rp
+  - first:
+      213: 7571674305381029832
+    second: steam_button_rp_outline
+  - first:
+      213: 5633036486667026576
+    second: steam_button_start_icon
+  - first:
+      213: -6301827005104639400
+    second: steam_button_start_icon_outline
+  - first:
+      213: 9034708166828007467
+    second: steam_button_x
+  - first:
+      213: -5866575670637814180
+    second: steam_button_x_outline
+  - first:
+      213: 7590134037322556814
+    second: steam_button_y
+  - first:
+      213: -2596015672584976184
+    second: steam_button_y_outline
+  - first:
+      213: -4241998798866018329
+    second: steam_dpad
+  - first:
+      213: -7715200152473785521
+    second: steam_dpad_all
+  - first:
+      213: 5949446214734047650
+    second: steam_dpad_down
+  - first:
+      213: -6186996018461670698
+    second: steam_dpad_down_outline
+  - first:
+      213: 6102666741827139772
+    second: steam_dpad_horizontal
+  - first:
+      213: -1449922792935142555
+    second: steam_dpad_horizontal_outline
+  - first:
+      213: -1073172467937768456
+    second: steam_dpad_left
+  - first:
+      213: 5593696928028050267
+    second: steam_dpad_left_outline
+  - first:
+      213: -1836030631088343003
+    second: steam_dpad_none
+  - first:
+      213: -1372659824243450778
+    second: steam_dpad_right
+  - first:
+      213: -2235672301991827563
+    second: steam_dpad_right_outline
+  - first:
+      213: 8025345855425798583
+    second: steam_dpad_up
+  - first:
+      213: 5710881171796956367
+    second: steam_dpad_up_outline
+  - first:
+      213: 5444441994096987831
+    second: steam_dpad_vertical
+  - first:
+      213: -1147584721613651785
+    second: steam_dpad_vertical_outline
+  - first:
+      213: -3447072344641185807
+    second: steam_lb
+  - first:
+      213: -4205923843106427304
+    second: steam_lb_outline
+  - first:
+      213: 3916970394810554519
+    second: steam_lg
+  - first:
+      213: 3171888098389257701
+    second: steam_lg_outline
+  - first:
+      213: 1693836610349818317
+    second: steam_lt
+  - first:
+      213: -9035959815241680159
+    second: steam_lt_outline
+  - first:
+      213: -7327330229045065405
+    second: steam_pad
+  - first:
+      213: -858627582006567111
+    second: steam_pad_center
+  - first:
+      213: 4067737478645802821
+    second: steam_pad_down
+  - first:
+      213: -4925926435463506169
+    second: steam_pad_left
+  - first:
+      213: -6606186614992160302
+    second: steam_pad_right
+  - first:
+      213: 3155950679237558109
+    second: steam_pad_up
+  - first:
+      213: -7421944568326871885
+    second: steam_rb
+  - first:
+      213: -6608723454669555192
+    second: steam_rb_outline
+  - first:
+      213: -1041244794549286971
+    second: steam_rg
+  - first:
+      213: 549108839971185979
+    second: steam_rg_outline
+  - first:
+      213: -3978498329268174161
+    second: steam_rt
+  - first:
+      213: -4462549484022286361
+    second: steam_rt_outline
+  - first:
+      213: 1911907441491356231
+    second: steam_stick
+  - first:
+      213: 71878149292548993
+    second: steam_stick_down
+  - first:
+      213: -8055349487791338930
+    second: steam_stick_horizontal
+  - first:
+      213: 1966974376402537017
+    second: steam_stick_l_press
+  - first:
+      213: -846128723856758005
+    second: steam_stick_left
+  - first:
+      213: 667555846237672856
+    second: steam_stick_right
+  - first:
+      213: -3118092714932682867
+    second: steam_stick_side_l
+  - first:
+      213: -8241832818977340932
+    second: steam_stick_up
+  - first:
+      213: -6558795797759770961
+    second: steam_stick_vertical
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: controller_button_l1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9b716cd39b4c2830800000000000000
+      internalID: 4047693263528885150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l1_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f52518a5f627f320800000000000000
+      internalID: 2591582947103811065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae64bbee1d3e4ae20800000000000000
+      internalID: 3361061712718153450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l2_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b02774ff3bf1e50800000000000000
+      internalID: 6782337472839945107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: deb881e0d114293e0800000000000000
+      internalID: -2048503287453807635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l4_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81a2354354a443d00800000000000000
+      internalID: 951467082373081624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l5
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eadd33c86a0fbde00800000000000000
+      internalID: 1070713934538071470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_l5_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 522a3fd7d55894c20800000000000000
+      internalID: 3191228447560278565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_options
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d077d6e47a3110730800000000000000
+      internalID: 3963470756359010061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_options_outline
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bc6928f95b7278a0800000000000000
+      internalID: -6308844501646873416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_quickaccess
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2bd22295d4542e90800000000000000
+      internalID: -7051417840298829012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_quickaccess_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715188caecf82aea0800000000000000
+      internalID: -5862965647062330089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0aa8fab1fe01f3a70800000000000000
+      internalID: 8808778015307696800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r1_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424fd08f59b1013a0800000000000000
+      internalID: -6696822314974186460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 293a6855b179a34b0800000000000000
+      internalID: -5459885454578506862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r2_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df5b238562834e9c0800000000000000
+      internalID: -3898929640056375811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r4
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63d865a67944bfd30800000000000000
+      internalID: 4466238872582786358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r4_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f26a17cc5ae0b60800000000000000
+      internalID: 7714285509230866288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3652bb34a9215a2f0800000000000000
+      internalID: -962342491603131037
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_r5_outline
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5cbb64b9a6990ab0800000000000000
+      internalID: -5041332652243960738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_view
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a59d513935e071af0800000000000000
+      internalID: -425855887650465446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_button_view_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2886bb33160ced010800000000000000
+      internalID: 1215620473148893314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a844896a90605c30800000000000000
+      internalID: 4346079856724035746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_icon_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae54a659189868820800000000000000
+      internalID: 2920172598046901738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_lg
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bd8dd4c2040d31e0800000000000000
+      internalID: -2216611031657116234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_lg_gradient
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b853f878bc88482d0800000000000000
+      internalID: -3277344221084830325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_lg_gradient_outline
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b724cf32b388a860800000000000000
+      internalID: 7541422377629132721
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_lg_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86c74ab6afc8b5880800000000000000
+      internalID: -8621142054495028120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_rg
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8262041c471c76f50800000000000000
+      internalID: 6874676063406925352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_rg_gradient
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f5d111fd06a6dd6e0800000000000000
+      internalID: -1811174510841225889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_rg_gradient_outline
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc7db836c5dba26c0800000000000000
+      internalID: -4167310300673222705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_rg_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36c15b7c41c9d04c0800000000000000
+      internalID: -4319624854514623389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_steam
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16fa35de361e2f220800000000000000
+      internalID: 2518322960953225057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: controller_steam_new
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ff576ad64699fdd0800000000000000
+      internalID: -2451763291070439439
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_a
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 034984ea2060c10c0800000000000000
+      internalID: -4603798110495796176
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_a_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7d63f8d353ca8f20800000000000000
+      internalID: 3425765231458217342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_b
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2044cdd96acf0eda0800000000000000
+      internalID: -5917452117821602814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_b_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7958826d33cbc65f0800000000000000
+      internalID: -762027306110122601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_back_icon
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 044ef546a42793930800000000000000
+      internalID: 4123452597671552064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_back_icon_outline
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d2c5b4b38b31120800000000000000
+      internalID: 2383451192616037664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_a
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f57ef3e47f224030800000000000000
+      internalID: 3477394041371260407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_a_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3dc00c4abcd49e70800000000000000
+      internalID: 9121157838029245757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_b
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cccf4c74ae89f7a10800000000000000
+      internalID: 1909412899022240972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_b_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e01bb62825c00960800000000000000
+      internalID: 7566264150221590754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_x
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1a817a8e04dd6c30800000000000000
+      internalID: 4354369573654465055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_x_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f05a4002c0799950800000000000000
+      internalID: 6456315519343153394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_y
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ea35376ce89c69c0800000000000000
+      internalID: -3932600233490040092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_color_y_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f4026844534e6890800000000000000
+      internalID: -7462953503235635984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_lp
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f53109bed408d6b0800000000000000
+      internalID: -5271458009204050444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_lp_outline
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed7ce41c2df499080800000000000000
+      internalID: -9180218598813153314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_rp
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3709dfe637b6cb150800000000000000
+      internalID: 5889700556221288563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_rp_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c7503f0aadf31960800000000000000
+      internalID: 7571674305381029832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_start_icon
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0904a9ae6d09c2e40800000000000000
+      internalID: 5633036486667026576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_start_icon_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85236c43ab96b88a0800000000000000
+      internalID: -6301827005104639400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_x
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b20aa15b53bb16d70800000000000000
+      internalID: 9034708166828007467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_x_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5e1faf828cb59ea0800000000000000
+      internalID: -5866575670637814180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_y
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e85663451b2955960800000000000000
+      internalID: 7590134037322556814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_button_y_outline
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c8c934008919fbd0800000000000000
+      internalID: -2596015672584976184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ef05f741946125c0800000000000000
+      internalID: -4241998798866018329
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_all
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4ba2c4965a1ee490800000000000000
+      internalID: -7715200152473785521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_down
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a9e38f8fcda09250800000000000000
+      internalID: 5949446214734047650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_down_outline
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d206dcb6ef532aa0800000000000000
+      internalID: -6186996018461670698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_horizontal
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cb87231811701b450800000000000000
+      internalID: 6102666741827139772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_horizontal_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 56bcb5fd6e6d0ebe0800000000000000
+      internalID: -1449922792935142555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_left
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fb07d983535b11f0800000000000000
+      internalID: -1073172467937768456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_left_outline
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b534e4828bdc0ad40800000000000000
+      internalID: 5593696928028050267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_none
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5283e356edb1586e0800000000000000
+      internalID: -1836030631088343003
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_right
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 66cd48a992553fce0800000000000000
+      internalID: -1372659824243450778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_right_outline
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 597e89de2eb49f0e0800000000000000
+      internalID: -2235672301991827563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_up
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b1ee401981cf5f60800000000000000
+      internalID: 8025345855425798583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_up_outline
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc49c6f0b20214f40800000000000000
+      internalID: 5710881171796956367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_vertical
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bece52d52b8e8b40800000000000000
+      internalID: 5444441994096987831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_dpad_vertical_outline
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b08d8e96c5f210f0800000000000000
+      internalID: -1147584721613651785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lb
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7d69647f98920d0800000000000000
+      internalID: -3447072344641185807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lb_outline
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 85eab437c8e81a5c0800000000000000
+      internalID: -4205923843106427304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lg
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 798976232dfdb5630800000000000000
+      internalID: 3916970394810554519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lg_outline
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ede7cb8b6fc40c20800000000000000
+      internalID: 3171888098389257701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lt
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc1e37b3c67b18710800000000000000
+      internalID: 1693836610349818317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_lt_outline
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eab0df2c62d99280800000000000000
+      internalID: -9035959815241680159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34989c18af7105a90800000000000000
+      internalID: -7327330229045065405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad_center
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93f552c63ca8514f0800000000000000
+      internalID: -858627582006567111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad_down
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 547e93e5fa1837830800000000000000
+      internalID: 4067737478645802821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad_left
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 707dd70710893abb0800000000000000
+      internalID: -4925926435463506169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad_right
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d9b375564c1254a0800000000000000
+      internalID: -6606186614992160302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_pad_up
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f7b9cfb603ccb20800000000000000
+      internalID: 3155950679237558109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rb
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b4ac3efcb4fff890800000000000000
+      internalID: -7421944568326871885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rb_outline
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80af0a158091944a0800000000000000
+      internalID: -6608723454669555192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rg
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c74aa84061cc81f0800000000000000
+      internalID: -1041244794549286971
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rg_outline
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b356285a493de9700800000000000000
+      internalID: 549108839971185979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rt
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa24c7839d889c8c0800000000000000
+      internalID: -3978498329268174161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_rt_outline
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e7bf3c43e6d112c0800000000000000
+      internalID: -4462549484022286361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74aa48530b5788a10800000000000000
+      internalID: 1911907441491356231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_down
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 183e1b3cbcc5ff000800000000000000
+      internalID: 71878149292548993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_horizontal
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4a8296e156a53090800000000000000
+      internalID: -8055349487791338930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_l_press
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93ac4cb16c81c4b10800000000000000
+      internalID: 1966974376402537017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_left
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b0b634c9862f144f0800000000000000
+      internalID: -846128723856758005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_right
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8955bba5182a34900800000000000000
+      internalID: 667555846237672856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_side_l
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8f34b5323f4ab4d0800000000000000
+      internalID: -3118092714932682867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_up
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf103bed7b02f9d80800000000000000
+      internalID: -8241832818977340932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: steam_stick_vertical
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fae3430d8f97af4a0800000000000000
+      internalID: -6558795797759770961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      controller_button_l1: 4047693263528885150
+      controller_button_l1_outline: 2591582947103811065
+      controller_button_l2: 3361061712718153450
+      controller_button_l2_outline: 6782337472839945107
+      controller_button_l4: -2048503287453807635
+      controller_button_l4_outline: 951467082373081624
+      controller_button_l5: 1070713934538071470
+      controller_button_l5_outline: 3191228447560278565
+      controller_button_options: 3963470756359010061
+      controller_button_options_outline: -6308844501646873416
+      controller_button_quickaccess: -7051417840298829012
+      controller_button_quickaccess_outline: -5862965647062330089
+      controller_button_r1: 8808778015307696800
+      controller_button_r1_outline: -6696822314974186460
+      controller_button_r2: -5459885454578506862
+      controller_button_r2_outline: -3898929640056375811
+      controller_button_r4: 4466238872582786358
+      controller_button_r4_outline: 7714285509230866288
+      controller_button_r5: -962342491603131037
+      controller_button_r5_outline: -5041332652243960738
+      controller_button_view: -425855887650465446
+      controller_button_view_outline: 1215620473148893314
+      controller_icon: 4346079856724035746
+      controller_icon_outline: 2920172598046901738
+      controller_lg: -2216611031657116234
+      controller_lg_gradient: -3277344221084830325
+      controller_lg_gradient_outline: 7541422377629132721
+      controller_lg_outline: -8621142054495028120
+      controller_rg: 6874676063406925352
+      controller_rg_gradient: -1811174510841225889
+      controller_rg_gradient_outline: -4167310300673222705
+      controller_rg_outline: -4319624854514623389
+      controller_steam: 2518322960953225057
+      controller_steam_new: -2451763291070439439
+      steam-controller_sheet_default_0: 8386427280196713362
+      steam-controller_sheet_default_1: 420453335503095399
+      steam-controller_sheet_default_10: -3962423209719573924
+      steam-controller_sheet_default_100: 5744160058489884804
+      steam-controller_sheet_default_101: 7003913432373433529
+      steam-controller_sheet_default_102: 5095757728511473170
+      steam-controller_sheet_default_103: -222129833834261057
+      steam-controller_sheet_default_104: -6402164097210161133
+      steam-controller_sheet_default_105: -8550029721355515592
+      steam-controller_sheet_default_106: -2722071344336354724
+      steam-controller_sheet_default_107: -3487644049764523253
+      steam-controller_sheet_default_108: -394114694672403284
+      steam-controller_sheet_default_109: 9076689611332193407
+      steam-controller_sheet_default_11: 4261573613915008954
+      steam-controller_sheet_default_110: 391562105263793235
+      steam-controller_sheet_default_111: 8948265740705113084
+      steam-controller_sheet_default_12: 5306193795808291817
+      steam-controller_sheet_default_13: 780883907075104130
+      steam-controller_sheet_default_14: 1697383470360235272
+      steam-controller_sheet_default_15: 1820942839316823195
+      steam-controller_sheet_default_16: 4160679916316022385
+      steam-controller_sheet_default_17: 475569087779954941
+      steam-controller_sheet_default_18: 7578177326744140004
+      steam-controller_sheet_default_19: -2913113259483712867
+      steam-controller_sheet_default_2: -2307420733432970816
+      steam-controller_sheet_default_20: 9115614272107804948
+      steam-controller_sheet_default_21: -1651835941436503875
+      steam-controller_sheet_default_22: 5234289935269235380
+      steam-controller_sheet_default_23: 8075126235805035227
+      steam-controller_sheet_default_24: 6434090824464343967
+      steam-controller_sheet_default_25: -3861405491323101521
+      steam-controller_sheet_default_26: -4652292931377371977
+      steam-controller_sheet_default_27: 6822283204433712691
+      steam-controller_sheet_default_28: 8294761623699187402
+      steam-controller_sheet_default_29: 6089360572312496120
+      steam-controller_sheet_default_3: 8092719024232783080
+      steam-controller_sheet_default_30: 846968747260773075
+      steam-controller_sheet_default_31: -5815569296054570717
+      steam-controller_sheet_default_32: -8928879463264137488
+      steam-controller_sheet_default_33: -5194797933339385082
+      steam-controller_sheet_default_34: -7688303197810417390
+      steam-controller_sheet_default_35: 8437948465622655821
+      steam-controller_sheet_default_36: -269679970538853585
+      steam-controller_sheet_default_37: 6516916370623936054
+      steam-controller_sheet_default_38: 712261871427341490
+      steam-controller_sheet_default_39: -7955214737439879647
+      steam-controller_sheet_default_4: -7938202222209168790
+      steam-controller_sheet_default_40: 4129763839727789347
+      steam-controller_sheet_default_41: -204562883345000339
+      steam-controller_sheet_default_42: 1597777619927576115
+      steam-controller_sheet_default_43: 257657755861573774
+      steam-controller_sheet_default_44: -214013045468984265
+      steam-controller_sheet_default_45: 3359151507583785697
+      steam-controller_sheet_default_46: -7794727746219476715
+      steam-controller_sheet_default_47: 6548183679184197461
+      steam-controller_sheet_default_48: 6336905857591917227
+      steam-controller_sheet_default_49: -9124596252410856016
+      steam-controller_sheet_default_5: -8725765226949158538
+      steam-controller_sheet_default_50: 1962889813719527133
+      steam-controller_sheet_default_51: 4385224700625041047
+      steam-controller_sheet_default_52: -4295878191624381296
+      steam-controller_sheet_default_53: 1759842418691961687
+      steam-controller_sheet_default_54: -1360869256568187070
+      steam-controller_sheet_default_55: -8971470859745156572
+      steam-controller_sheet_default_56: 1613807545638177095
+      steam-controller_sheet_default_57: -4806024885863749446
+      steam-controller_sheet_default_58: -3026249438253102077
+      steam-controller_sheet_default_59: -4970374872568010000
+      steam-controller_sheet_default_6: -6071205445687053709
+      steam-controller_sheet_default_60: 1931907850433759349
+      steam-controller_sheet_default_61: -1792014746380407841
+      steam-controller_sheet_default_62: -3922116942540230172
+      steam-controller_sheet_default_63: -5469857500636948135
+      steam-controller_sheet_default_64: -8217873388820841741
+      steam-controller_sheet_default_65: 4638685787605926031
+      steam-controller_sheet_default_66: -845564442497818633
+      steam-controller_sheet_default_67: -6800570736006226501
+      steam-controller_sheet_default_68: -1825118414001205643
+      steam-controller_sheet_default_69: 2297555963987611421
+      steam-controller_sheet_default_7: 5341638109523519527
+      steam-controller_sheet_default_70: 6956780412293468195
+      steam-controller_sheet_default_71: 3789375165136669428
+      steam-controller_sheet_default_72: 4969483477509744410
+      steam-controller_sheet_default_73: 8522773246268900549
+      steam-controller_sheet_default_74: 8474643305658153989
+      steam-controller_sheet_default_75: 6488065834938834814
+      steam-controller_sheet_default_76: -7959927534450624134
+      steam-controller_sheet_default_77: -4348548677296337933
+      steam-controller_sheet_default_78: -3777252137259958621
+      steam-controller_sheet_default_79: 6550041819888898530
+      steam-controller_sheet_default_8: -8030494408447159713
+      steam-controller_sheet_default_80: 3392393324507582563
+      steam-controller_sheet_default_81: 6289085385655588079
+      steam-controller_sheet_default_82: -4883347892366499919
+      steam-controller_sheet_default_83: 5097505174030596215
+      steam-controller_sheet_default_84: 6517156397571057835
+      steam-controller_sheet_default_85: -3798918067246256029
+      steam-controller_sheet_default_86: -655738839495786716
+      steam-controller_sheet_default_87: -1016108146127100189
+      steam-controller_sheet_default_88: -257314345129763058
+      steam-controller_sheet_default_89: 1035199249742327233
+      steam-controller_sheet_default_9: 7138654433042685388
+      steam-controller_sheet_default_90: -691072474030362805
+      steam-controller_sheet_default_91: 1012690165235956030
+      steam-controller_sheet_default_92: 1042174947281304340
+      steam-controller_sheet_default_93: 4556544151036523950
+      steam-controller_sheet_default_94: 3493025721488693058
+      steam-controller_sheet_default_95: -6513698890695809871
+      steam-controller_sheet_default_96: 9015116325473523608
+      steam-controller_sheet_default_97: 6299888054158225964
+      steam-controller_sheet_default_98: 702120124638110986
+      steam-controller_sheet_default_99: 4258363760417917063
+      steam_button_a: -4603798110495796176
+      steam_button_a_outline: 3425765231458217342
+      steam_button_b: -5917452117821602814
+      steam_button_b_outline: -762027306110122601
+      steam_button_back_icon: 4123452597671552064
+      steam_button_back_icon_outline: 2383451192616037664
+      steam_button_color_a: 3477394041371260407
+      steam_button_color_a_outline: 9121157838029245757
+      steam_button_color_b: 1909412899022240972
+      steam_button_color_b_outline: 7566264150221590754
+      steam_button_color_x: 4354369573654465055
+      steam_button_color_x_outline: 6456315519343153394
+      steam_button_color_y: -3932600233490040092
+      steam_button_color_y_outline: -7462953503235635984
+      steam_button_lp: -5271458009204050444
+      steam_button_lp_outline: -9180218598813153314
+      steam_button_rp: 5889700556221288563
+      steam_button_rp_outline: 7571674305381029832
+      steam_button_start_icon: 5633036486667026576
+      steam_button_start_icon_outline: -6301827005104639400
+      steam_button_x: 9034708166828007467
+      steam_button_x_outline: -5866575670637814180
+      steam_button_y: 7590134037322556814
+      steam_button_y_outline: -2596015672584976184
+      steam_dpad: -4241998798866018329
+      steam_dpad_all: -7715200152473785521
+      steam_dpad_down: 5949446214734047650
+      steam_dpad_down_outline: -6186996018461670698
+      steam_dpad_horizontal: 6102666741827139772
+      steam_dpad_horizontal_outline: -1449922792935142555
+      steam_dpad_left: -1073172467937768456
+      steam_dpad_left_outline: 5593696928028050267
+      steam_dpad_none: -1836030631088343003
+      steam_dpad_right: -1372659824243450778
+      steam_dpad_right_outline: -2235672301991827563
+      steam_dpad_up: 8025345855425798583
+      steam_dpad_up_outline: 5710881171796956367
+      steam_dpad_vertical: 5444441994096987831
+      steam_dpad_vertical_outline: -1147584721613651785
+      steam_lb: -3447072344641185807
+      steam_lb_outline: -4205923843106427304
+      steam_lg: 3916970394810554519
+      steam_lg_outline: 3171888098389257701
+      steam_lt: 1693836610349818317
+      steam_lt_outline: -9035959815241680159
+      steam_pad: -7327330229045065405
+      steam_pad_center: -858627582006567111
+      steam_pad_down: 4067737478645802821
+      steam_pad_left: -4925926435463506169
+      steam_pad_right: -6606186614992160302
+      steam_pad_up: 3155950679237558109
+      steam_rb: -7421944568326871885
+      steam_rb_outline: -6608723454669555192
+      steam_rg: -1041244794549286971
+      steam_rg_outline: 549108839971185979
+      steam_rt: -3978498329268174161
+      steam_rt_outline: -4462549484022286361
+      steam_stick: 1911907441491356231
+      steam_stick_down: 71878149292548993
+      steam_stick_horizontal: -8055349487791338930
+      steam_stick_l_press: 1966974376402537017
+      steam_stick_left: -846128723856758005
+      steam_stick_right: 667555846237672856
+      steam_stick_side_l: -3118092714932682867
+      steam_stick_up: -8241832818977340932
+      steam_stick_vertical: -6558795797759770961
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

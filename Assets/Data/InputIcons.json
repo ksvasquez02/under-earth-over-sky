@@ -1,0 +1,264 @@
+{
+  "data" : [
+    {
+      "BUTTON": "buttonNorth",
+      "XBOX": "button_color_y",
+      "PLAYSTATION": "button_color_triangle",
+      "SWITCH": "button_x",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "buttonWest",
+      "XBOX": "button_color_x",
+      "PLAYSTATION": "button_color_square",
+      "SWITCH": "button_y",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "buttonSouth",
+      "XBOX": "button_color_a",
+      "PLAYSTATION": "button_color_cross",
+      "SWITCH": "button_b",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "buttonEast",
+      "XBOX": "button_color_b",
+      "PLAYSTATION": "button_color_circle",
+      "SWITCH": "button_a",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "start",
+      "XBOX": "button_menu",
+      "PLAYSTATION": "4_button_options",
+      "SWITCH": "button_plus",
+      "STEAM": "button_start_icon",
+      "STEAMDECK": "button_options"
+    },
+    {
+      "BUTTON": "select",
+      "XBOX": "button_view",
+      "PLAYSTATION": "4_button_share",
+      "SWITCH": "button_minus",
+      "STEAM": "button_back_icon",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "dpad",
+      "XBOX": "dpad",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "dpad/up",
+      "XBOX": "dpad_up",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "dpad/left",
+      "XBOX": "dpad_left",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "dpad/down",
+      "XBOX": "dpad_down",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "dpad/right",
+      "XBOX": "dpad_right",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "leftStick",
+      "XBOX": "stick_l",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "stick",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "rightStick",
+      "XBOX": "stick_r",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "pad",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "leftShoulder",
+      "XBOX": "lb",
+      "PLAYSTATION": "trigger_l1",
+      "SWITCH": "l",
+      "STEAM": "",
+      "STEAMDECK": "button_l1"
+    },
+    {
+      "BUTTON": "rightShoulder",
+      "XBOX": "rb",
+      "PLAYSTATION": "trigger_r1",
+      "SWITCH": "r",
+      "STEAM": "",
+      "STEAMDECK": "button_r1"
+    },
+    {
+      "BUTTON": "leftTrigger",
+      "XBOX": "lt",
+      "PLAYSTATION": "trigger_l2",
+      "SWITCH": "zl",
+      "STEAM": "",
+      "STEAMDECK": "button_l2"
+    },
+    {
+      "BUTTON": "rightTrigger",
+      "XBOX": "rt",
+      "PLAYSTATION": "trigger_l3",
+      "SWITCH": "zr",
+      "STEAM": "",
+      "STEAMDECK": "button_r2"
+    },
+    {
+      "BUTTON": "leftStickPress",
+      "XBOX": "stick_side_l",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "rightStickPress",
+      "XBOX": "stick_side_r",
+      "PLAYSTATION": "",
+      "SWITCH": "",
+      "STEAM": "pad_center",
+      "STEAMDECK": ""
+    },
+    {
+      "BUTTON": "upArrow",
+      "KEYBOARD": "arrows_up",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "leftArrow",
+      "KEYBOARD": "arrows_left",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "downArrow",
+      "KEYBOARD": "arrows_down",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "rightArrow",
+      "KEYBOARD": "arrows_right",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "leftShift",
+      "KEYBOARD": "shift",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "rightShift",
+      "KEYBOARD": "shift",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "control",
+      "KEYBOARD": "ctrl",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "leftControl",
+      "KEYBOARD": "ctrl",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "rightControl",
+      "KEYBOARD": "ctrl",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "leftAlt",
+      "KEYBOARD": "alt",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "rightAlt",
+      "KEYBOARD": "alt",
+      "MOUSE": "",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "delta",
+      "KEYBOARD": "",
+      "MOUSE": "move",
+      "TOUCH": "swipe_move"
+    },
+    {
+      "BUTTON": "leftButton",
+      "KEYBOARD": "",
+      "MOUSE": "left",
+      "TOUCH": "tap"
+    },
+    {
+      "BUTTON": "rightButton",
+      "KEYBOARD": "",
+      "MOUSE": "right",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "middleButton",
+      "KEYBOARD": "",
+      "MOUSE": "scroll",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "scroll",
+      "KEYBOARD": "",
+      "MOUSE": "scroll_vertical",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "scroll/up",
+      "KEYBOARD": "",
+      "MOUSE": "scroll_up",
+      "TOUCH": ""
+    },
+    {
+      "BUTTON": "scroll/down",
+      "KEYBOARD": "",
+      "MOUSE": "scroll_down",
+      "TOUCH": ""
+    }
+  ]
+}
