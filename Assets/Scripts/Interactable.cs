@@ -44,7 +44,7 @@ public class Interactable : MonoBehaviour
 
     public void ShowTooltip(Sprite icon = null)
     {
-        if (tooltip == null) return;
+        if (!isActive || tooltip == null) return;
 
         tooltipText.text = TooltipLabel;
         if (icon != null) tooltipImage.sprite = icon;

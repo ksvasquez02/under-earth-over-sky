@@ -27,10 +27,10 @@ public class HUDManager : MonoBehaviour
     private ControlManager controlManager;
 
     private Player player;
-    private int state;
+    private MenuState state;
     private int previousState = -1;
 
-    public int State { get { return state; } }
+    public MenuState State { get { return state; } }
 
     #region Init
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -66,9 +66,9 @@ public class HUDManager : MonoBehaviour
 
     #region Menu
     // Global Menu
-    public bool ShowMenu(int stateId, bool sub = false)
+    public bool ShowMenu(MenuState stateId, bool sub = false)
     {
-        bool isAlreadyActive = menuPanels[stateId].activeSelf;
+        bool isAlreadyActive = menuPanels[(int)stateId].activeSelf;
         state = stateId;
         previousState = -1;
 
@@ -77,21 +77,21 @@ public class HUDManager : MonoBehaviour
             if (sub && go.activeInHierarchy) previousState = menuPanels.IndexOf(go);
             go.SetActive(false);
         }
-        menuPanels[stateId].SetActive(true);
+        menuPanels[(int)stateId].SetActive(true);
         menu.SetActive(true);
         player.LockPlayer();
 
         return !isAlreadyActive;
     }
-    public bool ShowMenu(MenuState state, bool sub = false)
+    public bool ShowMenu(int state, bool sub = false)
     {
-        return ShowMenu((int)state, sub);
+        return ShowMenu((MenuState)state, sub);
     }
 
     public void HideMenu()
     {
         menu.SetActive(false);
-        state = -1;
+        state = MenuState.None;
         previousState = -1;
     }
     public void HideMenu(int stateId)
@@ -213,6 +213,7 @@ public class HUDManager : MonoBehaviour
 
 public enum MenuState
 {
-    Lore,
-    Inventory
+    None = -1,
+    Lore = 0,
+    Inventory = 1,
 }

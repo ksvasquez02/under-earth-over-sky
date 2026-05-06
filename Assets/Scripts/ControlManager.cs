@@ -37,6 +37,10 @@ public class ControlManager : MonoBehaviour
     struct BindingNameDataWrapper
     {
         public BindingNameData[] data;
+        public BindingNameDataWrapper(BindingNameData[] data)
+        {
+            this.data = data;
+        }
     }
 
     [Serializable]
@@ -215,7 +219,7 @@ public class ControlManager : MonoBehaviour
 
         if (dic.TryGetValue(subPath, out Sprite sprite))
         {
-            Debug.Log($"Loaded sprite at \"{sheetPath}\" named \"{subPath}\"");
+            //Debug.Log($"Loaded sprite at \"{sheetPath}\" named \"{subPath}\"");
             return sprite;
         }
         return null;

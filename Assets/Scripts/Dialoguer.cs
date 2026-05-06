@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class Dialoguer : MonoBehaviour
 {
     public bool isActive = true;
-    public List<DialogueEntryData> entries = new List<DialogueEntryData>();
+    public List<DialogueEntryData> entries = new();
 }
 
 [Serializable]

@@ -9,13 +9,13 @@ public class HUDDialogue : MonoBehaviour
     private TextMeshProUGUI tmpSpeaker;
     private TextMeshProUGUI tmpText;
     private Animator animator;
-    private Queue<DialogueEntryData> queuedEntries = new Queue<DialogueEntryData>();
+    private readonly Queue<DialogueEntryData> queuedEntries = new();
 
     [SerializeField]
     private float transitionDelay = 0.5f;
 
-    private int streamIndex = 0;
     private string streamText;
+    private int streamIndex = 0;
     [SerializeField]
     private float streamSpeed = 100f;
     private float streamTick;
@@ -28,14 +28,14 @@ public class HUDDialogue : MonoBehaviour
 
     private void Awake()
     {
-        streamTick = 1f / streamSpeed; ;
+        streamTick = 1f / streamSpeed;
     }
 
     void Start()
     {
         fadeTimer = new Timer(1f, FadeOut);
         transitionTimer = new Timer(transitionDelay, AdvanceDialogue);
-        streamTimer = new Timer(streamTick, StreamNextCharColor);
+        streamTimer = new Timer(streamTick, StreamNextChar);
 
         if (panel != null)
         {
@@ -106,37 +106,7 @@ public class HUDDialogue : MonoBehaviour
         panel.SetActive(false);
     }
 
-    public void StreamIn()
-    {
-
-    }
-
     private void StreamNextChar()
-    {
-        if (streamText == null) return;
-        if (streamIndex >= streamText.Length)
-        {
-            streamIndex = 0;
-            return;
-        }
-
-        if (streamText[streamIndex] == '<')
-        {
-            int closingIndex = streamText.IndexOf('>', streamIndex);
-            if (closingIndex > 0) streamIndex = closingIndex + 1;
-        }
-        else if (streamText[streamIndex] == '\\')
-        {
-            if (streamText[streamIndex + 1] == 'n') { streamIndex++; }
-        }
-        string subText = streamText[..streamIndex];
-
-        tmpText.text = subText;
-
-        streamIndex++;
-        streamTimer.Reset();
-    }
-    private void StreamNextCharColor()
     {
         if (streamText == null) return;
         if (streamIndex >= streamText.Length)
