@@ -3,11 +3,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEditor;
 
 public class HUDManager : MonoBehaviour
 {
     public GameObject menu;
-    private List<GameObject> menuPanels = new List<GameObject>();
+    private readonly List<GameObject> menuPanels = new();
 
     public GameObject lorePanel;
     private TextMeshProUGUI loreSpeaker;
@@ -16,14 +17,14 @@ public class HUDManager : MonoBehaviour
     private Queue<LoreEntryData> queuedLore;
 
     public GameObject inventoryPanel;
-    private Dictionary<ItemType, GameObject> inventorySubsections;
+    private readonly Dictionary<ItemType, GameObject> inventorySubs = new();
     public GameObject itemButtonPrefab;
 
-    public GameObject tooltip;
-    private TextMeshProUGUI tooltipText;
-    private TextMeshProUGUI tooltipKey;
+    private readonly List<Interactable> activeTooltips =  new();
+    private Sprite tooltipIcon;
 
     private HUDDialogue dialogueManager;
+    private ControlManager controlManager;
 
     private Player player;
     private int state;
@@ -36,6 +37,7 @@ public class HUDManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
         dialogueManager = GetComponent<HUDDialogue>();
+        controlManager = GetComponent<ControlManager>();
 
         if (lorePanel != null)
         {
@@ -48,21 +50,16 @@ public class HUDManager : MonoBehaviour
         }
         if (inventoryPanel != null)
         {
-            inventorySubsections = new Dictionary<ItemType, GameObject>();
             GameObject subContainer = inventoryPanel.transform.GetChild(0).GetChild(1).gameObject;
-            inventorySubsections.Add(ItemType.Artifact, subContainer.transform.GetChild(0).gameObject);
-            inventorySubsections.Add(ItemType.Language, subContainer.transform.GetChild(1).gameObject);
-            inventorySubsections.Add(ItemType.Memory, subContainer.transform.GetChild(2).gameObject);
+            inventorySubs.Add(ItemType.Artifact, subContainer.transform.GetChild(0).gameObject);
+            inventorySubs.Add(ItemType.Language, subContainer.transform.GetChild(1).gameObject);
+            inventorySubs.Add(ItemType.Memory, subContainer.transform.GetChild(2).gameObject);
             menuPanels.Insert(1, inventoryPanel);
             inventoryPanel.SetActive(false);
         }
-        if (tooltip != null)
-        {
-            TextMeshProUGUI[] ttTexts = tooltip.GetComponentsInChildren<TextMeshProUGUI>();
-            tooltipText = ttTexts[0];
-            tooltipKey = ttTexts[1];
-            tooltip.SetActive(false);
-        }
+
+        tooltipIcon = controlManager.GetBindingIcon("Player/Interact");
+        controlManager.ActiveDeviceChanged += UpdateTooltipIcon;
     }
 
     // Global Menu
@@ -113,7 +110,7 @@ public class HUDManager : MonoBehaviour
     // Lore Entries
     public void PopulateLore(ItemData item)
     {
-        if (item.entries?.Length <= 0) return;
+        if (item.entries == null || item.entries.Length <= 0) return;
         queuedLore = new Queue<LoreEntryData>(item.entries);
         LoreEntryData first = queuedLore.Dequeue();
 
@@ -137,7 +134,7 @@ public class HUDManager : MonoBehaviour
     // Inventory
     public void PopulateInventory(Inventory inventory)
     {
-        foreach((ItemType type, GameObject sub) in inventorySubsections)
+        foreach((ItemType type, GameObject sub) in inventorySubs)
         {
             int count = 0;
             Transform container = sub.transform.GetChild(1);
@@ -177,16 +174,21 @@ public class HUDManager : MonoBehaviour
     // Tooltips
     public void ShowTooltip(Interactable interactable)
     {
-        if (tooltip == null || interactable == null) return;
-        tooltipText.text = interactable.TooltipLabel;
-        if (tooltipText.text == "") HideTooltip();
-        tooltip.SetActive(true);
+        interactable.ShowTooltip(tooltipIcon);
+        if (!activeTooltips.Contains(interactable)) activeTooltips.Add(interactable);
     }
-
-    public void HideTooltip()
+    public void HideTooltip(Interactable interactable)
     {
-        if (tooltip == null) return;
-        tooltip.SetActive(false);
+        interactable.HideTooltip();
+        activeTooltips.Remove(interactable);
+    }
+    public void UpdateTooltipIcon()
+    {
+        tooltipIcon = controlManager.GetBindingIcon("Player/Interact");
+        foreach (Interactable inter in activeTooltips)
+        {
+            inter.ShowTooltip(tooltipIcon);
+        }
     }
 
     // Dialogue
@@ -194,6 +196,7 @@ public class HUDManager : MonoBehaviour
     {
         dialogueManager.ShowDialogue(dia);
     }
+
 }
 
 public enum MenuState

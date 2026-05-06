@@ -1,9 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public enum MoveState
+    {
+        Normal,
+        Climbing,
+        Locked
+    }
+
+    #region Variables
     private Entity entity;
 
     private InputAction ia_move;
@@ -17,7 +26,6 @@ public class Player : MonoBehaviour
     private bool _inventoryInput;
 
     private MoveState _state;
-    private Dictionary<string, Timer> timers = new();
 
     [Header("Movement")]
     [SerializeField]
@@ -26,6 +34,8 @@ public class Player : MonoBehaviour
     private float accel = 10f;
     [SerializeField]
     private float deaccel = 20f;
+    private float curSpeed = 0f;
+
     [Header("Air Movement")]
     [SerializeField]
     private float jumpPower = 10f;
@@ -35,13 +45,11 @@ public class Player : MonoBehaviour
     private float jumpHoldBuffer = 0.02f;
     [SerializeField]
     private float jumpHoldPower = 1f;
+    private float jumpHold = 0f;
     [SerializeField]
     private float airSpeed = 5f;
     [SerializeField]
     private float airAccel = 10f;
-
-    private float curSpeed = 0f;
-    private float jumpHold = 0f;
 
     [Header("Climbing")]
     [SerializeField]
@@ -51,25 +59,30 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float climbJump = 10f;
 
-    private List<Interactable> nearbyInteractables = new(); // i hate unity
-
     [Header("Managers")]
     [SerializeField]
     private HUDManager hudManager;
 
-    private Inventory inventory;
+    private readonly Inventory inventory = new();
+    private readonly List<Interactable> nearbyInteractables = new(); // i hate unity
+    private readonly Dictionary<string, Timer> timers = new();
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public MoveState State { get { return _state; } }
+    #endregion
+
+    #region Init
+    private void Awake()
     {
-        inventory = new Inventory();
-
         entity = GetComponent<Entity>();
         if (entity == null)
         {
             throw new System.Exception("No entity found on Player!");
         }
+    }
 
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
         ia_move = InputSystem.actions.FindAction("Move");
         ia_jump = InputSystem.actions.FindAction("Jump");
         ia_interact = InputSystem.actions.FindAction("Interact");
@@ -78,6 +91,7 @@ public class Player : MonoBehaviour
         entity.HandleMovement += HandleMovement;
         entity.OnHandleGravity += OnHandleGravity;
     }
+    #endregion
 
     #region InputUpdate
 
@@ -96,11 +110,6 @@ public class Player : MonoBehaviour
             default:
                 UpdateDefault();
                 break;
-        }
-
-        foreach (Interactable i in nearbyInteractables)
-        {
-
         }
 
         foreach ((string id, Timer timer) in timers)
@@ -144,7 +153,7 @@ public class Player : MonoBehaviour
             if (inventory.AddItem(itemData))
             {
                 hudManager.PopulateInventory(inventory);
-                inter.stage++;
+                inter.Stage++;
                 hudManager.ShowTooltip(inter);
             }
         }
@@ -180,9 +189,9 @@ public class Player : MonoBehaviour
         entity.Vel = vel;
     }
 
-    bool debugJump = false;
     private Vector2 MovementNormal(Vector2 vel, bool useInput = true)
     {
+        // Use appropriate ground/air speed
         float useAccel = entity.IsGrounded ? accel : airAccel;
         float useSpeed = entity.IsGrounded ? speed : airSpeed;
 
@@ -203,48 +212,15 @@ public class Player : MonoBehaviour
         curSpeed = Mathf.Clamp(curSpeed, -useSpeed, useSpeed);
         vel.x = curSpeed;
 
-        // Handle Jump
-        if (useInput && _jumpInput)
-        {
-            if (entity.IsGrounded && vel.y <= jumpHoldPower)
-            {
-                vel.y = jumpPower;
-                jumpHold = jumpHoldTime;
-                debugJump = true;
-            }
-            else if (jumpHold > 0f)
-            {
-                jumpHold -= Time.fixedDeltaTime;
-                if (jumpHold < jumpHoldTime - jumpHoldBuffer)
-                {
-                    float ratio = jumpHold / jumpHoldTime;
-                    vel.y += jumpHoldPower + jumpHoldPower * ratio;
-                    if (debugJump)
-                    {
-                        //Debug.Log($"Held Jump!");
-                        debugJump = false;
-                    }
-                }
+        // Handle jumping
+        HandleJumpNormal(ref vel, useInput);
 
-                if (jumpHold <= 0)
-                {
-                    jumpHold = 0f;
-                    _jumpInput = false;
-                }
-            }
-        }
-        else
-        {
-            jumpHold = 0f;
-            debugJump = false;
-        }
-
-        // Handle Passthrough Platforms
+        // Handle passthrough platforms
         if (useInput)
         {
             if (entity.IsGrounded)
             {
-                entity.IsPassThrough = _moveInput.y < 0;
+                entity.IsPassThrough = _moveInput.y < -0.5f;
             }
             // Passthrough resets in OnTriggerExit2D 
         }
@@ -253,10 +229,46 @@ public class Player : MonoBehaviour
             entity.IsPassThrough = false;
         }
 
-        // Enable Gravity
+        // Enable gravity
         entity.IgnoreGravity = false;
 
         return vel;
+    }
+
+    private void HandleJumpNormal(ref Vector2 vel, bool useInput = true)
+    {
+        // If jump is input...
+        if (useInput && _jumpInput)
+        {
+            // Handle intial grounded jump
+            if (entity.IsGrounded && vel.y <= jumpHoldPower)
+            {
+                vel.y = jumpPower;
+                jumpHold = jumpHoldTime;
+            }
+            // Handle in-air held jump
+            else if (jumpHold > 0f)
+            {
+                jumpHold -= Time.fixedDeltaTime;
+                // Buffer prevents holding for the first few frames
+                if (jumpHold < jumpHoldTime - jumpHoldBuffer)
+                {
+                    float ratio = jumpHold / jumpHoldTime;
+                    vel.y += jumpHoldPower + jumpHoldPower * ratio;
+                }
+                // Held jump has reached its maximum length
+                if (jumpHold <= 0)
+                {
+                    jumpHold = 0f;
+                    _jumpInput = false;
+                }
+            }
+        }
+        // Jump released, stop held jump
+        else
+        {
+            jumpHold = 0f;
+        }
     }
 
     private Vector2 MovementClimbing(Vector2 vel)
@@ -271,6 +283,7 @@ public class Player : MonoBehaviour
         {
             vel.y = climbJump;
             _jumpInput = false;
+            jumpHold = 0f;
             _state = MoveState.Normal;
         }
 
@@ -281,7 +294,7 @@ public class Player : MonoBehaviour
     }
     #endregion
 
-    #region OnHandleGravity
+    #region OnGravity
 
     private void OnHandleGravity()
     {
@@ -290,16 +303,11 @@ public class Player : MonoBehaviour
         switch (_state)
         {
             case MoveState.Climbing:
-                {
-                    if (_moveInput.y == 0)
-                    {
-                        vel.y = -climbGravity;
-                    } else
-                    {
-                        vel.y -= climbGravity;
-                    }
-                    break;
-                }
+                if (_moveInput.y == 0)
+                    vel.y = -climbGravity;
+                else
+                    vel.y -= climbGravity;
+                break;
             default: break;
         }
 
@@ -376,33 +384,18 @@ public class Player : MonoBehaviour
             if (inter != null && nearbyInteractables.Contains(inter))
             {
                 nearbyInteractables.Remove(inter);
-                hudManager.HideTooltip();
+                hudManager.HideTooltip(inter);
             }
         }
     }
     #endregion
 
+    #region API
     public bool LockPlayer()
     {
         if (_state == MoveState.Locked) return false;
         _state = MoveState.Locked;
         return true;
     }
-
-    //public void OnInteract(InputValue value)
-    //{
-    //    _interactInput = value.isPressed;
-    //}
-
-    //public void OnInventory(InputValue value)
-    //{
-    //    _inventoryInput = value.isPressed;
-    //}
-}
-
-enum MoveState
-{
-    Normal,
-    Climbing,
-    Locked
+    #endregion
 }

@@ -22,7 +22,6 @@ public class HUDDialogue : MonoBehaviour
 
     private Timer fadeTimer;
     private Timer transitionTimer;
-    [SerializeField]
     private Timer streamTimer;
 
     public GameObject DiaPanel {  get { return panel; } }
