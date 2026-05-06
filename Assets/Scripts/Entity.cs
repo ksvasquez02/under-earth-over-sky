@@ -41,6 +41,7 @@ public class Entity : MonoBehaviour
     public Vector2 Vel { get { return vel; } set { vel = value; } }
     public Vector2 NetVel { get { return new Vector2(_body.linearVelocityX, _body.linearVelocityY); } }
     public Rigidbody2D Body { get { return _body; } }
+    public BoxCollider2D Box {  get { return _col; } }
     public Bounds Bounds { get { return _col.bounds; } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
     public float GroundGravity { get { return groundGravity; } }
@@ -50,18 +51,22 @@ public class Entity : MonoBehaviour
     public bool IsPassThrough { get { return isPassThrough; } set { isPassThrough = value; } }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void Awake()
     {
-        pos = transform.position;
         _body = GetComponent<Rigidbody2D>();
         _col = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+        pos = transform.position;
         Physics2D.queriesStartInColliders = false;
         excludeLayers = _col.excludeLayers;
     }
 
     private void Update()
     {
-
+        
     }
 
     // Update is called once per frame

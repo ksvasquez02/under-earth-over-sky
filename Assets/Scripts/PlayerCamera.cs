@@ -3,90 +3,104 @@ using UnityEngine;
 public class PlayerCamera : MonoBehaviour
 {
     private Entity player;
+
+    [SerializeField]
+    private Vector2 focusAreaSize;
+    private FocusArea focusArea;
+
     [SerializeField]
     private Vector2 offset = Vector2.up;
 
     [SerializeField]
-    private float panSpeed = 8f;
+    private float lookAheadDist = 1f;
     [SerializeField]
-    private float minPanSpeed = 2f;
-    [SerializeField]
-    private float followAccel = 1f;
-    [SerializeField]
-    private float followDist = 1f;
-    [SerializeField]
-    private float followVertDamping = 0.5f;
-    [SerializeField]
-    private float followDelaySpeed = 8f;
+    private Vector2 smoothTime;
 
-    private Vector2 velOffset = Vector3.zero;
-    private Vector2 targetPos;
-    private Vector2 basePos;
-    [SerializeField]
-    private float speed = 0;
+    public Vector2 vel;
+    private float currentLookAhead;
+    private float targetLookAhead;
+    private float lookAheadDir;
+
+    struct FocusArea
+    {
+        float left;
+        float right;
+        float bottom;
+        float top;
+        public Vector2 center;
+        public Vector2 vel;
+
+        public FocusArea(Bounds targetBounds, Vector2 size)
+        {
+            left = targetBounds.center.x - size.x / 2;
+            right = targetBounds.center.x + size.x / 2;
+            bottom = targetBounds.min.y;
+            top = targetBounds.min.y + size.y;
+
+            center = new Vector2((left + right) / 2, (top + bottom) / 2);
+            vel = Vector2.zero;
+        }
+        public void Update(Bounds targetBounds)
+        {
+            vel = Vector2.zero;
+
+            if (targetBounds.min.x < left)
+                vel.x = targetBounds.min.x - left;
+            else if (targetBounds.max.x > right)
+                vel.x = targetBounds.max.x - right;
+            if (targetBounds.min.y < bottom)
+                vel.y = targetBounds.min.y - bottom;
+            else if (targetBounds.max.y > top)
+                vel.y = targetBounds.max.y - top;
+
+            left += vel.x;
+            right += vel.x;
+            bottom += vel.y;
+            top += vel.y;
+            center = new Vector2((left + right) / 2, (top + bottom) / 2);
+        }
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         if (player == null) player = GameObject.FindWithTag("Player").GetComponent<Entity>();
+        focusArea = new FocusArea(player.Bounds, focusAreaSize);
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        Vector3 pos = transform.position;
-        float minSpeed = minPanSpeed;
-        float maxSpeed = panSpeed;
-        float accel = followAccel;
+        Bounds playerBounds = new Bounds((Vector2)player.transform.position + player.Box.offset, player.Box.size);
+        focusArea.Update(playerBounds);
 
-        basePos = new Vector2(player.Body.position.x, player.Body.position.y) + offset;
+        Vector2 focusPos = focusArea.center + offset;
+        Vector2 pos = focusPos;
 
-        Vector2 playerVel = new Vector2(player.NetVel.x, player.NetVel.y * followVertDamping);
-        Vector2 velDeltaTarget = playerVel.magnitude > 0.1f ? Vector2.ClampMagnitude(playerVel, followDist) : Vector2.zero;
-        velOffset = Vector2.MoveTowards(velOffset, velDeltaTarget, followDelaySpeed * Time.deltaTime);
-
-        targetPos = basePos + velOffset;
-
-        float distance = Vector2.Distance(targetPos, pos);
-        if (distance > followDist)
+        if (focusArea.vel.x != 0)
         {
-            float distanceOffset = distance * 2 - followDist;
-            speed += distanceOffset;
-            maxSpeed += distanceOffset;
+            lookAheadDir = Mathf.Sign(focusArea.vel.x);
+            targetLookAhead = lookAheadDir * lookAheadDist;
         }
-        else if (distance < 0.1f)
+        else if (lookAheadDir != 0)
         {
-            speed = minSpeed;
-            accel = 0;
-        }
-        // If player is not moving, and camera has finished compensating for velocity offset
-        else if (velDeltaTarget.magnitude <= 0.1f && velOffset.magnitude <= 0.1f)
-        {
-            accel = -followAccel;
+            targetLookAhead = currentLookAhead + (lookAheadDir * lookAheadDist - currentLookAhead) / 4f;
+            lookAheadDir = 0;
         }
 
-        speed += accel * Time.deltaTime;
-        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
+        currentLookAhead = Mathf.SmoothDamp(currentLookAhead, targetLookAhead, ref vel.x, smoothTime.x);
+        pos.x += currentLookAhead;
 
-        Vector2 towards = Vector2.MoveTowards(pos, targetPos, speed * Time.deltaTime);
-        pos = new Vector3(towards.x, towards.y, pos.z);
+        pos.y = Mathf.SmoothDamp(transform.position.y, pos.y, ref vel.y, smoothTime.y);
 
-        transform.position = pos; 
+        if (vel.magnitude < 0.001f) vel = Vector2.zero;
+        
+        transform.position = new Vector3(pos.x, pos.y, transform.position.z);
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
     {
-        Vector2 pos = transform.position;
-        Vector2 tar = targetPos;
-        Vector2 bas = basePos;
-
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(tar, 0.1f);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(pos, tar);
-
-        Gizmos.color = Color.green;
-        Gizmos.DrawWireSphere(bas, 0.1f);
+        Gizmos.color = new Color(0.5f,0,1,0.5f);
+        Gizmos.DrawCube(focusArea.center, focusAreaSize);
     }
 }
