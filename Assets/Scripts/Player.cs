@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
@@ -15,6 +14,7 @@ public class Player : MonoBehaviour
     #region Variables
     private Entity entity;
 
+    private PlayerInput playerInput;
     private InputAction ia_move;
     private InputAction ia_jump;
     private InputAction ia_interact;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     private bool _interactInput;
     private bool _inventoryInput;
 
+    [SerializeField]
     private MoveState _state;
 
     [Header("Movement")]
@@ -57,7 +58,12 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float climbGravity = 1f;
     [SerializeField]
+    private float climbFriction = 1f;
+    private float curFriction;
+    [SerializeField]
     private float climbJump = 10f;
+    [SerializeField]
+    private float climbJumpFrictionReq = 0.5f;
 
     [Header("Managers")]
     [SerializeField]
@@ -74,10 +80,9 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         entity = GetComponent<Entity>();
-        if (entity == null)
-        {
-            throw new System.Exception("No entity found on Player!");
-        }
+        if (entity == null) throw new System.Exception("No entity found on Player!");
+
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -120,23 +125,24 @@ public class Player : MonoBehaviour
 
     private void UpdateLocked()
     {
+        // Handle player input when menus are open
         switch (hudManager.State)
         {
-            case (int)MenuState.Lore:
+            case MenuState.Lore:
                 if (_interactInput && !hudManager.AdvanceLore())
                 {
                     hudManager.HideMenu(MenuState.Lore);
                 }
                 break;
-            case (int)MenuState.Inventory:
+            case MenuState.Inventory:
                 if (_inventoryInput)
                 {
                     hudManager.HideMenu(MenuState.Inventory);
                 }
                 break;
             // If no menu is open
-            case -1:
-                if (hudManager.State < 0) _state = MoveState.Normal;
+            case MenuState.None:
+                _state = MoveState.Normal;
                 break;
             default: break;
         }
@@ -167,7 +173,6 @@ public class Player : MonoBehaviour
 
     #region HandleMovement
 
-    // Update is called once per frame
     private void HandleMovement()
     {
         Vector2 vel = entity.Vel;
@@ -231,6 +236,7 @@ public class Player : MonoBehaviour
 
         // Enable gravity
         entity.IgnoreGravity = false;
+        curFriction = 0f;
 
         return vel;
     }
@@ -275,16 +281,52 @@ public class Player : MonoBehaviour
     {
         // Handle Climb Movement
         Vector2 raw = _moveInput.normalized * climbSpeed;
-        float climbY = vel.y > raw.y && raw.y > 0 ? vel.y : raw.y; // High y-vel overrides up-input
-        vel = new Vector2(raw.x, climbY);
+
+        float frictionMult;
+        if (_moveInput.y >= 0f)
+        {
+            float ratio = 0.5f;
+            frictionMult = (_moveInput.y * ratio) + (1 - ratio);
+        }
+        else
+        {
+            float ratio = 0.75f;
+            frictionMult = (_moveInput.y * ratio) - (1 - ratio);
+        }
+        curFriction += climbFriction * frictionMult * Time.fixedDeltaTime;
+        curFriction = Mathf.Clamp01(curFriction);
+
+        vel = raw;
+        vel.x = (curFriction * vel.x * 0.5f) + (vel.x * 0.5f);
+        vel.y = (curFriction * climbGravity) + vel.y;
+
+        //Vector2 raw = _moveInput.normalized * climbSpeed;
+        //float climbY = vel.y > raw.y && raw.y > 0 ? vel.y : raw.y; // High y-vel overrides up-input
+        //vel = new Vector2(raw.x, climbY);
 
         // Handle Climb Jump
-        if (_jumpInput && vel.y < climbJump)
+        if (_jumpInput && vel.y <= climbJump)
         {
-            vel.y = climbJump;
-            _jumpInput = false;
-            jumpHold = 0f;
-            _state = MoveState.Normal;
+            bool hasJumped = false;
+
+            // Trying to climb up
+            if (_moveInput.y >= 0f && curFriction >= climbJumpFrictionReq)
+            {
+                vel.y = Mathf.Max(vel.y * 0.5f + climbJump, climbJump + climbSpeed);
+                hasJumped = true;
+            }
+            // Dropping off
+            else if (_moveInput.normalized.y < 0.5f && curFriction < 0.9f)
+            {
+                hasJumped = true;
+            } 
+
+            if (hasJumped)
+            {
+                _jumpInput = false;
+                jumpHold = 0f;
+                _state = MoveState.Normal;
+            }
         }
 
         // Disable Gravity
@@ -303,10 +345,7 @@ public class Player : MonoBehaviour
         switch (_state)
         {
             case MoveState.Climbing:
-                if (_moveInput.y == 0)
-                    vel.y = -climbGravity;
-                else
-                    vel.y -= climbGravity;
+                vel.y -= climbGravity;
                 break;
             default: break;
         }
@@ -314,15 +353,17 @@ public class Player : MonoBehaviour
         entity.Vel = vel;
     }
     #endregion
-    
+
     #region Collisions
 
     private void OnTriggerStay2D(Collider2D other)
     {
         if (_state == MoveState.Normal && other.gameObject.CompareTag("Climb"))
         {
-            if (_moveInput.y > 0 && !_jumpInput)
+            if (_moveInput.y > 0 && entity.Vel.y <= climbSpeed)
             {
+                entity.Vel = new Vector2(entity.Vel.x, Mathf.Min(-climbSpeed, entity.Vel.y));
+                curFriction = 0f;
                 _state = MoveState.Climbing;
             }
         }
@@ -332,9 +373,7 @@ public class Player : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Dialogue"))
         {
-            Dialoguer dia = other.gameObject.GetComponent<Dialoguer>();
-
-            if (dia != null)
+            if (other.gameObject.TryGetComponent<Dialoguer>(out var dia))
             {
                 hudManager.ShowDialogue(dia);
             }
@@ -360,6 +399,7 @@ public class Player : MonoBehaviour
                 if (other.gameObject.CompareTag("Climb"))
                 {
                     _state = MoveState.Normal;
+                    curFriction = 0f;
                 }
                 break;
 
@@ -395,6 +435,7 @@ public class Player : MonoBehaviour
     {
         if (_state == MoveState.Locked) return false;
         _state = MoveState.Locked;
+        playerInput.SwitchCurrentActionMap("UI");
         return true;
     }
     #endregion

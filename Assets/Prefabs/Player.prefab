@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7afc68c7343fe2d4aa1da1f33e4e835e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _state: 0
   speed: 7
   accel: 30
   deaccel: 20
@@ -170,9 +171,11 @@ MonoBehaviour:
   jumpHoldPower: 1
   airSpeed: 6
   airAccel: 20
-  climbSpeed: 5
-  climbGravity: 1.5
-  climbJump: 10
+  climbSpeed: 4.5
+  climbGravity: 2
+  climbFriction: 2
+  climbJump: 8
+  climbJumpFrictionReq: 0.35
   hudManager: {fileID: 0}
 --- !u!50 &2730328693435991782
 Rigidbody2D:
@@ -189,7 +192,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 1
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 6200000, guid: 5d387908431cb7443a0ce0e8b67bed3e, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
