@@ -42,7 +42,7 @@ public class Entity : MonoBehaviour
     public Vector2 NetVel { get { return new Vector2(_body.linearVelocityX, _body.linearVelocityY); } }
     public Rigidbody2D Body { get { return _body; } }
     public BoxCollider2D Box {  get { return _col; } }
-    public Bounds Bounds { get { return _col.bounds; } }
+    public Bounds Bounds { get { return new Bounds((Vector2)transform.position + Box.offset, Box.size); } }
     public float Gravity { get { return gravity; } set { gravity = value; } }
     public float GroundGravity { get { return groundGravity; } }
     public float MaxGravity { get { return maxGravity; } }

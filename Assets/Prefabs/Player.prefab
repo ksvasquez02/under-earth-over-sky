@@ -142,11 +142,13 @@ MonoBehaviour:
     m_Bits: 64
   platformLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   gravity: 40
   maxGravity: 24
   groundOffset: 0.05
   groundGravity: 1.5
+  isGrounded: 0
+  isPassThrough: 0
 --- !u!114 &1395689085251083178
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,8 +164,12 @@ MonoBehaviour:
   speed: 7
   accel: 30
   deaccel: 20
-  jumpPower: 17
-  curSpeed: 0
+  jumpPower: 14
+  jumpHoldTime: 0.16
+  jumpHoldBuffer: 0.08
+  jumpHoldPower: 1
+  airSpeed: 6
+  airAccel: 20
   climbSpeed: 5
   climbGravity: 1.5
   climbJump: 10

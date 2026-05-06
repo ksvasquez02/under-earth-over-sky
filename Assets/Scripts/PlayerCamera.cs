@@ -71,8 +71,8 @@ public class PlayerCamera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        Bounds playerBounds = new Bounds((Vector2)player.transform.position + player.Box.offset, player.Box.size);
-        focusArea.Update(playerBounds);
+        //Bounds playerBounds = new Bounds((Vector2)player.transform.position + player.Box.offset, player.Box.size);
+        focusArea.Update(player.Bounds);
 
         Vector2 focusPos = focusArea.center + offset;
         Vector2 pos = focusPos;
