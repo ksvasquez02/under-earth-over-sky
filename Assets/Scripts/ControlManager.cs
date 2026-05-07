@@ -8,6 +8,7 @@ using UnityIS = UnityEngine.InputSystem;
 
 public class ControlManager : MonoBehaviour
 {
+    #region Variables
     public enum DeviceType
     {
         Keyboard,
@@ -31,8 +32,10 @@ public class ControlManager : MonoBehaviour
     public string ActiveDeviceScheme
     {
         get { return activeDevice == DeviceType.Keyboard ? "Keyboard&Mouse" : "Gamepad"; }
-    } 
+    }
+    #endregion
 
+    #region Structs
     [Serializable]
     struct BindingNameDataWrapper
     {
@@ -72,14 +75,14 @@ public class ControlManager : MonoBehaviour
         }
 
         public static Dictionary<ControlManager.DeviceType, string> DevicePrefix = new()
-    {
-        { DeviceType.Gamepad, "xbox" },
-        { DeviceType.Xbox, "xbox" },
-        { DeviceType.Playstation, "playstation" },
-        { DeviceType.Keyboard, "keyboard" }
-    };
+        {
+            { DeviceType.Gamepad, "xbox" },
+            { DeviceType.Xbox, "xbox" },
+            { DeviceType.Playstation, "playstation" },
+            { DeviceType.Keyboard, "keyboard" }
+        };
     }
-
+    #endregion
 
     void Awake()
     {
@@ -136,6 +139,7 @@ public class ControlManager : MonoBehaviour
         return action.bindings[bindIndex];
     }
 
+    #region ButtonIcons
     public Sprite GetBindingIcon(string actionName)
     {
         string[] paths = GetBindingIconPaths(actionName);
@@ -163,7 +167,7 @@ public class ControlManager : MonoBehaviour
         string scheme = ActiveDeviceScheme ?? _playerInput.currentControlScheme;
         int bindIndex = action.GetBindingIndex(group: scheme);
         if (bindIndex < 0) return "";
-                
+
         string display = action.GetBindingDisplayString(bindIndex, out string deviceLayout, out string controlPath);
 
         return controlPath;
@@ -232,4 +236,5 @@ public class ControlManager : MonoBehaviour
         BindingNameDataWrapper cpwGamepad = JsonUtility.FromJson<BindingNameDataWrapper>(textGamepad);
         bindingIconData = cpwGamepad.data.ToDictionary(d => d.BUTTON);
     }
+    #endregion
 }

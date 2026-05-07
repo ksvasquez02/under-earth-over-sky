@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
+using TMPro;
 
 public class HUDDialogue : MonoBehaviour
 {
@@ -13,6 +13,7 @@ public class HUDDialogue : MonoBehaviour
 
     [SerializeField]
     private float transitionDelay = 0.5f;
+    private static readonly int FadeHash = Animator.StringToHash("Fade");
 
     private string streamText;
     private int streamIndex = 0;
@@ -72,7 +73,7 @@ public class HUDDialogue : MonoBehaviour
 
     private void FadeOut()
     {
-        animator.SetBool("Fade", true);
+        animator.SetBool(FadeHash, true);
         transitionTimer.Reset();
     }
 
