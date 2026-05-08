@@ -1,0 +1,1306 @@
+fileFormatVersion: 2
+guid: 8947d1f1d266e4d46abbc77a9d87c335
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 6407325010040205806
+    second: generic_sheet_default_0
+  - first:
+      213: 6961028738462268376
+    second: generic_sheet_default_1
+  - first:
+      213: -7449963664453599812
+    second: generic_sheet_default_2
+  - first:
+      213: 7634423690015126935
+    second: generic_sheet_default_3
+  - first:
+      213: -6366746973307237753
+    second: generic_sheet_default_4
+  - first:
+      213: 5417153783338091146
+    second: generic_sheet_default_5
+  - first:
+      213: 8268279251466323141
+    second: generic_sheet_default_6
+  - first:
+      213: -3594509732824388170
+    second: generic_sheet_default_7
+  - first:
+      213: 6634984618238441646
+    second: generic_sheet_default_8
+  - first:
+      213: 7711649058559661131
+    second: generic_sheet_default_9
+  - first:
+      213: -4899196447099269669
+    second: generic_sheet_default_10
+  - first:
+      213: 4737079064968874214
+    second: generic_sheet_default_11
+  - first:
+      213: 5912697430004605081
+    second: generic_sheet_default_12
+  - first:
+      213: -6765688571336306387
+    second: generic_sheet_default_13
+  - first:
+      213: 234149816048966061
+    second: generic_sheet_default_14
+  - first:
+      213: 2073609651849023901
+    second: generic_sheet_default_15
+  - first:
+      213: 5692464702399446120
+    second: generic_sheet_default_16
+  - first:
+      213: -4319509524469539769
+    second: generic_sheet_default_17
+  - first:
+      213: 4234578984929061729
+    second: generic_sheet_default_18
+  - first:
+      213: -2605875606173572671
+    second: generic_sheet_default_19
+  - first:
+      213: 1803202359864783691
+    second: generic_sheet_default_20
+  - first:
+      213: -4227632526020654491
+    second: generic_sheet_default_21
+  - first:
+      213: 1582272144349880040
+    second: generic_sheet_default_22
+  - first:
+      213: -2340982681365546831
+    second: generic_sheet_default_23
+  - first:
+      213: -484038131209230482
+    second: generic_sheet_default_24
+  - first:
+      213: -1091126091777895032
+    second: generic_sheet_default_25
+  - first:
+      213: 3761238284156363028
+    second: generic_sheet_default_26
+  - first:
+      213: 6258442272233098876
+    second: generic_sheet_default_27
+  - first:
+      213: 6157126729527016486
+    second: generic_sheet_default_28
+  - first:
+      213: 3937376182419095997
+    second: generic_sheet_default_29
+  - first:
+      213: 996455767311164704
+    second: generic_sheet_default_30
+  - first:
+      213: 4187456984688430730
+    second: generic_sheet_default_31
+  - first:
+      213: 4945080816881580798
+    second: generic_sheet_default_32
+  - first:
+      213: -3350506633608189114
+    second: generic_sheet_default_33
+  - first:
+      213: 1455611913245207869
+    second: generic_sheet_default_34
+  - first:
+      213: -431051828386480134
+    second: generic_sheet_default_35
+  - first:
+      213: -4692057191060578458
+    second: generic_sheet_default_36
+  - first:
+      213: 4198090961744372816
+    second: generic_sheet_default_37
+  - first:
+      213: 1586809449714364966
+    second: generic_sheet_default_38
+  - first:
+      213: -8182128206275092187
+    second: generic_sheet_default_39
+  - first:
+      213: -2631315339093166012
+    second: generic_sheet_default_40
+  - first:
+      213: -3043935020543915641
+    second: generic_sheet_default_41
+  - first:
+      213: 2315708545053951024
+    second: generic_sheet_default_42
+  - first:
+      213: -5508447155946209458
+    second: generic_sheet_default_43
+  - first:
+      213: 3814789190874817571
+    second: generic_sheet_default_44
+  - first:
+      213: 7115418867677368506
+    second: generic_sheet_default_45
+  - first:
+      213: 5158785266469353629
+    second: generic_sheet_default_46
+  - first:
+      213: -2541295734052846655
+    second: generic_sheet_default_47
+  - first:
+      213: 1788843716388359060
+    second: generic_sheet_default_48
+  - first:
+      213: 9134055033316508123
+    second: generic_sheet_default_49
+  - first:
+      213: -7407194879162677520
+    second: generic_sheet_default_50
+  - first:
+      213: -4068608429303857704
+    second: generic_sheet_default_51
+  - first:
+      213: -4027602546314153046
+    second: generic_sheet_default_52
+  - first:
+      213: 562874701648320916
+    second: generic_sheet_default_53
+  - first:
+      213: -819993935239586317
+    second: generic_sheet_default_54
+  - first:
+      213: -5764257381002242588
+    second: generic_sheet_default_55
+  - first:
+      213: 4298981327447405109
+    second: generic_sheet_default_56
+  - first:
+      213: -3007941496149249389
+    second: generic_sheet_default_57
+  - first:
+      213: -3566220878755515060
+    second: generic_sheet_default_58
+  - first:
+      213: 6300766728260492333
+    second: generic_sheet_default_59
+  - first:
+      213: -8216510387685768759
+    second: generic_button
+  - first:
+      213: 1905338917130740587
+    second: generic_button_circle
+  - first:
+      213: 1897644786629419631
+    second: generic_button_circle_fill
+  - first:
+      213: -2052157983111658171
+    second: generic_button_circle_outline
+  - first:
+      213: -1441076117745435566
+    second: generic_button_finger
+  - first:
+      213: -8646804105558067340
+    second: generic_button_finger_pressed
+  - first:
+      213: 2861315260710519924
+    second: generic_button_pressed
+  - first:
+      213: 3409827647265930340
+    second: generic_button_square
+  - first:
+      213: 6962439126027411842
+    second: generic_button_square_fill
+  - first:
+      213: 260986877836935061
+    second: generic_button_square_outline
+  - first:
+      213: -8756591826076767457
+    second: generic_button_trigger_a
+  - first:
+      213: -8206765074746037753
+    second: generic_button_trigger_a_fill
+  - first:
+      213: -4737667092846030826
+    second: generic_button_trigger_a_outline
+  - first:
+      213: -5333822995528323126
+    second: generic_button_trigger_b
+  - first:
+      213: -2400280166404580391
+    second: generic_button_trigger_b_fill
+  - first:
+      213: 4751564698845039283
+    second: generic_button_trigger_b_outline
+  - first:
+      213: 3854609273042463170
+    second: generic_button_trigger_c
+  - first:
+      213: -4042821889560455895
+    second: generic_button_trigger_c_fill
+  - first:
+      213: -5547843685386617215
+    second: generic_button_trigger_c_outline
+  - first:
+      213: 1011694489272409452
+    second: generic_joystick
+  - first:
+      213: -1193074406156435918
+    second: generic_joystick_horizontal
+  - first:
+      213: 8826459796687274578
+    second: generic_joystick_left
+  - first:
+      213: -2741942811162546455
+    second: generic_joystick_red
+  - first:
+      213: -911419260301183649
+    second: generic_joystick_red_horizontal
+  - first:
+      213: -8633802406475629406
+    second: generic_joystick_red_left
+  - first:
+      213: 2015131108129043407
+    second: generic_joystick_red_right
+  - first:
+      213: 4432900357219674170
+    second: generic_joystick_right
+  - first:
+      213: 3822152174949316739
+    second: generic_stick
+  - first:
+      213: -9037805689430886518
+    second: generic_stick_down
+  - first:
+      213: -5062403144744960845
+    second: generic_stick_horizontal
+  - first:
+      213: -5935106851044137976
+    second: generic_stick_left
+  - first:
+      213: -4636718882002153777
+    second: generic_stick_press
+  - first:
+      213: -9201186171314623036
+    second: generic_stick_right
+  - first:
+      213: 2329994018536164480
+    second: generic_stick_side
+  - first:
+      213: -3822104478838583679
+    second: generic_stick_up
+  - first:
+      213: -402516606237229996
+    second: generic_stick_vertical
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: generic_button
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c1cea8d55719fd80800000000000000
+      internalID: -8216510387685768759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_circle
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b632e4476af117a10800000000000000
+      internalID: 1905338917130740587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_circle_fill
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f622be811e9c55a10800000000000000
+      internalID: 1897644786629419631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_circle_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 545c5a9ef254583e0800000000000000
+      internalID: -2052157983111658171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_finger
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25cfb73f7e4400ce0800000000000000
+      internalID: -1441076117745435566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_finger_pressed
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47772dd8a71600880800000000000000
+      internalID: -8646804105558067340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_pressed
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4740e09d11f65b720800000000000000
+      internalID: 2861315260710519924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_square
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46c779cdd24225f20800000000000000
+      internalID: 3409827647265930340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_square_fill
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281252d1f7d8f9060800000000000000
+      internalID: 6962439126027411842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_square_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 59f3280ce263f9300800000000000000
+      internalID: 260986877836935061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_a
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1bea9be0265a7680800000000000000
+      internalID: -8756591826076767457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_a_fill
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70a2ea455a6bb1e80800000000000000
+      internalID: -8206765074746037753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_a_outline
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 610dada51ec604eb0800000000000000
+      internalID: -4737667092846030826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_b
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf69b0de347af5b0800000000000000
+      internalID: -5333822995528323126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_b_fill
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9db1a08e7ed70bed0800000000000000
+      internalID: -2400280166404580391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_b_outline
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bac1f13be2f0f140800000000000000
+      internalID: 4751564698845039283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_c
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c96f9316b25e7530800000000000000
+      internalID: 3854609273042463170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_c_fill
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 925539649e205e7c0800000000000000
+      internalID: -4042821889560455895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_button_trigger_c_outline
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18ef227df891203b0800000000000000
+      internalID: -5547843685386617215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c6d5d4e17c24a0e00800000000000000
+      internalID: 1011694489272409452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_horizontal
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23e7f661629517fe0800000000000000
+      internalID: -1193074406156435918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_left
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 252cfc5ab62ed7a70800000000000000
+      internalID: 8826459796687274578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_red
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ee683a6a89a2f9d0800000000000000
+      internalID: -2741942811162546455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_red_horizontal
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f557c4cf20df953f0800000000000000
+      internalID: -911419260301183649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_red_left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ac7b1584729e2880800000000000000
+      internalID: -8633802406475629406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_red_right
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc3fed3f01f27fb10800000000000000
+      internalID: 2015131108129043407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_joystick_right
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a38e7cc6363d48d30800000000000000
+      internalID: 4432900357219674170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 388375907230b0530800000000000000
+      internalID: 3822152174949316739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_down
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a87b77c1c93439280800000000000000
+      internalID: -9037805689430886518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_horizontal
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bcf7af592bbeb9b0800000000000000
+      internalID: -5062403144744960845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_left
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 804e687b3c342ada0800000000000000
+      internalID: -5935106851044137976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_press
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fce4ae24eb017afb0800000000000000
+      internalID: -4636718882002153777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_right
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4cd2e8a5de1de4080800000000000000
+      internalID: -9201186171314623036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_side
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08c02ab073dc55020800000000000000
+      internalID: 2329994018536164480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_up
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18e85641a3825fac0800000000000000
+      internalID: -3822104478838583679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: generic_stick_vertical
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45cb80d7749f96af0800000000000000
+      internalID: -402516606237229996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      generic_button: -8216510387685768759
+      generic_button_circle: 1905338917130740587
+      generic_button_circle_fill: 1897644786629419631
+      generic_button_circle_outline: -2052157983111658171
+      generic_button_finger: -1441076117745435566
+      generic_button_finger_pressed: -8646804105558067340
+      generic_button_pressed: 2861315260710519924
+      generic_button_square: 3409827647265930340
+      generic_button_square_fill: 6962439126027411842
+      generic_button_square_outline: 260986877836935061
+      generic_button_trigger_a: -8756591826076767457
+      generic_button_trigger_a_fill: -8206765074746037753
+      generic_button_trigger_a_outline: -4737667092846030826
+      generic_button_trigger_b: -5333822995528323126
+      generic_button_trigger_b_fill: -2400280166404580391
+      generic_button_trigger_b_outline: 4751564698845039283
+      generic_button_trigger_c: 3854609273042463170
+      generic_button_trigger_c_fill: -4042821889560455895
+      generic_button_trigger_c_outline: -5547843685386617215
+      generic_joystick: 1011694489272409452
+      generic_joystick_horizontal: -1193074406156435918
+      generic_joystick_left: 8826459796687274578
+      generic_joystick_red: -2741942811162546455
+      generic_joystick_red_horizontal: -911419260301183649
+      generic_joystick_red_left: -8633802406475629406
+      generic_joystick_red_right: 2015131108129043407
+      generic_joystick_right: 4432900357219674170
+      generic_sheet_default_0: 6407325010040205806
+      generic_sheet_default_1: 6961028738462268376
+      generic_sheet_default_10: -4899196447099269669
+      generic_sheet_default_11: 4737079064968874214
+      generic_sheet_default_12: 5912697430004605081
+      generic_sheet_default_13: -6765688571336306387
+      generic_sheet_default_14: 234149816048966061
+      generic_sheet_default_15: 2073609651849023901
+      generic_sheet_default_16: 5692464702399446120
+      generic_sheet_default_17: -4319509524469539769
+      generic_sheet_default_18: 4234578984929061729
+      generic_sheet_default_19: -2605875606173572671
+      generic_sheet_default_2: -7449963664453599812
+      generic_sheet_default_20: 1803202359864783691
+      generic_sheet_default_21: -4227632526020654491
+      generic_sheet_default_22: 1582272144349880040
+      generic_sheet_default_23: -2340982681365546831
+      generic_sheet_default_24: -484038131209230482
+      generic_sheet_default_25: -1091126091777895032
+      generic_sheet_default_26: 3761238284156363028
+      generic_sheet_default_27: 6258442272233098876
+      generic_sheet_default_28: 6157126729527016486
+      generic_sheet_default_29: 3937376182419095997
+      generic_sheet_default_3: 7634423690015126935
+      generic_sheet_default_30: 996455767311164704
+      generic_sheet_default_31: 4187456984688430730
+      generic_sheet_default_32: 4945080816881580798
+      generic_sheet_default_33: -3350506633608189114
+      generic_sheet_default_34: 1455611913245207869
+      generic_sheet_default_35: -431051828386480134
+      generic_sheet_default_36: -4692057191060578458
+      generic_sheet_default_37: 4198090961744372816
+      generic_sheet_default_38: 1586809449714364966
+      generic_sheet_default_39: -8182128206275092187
+      generic_sheet_default_4: -6366746973307237753
+      generic_sheet_default_40: -2631315339093166012
+      generic_sheet_default_41: -3043935020543915641
+      generic_sheet_default_42: 2315708545053951024
+      generic_sheet_default_43: -5508447155946209458
+      generic_sheet_default_44: 3814789190874817571
+      generic_sheet_default_45: 7115418867677368506
+      generic_sheet_default_46: 5158785266469353629
+      generic_sheet_default_47: -2541295734052846655
+      generic_sheet_default_48: 1788843716388359060
+      generic_sheet_default_49: 9134055033316508123
+      generic_sheet_default_5: 5417153783338091146
+      generic_sheet_default_50: -7407194879162677520
+      generic_sheet_default_51: -4068608429303857704
+      generic_sheet_default_52: -4027602546314153046
+      generic_sheet_default_53: 562874701648320916
+      generic_sheet_default_54: -819993935239586317
+      generic_sheet_default_55: -5764257381002242588
+      generic_sheet_default_56: 4298981327447405109
+      generic_sheet_default_57: -3007941496149249389
+      generic_sheet_default_58: -3566220878755515060
+      generic_sheet_default_59: 6300766728260492333
+      generic_sheet_default_6: 8268279251466323141
+      generic_sheet_default_7: -3594509732824388170
+      generic_sheet_default_8: 6634984618238441646
+      generic_sheet_default_9: 7711649058559661131
+      generic_stick: 3822152174949316739
+      generic_stick_down: -9037805689430886518
+      generic_stick_horizontal: -5062403144744960845
+      generic_stick_left: -5935106851044137976
+      generic_stick_press: -4636718882002153777
+      generic_stick_right: -9201186171314623036
+      generic_stick_side: 2329994018536164480
+      generic_stick_up: -3822104478838583679
+      generic_stick_vertical: -402516606237229996
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
