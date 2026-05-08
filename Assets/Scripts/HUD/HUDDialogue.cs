@@ -62,6 +62,7 @@ public class HUDDialogue : MonoBehaviour
     public void ShowDialogue(Dialoguer dia)
     {
         if (!dia.isActive) return;
+        dia.isActive = false;
 
         foreach (DialogueEntryData entry in dia.entries)
         {
@@ -70,7 +71,6 @@ public class HUDDialogue : MonoBehaviour
         DialogueEntryData first = queuedEntries.Dequeue();
 
         panel.SetActive(true);
-        dia.isActive = false;
 
         SetDialogue(first);
         animator.SetBool(animParamAll, false);
@@ -89,6 +89,7 @@ public class HUDDialogue : MonoBehaviour
     private void FadePanelOut()
     {
         HideDialogue();
+        Debug.Log("HIDE");
     }
 
     public void AdvanceDialogue()

@@ -68,6 +68,9 @@ public class Player : MonoBehaviour
     [Header("Managers")]
     [SerializeField]
     private HUDManager hudManager;
+    private Animator animator;
+    private SpriteRenderer spriteRender;
+    private bool isFacingLeft = false;
 
     private readonly Inventory inventory = new();
     private readonly List<Interactable> nearbyInteractables = new(); // i hate unity
@@ -83,7 +86,9 @@ public class Player : MonoBehaviour
         entity = GetComponent<Entity>();
         if (entity == null) throw new System.Exception("No entity found on Player!");
 
+        animator = GetComponentInChildren<Animator>();
         playerInput = GetComponent<PlayerInput>();
+        spriteRender = GetComponentInChildren<SpriteRenderer>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -192,6 +197,9 @@ public class Player : MonoBehaviour
                 break;
         }
 
+        animator.SetBool("IsMoving", Mathf.Abs(vel.x) > 0.5f || Mathf.Abs(vel.y) > 1.5f);
+        spriteRender.flipX = isFacingLeft;
+
         entity.Vel = vel;
     }
 
@@ -206,6 +214,9 @@ public class Player : MonoBehaviour
         {
             float delta = useAccel * Time.fixedDeltaTime;
             curSpeed += delta * _moveInput.x;
+
+            animator.SetBool("IsFacingLeft", _moveInput.x < 0);
+            isFacingLeft = _moveInput.x < 0;
         }
         // Deaccelerate when inactive
         else
@@ -282,6 +293,12 @@ public class Player : MonoBehaviour
     {
         // Handle Climb Movement
         Vector2 raw = _moveInput.normalized * climbSpeed;
+
+        if (Mathf.Abs(_moveInput.x) > 0.1f)
+        {
+            animator.SetBool("IsFacingLeft", _moveInput.x < 0);
+            isFacingLeft = _moveInput.x < 0;
+        }
 
         float frictionMult;
         if (_moveInput.y >= 0f)
