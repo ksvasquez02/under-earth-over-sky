@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+[RequireComponent(typeof(HUDDialogue))]
+[RequireComponent(typeof(HUDInventory))]
+[RequireComponent(typeof(ControlManager))]
 public class HUDManager : MonoBehaviour
 {
     public GameObject menu;
@@ -15,13 +18,11 @@ public class HUDManager : MonoBehaviour
     private Image itemImage;
     private Queue<LoreEntryData> queuedLore;
 
-    public GameObject inventoryPanel;
-    private readonly Dictionary<ItemType, GameObject> inventorySubs = new();
-    public GameObject itemButtonPrefab;
 
     private readonly List<Interactable> activeTooltips =  new();
     private Sprite tooltipIcon;
 
+    private HUDInventory inventoryManager;
     private HUDDialogue dialogueManager;
     private ControlManager controlManager;
 
@@ -30,33 +31,30 @@ public class HUDManager : MonoBehaviour
     private int previousState = -1;
 
     public MenuState State { get { return state; } }
+    public List<GameObject> MenuPanels { get { return menuPanels; } }
 
     #region Init
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         player = GameObject.FindWithTag("Player").GetComponent<Player>();
+        inventoryManager = GetComponent<HUDInventory>();
         dialogueManager = GetComponent<HUDDialogue>();
         controlManager = GetComponent<ControlManager>();
 
         if (lorePanel != null)
         {
-            GameObject lorePanelDialogue = lorePanel.transform.GetChild(0).gameObject;
-            loreSpeaker = lorePanelDialogue.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            loreText = lorePanelDialogue.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
-            itemImage = lorePanel.transform.GetChild(1).GetComponent<Image>();
-            menuPanels.Insert(0, lorePanel);
+            Transform lorePanelDialogue = lorePanel.transform.GetChild(0);
+            Transform lorePanelImageCon = lorePanel.transform.GetChild(1);
+            loreSpeaker = lorePanelDialogue.GetChild(0).GetComponent<TextMeshProUGUI>();
+            loreText = lorePanelDialogue.GetChild(1).GetComponent<TextMeshProUGUI>();
+            itemImage = lorePanelImageCon.GetComponentInChildren<Image>();
+            menuPanels.Insert((int)MenuState.Lore, lorePanel);
             lorePanel.SetActive(false);
         }
-        if (inventoryPanel != null)
-        {
-            GameObject subContainer = inventoryPanel.transform.GetChild(0).GetChild(1).gameObject;
-            inventorySubs.Add(ItemType.Artifact, subContainer.transform.GetChild(0).gameObject);
-            inventorySubs.Add(ItemType.Language, subContainer.transform.GetChild(1).gameObject);
-            inventorySubs.Add(ItemType.Memory, subContainer.transform.GetChild(2).gameObject);
-            menuPanels.Insert(1, inventoryPanel);
-            inventoryPanel.SetActive(false);
-        }
+
+        if (inventoryManager.Initialize())
+            inventoryManager.PopulateInventory(player.Inventory);
 
         tooltipIcon = controlManager.GetBindingIcon("Player/Interact");
         controlManager.ActiveDeviceChanged += UpdateTooltipIcon;
@@ -67,6 +65,7 @@ public class HUDManager : MonoBehaviour
     // Global Menu
     public bool ShowMenu(MenuState stateId, bool sub = false)
     {
+        if ((int)stateId >= menuPanels.Count) return false;
         bool isAlreadyActive = menuPanels[(int)stateId].activeSelf;
         state = stateId;
         previousState = -1;
@@ -96,13 +95,9 @@ public class HUDManager : MonoBehaviour
     public void HideMenu(int stateId)
     {
         if (previousState > 0 && previousState != stateId)
-        {
             ShowMenu(previousState);
-        }
         else if (menuPanels[stateId].activeSelf)
-        {
             HideMenu();
-        }
     }
     public void HideMenu(MenuState state)
     {
@@ -140,41 +135,15 @@ public class HUDManager : MonoBehaviour
     // Inventory
     public void PopulateInventory(Inventory inventory)
     {
-        foreach((ItemType type, GameObject sub) in inventorySubs)
-        {
-            int count = 0;
-            Transform container = sub.transform.GetChild(1);
-            ItemData[] items = inventory.Contents[type].Values.ToArray();
-
-            // First use existing children
-            foreach(Transform child in container)
-            {
-                ItemData item = count < items.Length ? items[count] : new ItemData();
-                GameObject button = child.gameObject;
-                SetInventoryItemButton(button, item);
-                count++;
-
-            }
-
-            // Then instantiate more
-            while (count < items.Length)
-            {
-                ItemData item = items[count];
-                GameObject button = Instantiate(itemButtonPrefab);
-                button.GetComponent<ButtonItem>().hud = this;
-                button.transform.SetParent(container, false);
-                SetInventoryItemButton(button, item);
-                count++;
-            }
-        }
+        inventoryManager.PopulateInventory(inventory);
     }
-    private void SetInventoryItemButton(GameObject button, ItemData item)
+    #endregion
+
+    #region Dialogue
+    // Dialogue
+    public void ShowDialogue(Dialoguer dia)
     {
-        TextMeshProUGUI itemText = button.GetComponentInChildren<TextMeshProUGUI>();
-        Image itemIcon = button.transform.GetChild(0).GetComponent<Image>();
-        itemText.text = item.name;
-        itemIcon.sprite = item.image;
-        button.GetComponent<ButtonItem>().item = item;
+        dialogueManager.ShowDialogue(dia);
     }
     #endregion
 
@@ -199,15 +168,6 @@ public class HUDManager : MonoBehaviour
         }
     }
     #endregion
-
-    #region Dialogue
-    // Dialogue
-    public void ShowDialogue(Dialoguer dia)
-    {
-        dialogueManager.ShowDialogue(dia);
-    }
-    #endregion
-
 }
 
 public enum MenuState

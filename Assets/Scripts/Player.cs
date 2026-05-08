@@ -74,6 +74,7 @@ public class Player : MonoBehaviour
     private readonly Dictionary<string, Timer> timers = new();
 
     public MoveState State { get { return _state; } }
+    public Inventory Inventory { get { return inventory; }  }
     #endregion
 
     #region Init

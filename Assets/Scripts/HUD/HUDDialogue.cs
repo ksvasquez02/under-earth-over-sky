@@ -13,7 +13,8 @@ public class HUDDialogue : MonoBehaviour
 
     [SerializeField]
     private float transitionDelay = 0.5f;
-    private static readonly int FadeHash = Animator.StringToHash("Fade");
+    private static readonly int animParamFade = Animator.StringToHash("Fade");
+    private static readonly int animParamAll = Animator.StringToHash("AllFade");
 
     private string streamText;
     private int streamIndex = 0;
@@ -22,8 +23,9 @@ public class HUDDialogue : MonoBehaviour
     private float streamTick;
 
     private Timer fadeTimer;
-    private Timer transitionTimer;
+    private Timer nextDialogueTimer;
     private Timer streamTimer;
+    private Timer exitTimer;
 
     public GameObject DiaPanel {  get { return panel; } }
 
@@ -34,9 +36,10 @@ public class HUDDialogue : MonoBehaviour
 
     void Start()
     {
-        fadeTimer = new Timer(1f, FadeOut);
-        transitionTimer = new Timer(transitionDelay, AdvanceDialogue);
         streamTimer = new Timer(streamTick, StreamNextChar);
+        nextDialogueTimer = new Timer(transitionDelay, AdvanceDialogue);
+        fadeTimer = new Timer(1f, FadeTextOut);
+        exitTimer = new Timer(1f, FadePanelOut);
 
         if (panel != null)
         {
@@ -51,8 +54,9 @@ public class HUDDialogue : MonoBehaviour
     void Update()
     {
         fadeTimer.Update();
-        transitionTimer.Update();
+        nextDialogueTimer.Update();
         streamTimer.Update();
+        exitTimer.Update();
     }
 
     public void ShowDialogue(Dialoguer dia)
@@ -69,19 +73,30 @@ public class HUDDialogue : MonoBehaviour
         dia.isActive = false;
 
         SetDialogue(first);
+        animator.SetBool(animParamAll, false);
     }
 
-    private void FadeOut()
+    public void HideDialogue()
     {
-        animator.SetBool(FadeHash, true);
-        transitionTimer.Reset();
+        panel.SetActive(false);
+    }
+
+    private void FadeTextOut()
+    {
+        animator.SetBool(animParamFade, true);
+        nextDialogueTimer.Reset();
+    }
+    private void FadePanelOut()
+    {
+        HideDialogue();
     }
 
     public void AdvanceDialogue()
     {
         if (queuedEntries.Count <= 0)
         {
-            HideDialogue();
+            animator.SetBool(animParamAll, true);
+            exitTimer.Reset();
             return;
         }
         DialogueEntryData next = queuedEntries.Dequeue();
@@ -98,13 +113,8 @@ public class HUDDialogue : MonoBehaviour
         streamIndex = 0;
         streamTimer.Reset();
 
-        animator.SetBool("Fade", false);
+        animator.SetBool(animParamFade, false);
         fadeTimer.Reset(data.time);
-    }
-
-    public void HideDialogue()
-    {
-        panel.SetActive(false);
     }
 
     private void StreamNextChar()
