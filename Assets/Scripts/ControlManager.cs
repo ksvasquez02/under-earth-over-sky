@@ -18,7 +18,8 @@ public class ControlManager : MonoBehaviour
         Switch
     }
 
-    private const string CTRL_ICONS = "Assets/Data/InputIcons.json";
+    private const string PATH_UI_BUTTONS = "UI/ButtonPrompts/";
+    private const string PATH_CTRL_ICONS = "Data/InputIcons";
 
     [SerializeField]
     private PlayerInput _playerInput;
@@ -117,8 +118,6 @@ public class ControlManager : MonoBehaviour
                     newDevice = DeviceType.Xbox;
                 if (control.device is UnityIS.DualShock.DualShockGamepad)
                     newDevice = DeviceType.Playstation;
-                if (control.device is UnityIS.Switch.SwitchProControllerHID)
-                    newDevice = DeviceType.Switch;
             }
 
             if (activeDevice != newDevice)
@@ -175,20 +174,20 @@ public class ControlManager : MonoBehaviour
 
     private string GetActiveDeviceSheetPath()
     {
-        string assetPath = "Assets/Sprites/UI/ButtonPrompts/";
+        string assetPath = PATH_UI_BUTTONS;
         string deviceSheet = "";
 
         switch (activeDevice)
         {
             case DeviceType.Keyboard:
-                deviceSheet = "keyboard-&-mouse_sheet_default.png";
+                deviceSheet = "keyboard-&-mouse_sheet_default";
                 break;
             case DeviceType.Gamepad:
             case DeviceType.Xbox:
-                deviceSheet = "xbox-series_sheet_default.png";
+                deviceSheet = "xbox-series_sheet_default";
                 break;
             case DeviceType.Playstation:
-                deviceSheet = "playstation-series_sheet_default.png";
+                deviceSheet = "playstation-series_sheet_default";
                 break;
         }
 
@@ -218,7 +217,7 @@ public class ControlManager : MonoBehaviour
         string sheetPath = paths[0];
         string subPath = paths[1];
 
-        Sprite[] sheet = AssetDatabase.LoadAllAssetsAtPath(sheetPath).OfType<Sprite>().ToArray();
+        Sprite[] sheet = Resources.LoadAll<Sprite>(sheetPath).ToArray();
         Dictionary<string, Sprite> dic = sheet.ToDictionary(spr => spr.name);
 
         if (dic.TryGetValue(subPath, out Sprite sprite))
@@ -231,7 +230,7 @@ public class ControlManager : MonoBehaviour
 
     private void LoadBindingIconNames()
     {
-        TextAsset jsonGamepad = AssetDatabase.LoadAssetAtPath<TextAsset>(CTRL_ICONS);
+        TextAsset jsonGamepad = Resources.Load<TextAsset>(PATH_CTRL_ICONS);
         string textGamepad = jsonGamepad.text;
         BindingNameDataWrapper cpwGamepad = JsonUtility.FromJson<BindingNameDataWrapper>(textGamepad);
         bindingIconData = cpwGamepad.data.ToDictionary(d => d.BUTTON);
